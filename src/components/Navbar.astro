@@ -10,10 +10,10 @@ import MegaMenu from './MegaMenu.astro';
   <!-- Top Global Tesla Bar -->
   <nav
     id="main-nav"
-    class="w-full px-6 md:px-10 py-3.5 flex items-center justify-between text-sm transition-colors duration-200 text-white"
+    class="w-full px-6 md:px-10 py-3 flex items-center justify-between text-sm transition-colors duration-200 text-white"
   >
     <!-- Tesla Logo (Exact letter-spaced Tesla vector) -->
-    <a href={import.meta.env.BASE_URL} class="flex items-center group" aria-label="Tesla Cybertruck Home">
+    <a href={import.meta.env.BASE_URL} class="flex items-center group py-1" aria-label="Tesla Cybertruck Home">
       <svg id="tesla-logo" class="h-3.5 w-auto fill-current transition-colors duration-200" viewBox="0 0 342 35" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 .1a9.7 9.7 0 0 0 7 7h11L0 24.2l5.7 3.3L19 14.2V35h6.6V14.2l8.2 13.3 5.8-3.3L21.3 7.1h11a9.7 9.7 0 0 0 7-7H0z"/>
         <path d="M38.8 7.1h39.7v5.5H38.8zM42.7 17.8h31.9v5.5H42.7zM38.8 28.5h39.7V34H38.8z"/>
@@ -24,32 +24,32 @@ import MegaMenu from './MegaMenu.astro';
       </svg>
     </a>
 
-    <!-- Center Navigation Links (Matching Screenshot 1 & 2) -->
+    <!-- Center Navigation Links (Matching Screenshots 1, 2, 3) -->
     <div class="hidden lg:flex items-center gap-1 font-semibold text-[13.5px] tracking-tight">
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-vehicles">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-vehicles">
         Vehicles
       </button>
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-energy">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-energy">
         Energy
       </button>
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-charging">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-charging">
         Charging
       </button>
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-robotaxi">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-robotaxi">
         Robotaxi
       </button>
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-semi">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-semi">
         Semi
       </button>
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-discover">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-discover">
         Discover
       </button>
-      <button class="nav-item px-3 py-1.5 rounded hover:bg-black/10 transition-colors" data-panel="panel-shop">
+      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-shop">
         Shop
       </button>
     </div>
 
-    <!-- Right Controls Icons (Matching Screenshot 1) -->
+    <!-- Right Controls Icons (Matching Screenshots) -->
     <div class="flex items-center gap-1 sm:gap-2">
       <!-- Help / Question circle icon (?) -->
       <a href="#adventure" class="nav-icon p-2 hover:bg-black/10 rounded-full transition-all" title="Help & Support" aria-label="Support">
@@ -113,7 +113,7 @@ import MegaMenu from './MegaMenu.astro';
     </div>
 
     <div class="flex items-center gap-2.5">
-      <button id="open-demo-drive-sub" class="hidden sm:inline-block px-3.5 py-1 rounded border border-white/20 hover:border-white text-neutral-200 hover:text-white font-medium transition-all">
+      <button class="open-demo-drive-action hidden sm:inline-block px-3.5 py-1 rounded border border-white/20 hover:border-white text-neutral-200 hover:text-white font-medium transition-all">
         Demo Drive
       </button>
       <a href="#order" class="px-4 py-1 rounded bg-[#3e6ae1] text-white font-semibold hover:bg-[#3457b2] transition-all shadow-md">
@@ -157,7 +157,7 @@ import MegaMenu from './MegaMenu.astro';
     <a href="#order" class="w-full py-3 text-center bg-[#3e6ae1] text-white font-bold rounded">
       Order Now
     </a>
-    <button id="open-demo-drive-mobile" class="w-full py-3 text-center border border-white/20 text-white font-medium rounded hover:bg-white/10">
+    <button class="open-demo-drive-action w-full py-3 text-center border border-white/20 text-white font-medium rounded hover:bg-white/10">
       Schedule Demo Drive
     </button>
   </div>
@@ -173,44 +173,65 @@ import MegaMenu from './MegaMenu.astro';
   const panels = document.querySelectorAll('.mega-panel');
   const subNav = document.getElementById('sub-nav');
 
-  function openMega(panelId: string) {
-    if (!megaMenu || !panelId) return;
-    megaMenu.classList.remove('hidden');
-    panels.forEach((p) => p.classList.add('hidden'));
-    const active = document.getElementById(panelId);
-    if (active) active.classList.remove('hidden');
+  function showMegaMenu(panelId: string, currentBtn: Element) {
+    if (!megaMenu || !mainNav) return;
 
-    // Switch Navbar to white background matching Screenshots 2, 3, 4, 5
-    if (mainNav) {
-      mainNav.classList.remove('text-white');
-      mainNav.classList.add('bg-white', 'text-[#171a20]');
-    }
+    // Open mega menu container
+    megaMenu.classList.remove('hidden');
+
+    // Show only the targeted panel
+    panels.forEach((p) => {
+      if (p.id === panelId) {
+        p.classList.remove('hidden');
+      } else {
+        p.classList.add('hidden');
+      }
+    });
+
+    // Style active button with the soft grey rounded pill from the screenshots
+    navItems.forEach((btn) => {
+      btn.classList.remove('bg-[#0000000d]', 'text-[#171a20]');
+    });
+    currentBtn.classList.add('bg-[#0000000d]', 'text-[#171a20]');
+
+    // Switch Navbar to white background with dark text
+    mainNav.classList.remove('text-white');
+    mainNav.classList.add('bg-white', 'text-[#171a20]');
   }
 
-  function closeMega() {
-    if (!megaMenu) return;
+  function hideMegaMenu() {
+    if (!megaMenu || !mainNav) return;
+
+    // Hide mega menu
     megaMenu.classList.add('hidden');
     panels.forEach((p) => p.classList.add('hidden'));
 
-    // Revert Navbar to transparent text-white over dark hero
-    if (mainNav) {
-      mainNav.classList.remove('bg-white', 'text-[#171a20]');
-      mainNav.classList.add('text-white');
-    }
+    // Reset nav buttons
+    navItems.forEach((btn) => {
+      btn.classList.remove('bg-[#0000000d]', 'text-[#171a20]');
+    });
+
+    // Return navbar to transparent with white text over hero
+    mainNav.classList.remove('bg-white', 'text-[#171a20]');
+    mainNav.classList.add('text-white');
   }
 
+  // Hover listeners on nav items
   navItems.forEach((btn) => {
     btn.addEventListener('mouseenter', () => {
       const panelId = btn.getAttribute('data-panel');
-      if (panelId) openMega(panelId);
+      if (panelId) {
+        showMegaMenu(panelId, btn);
+      }
     });
   });
 
+  // Keep menu open when hovering within siteHeader; close when leaving
   siteHeader?.addEventListener('mouseleave', () => {
-    closeMega();
+    hideMegaMenu();
   });
 
-  // Scroll handler for Cybertruck Sticky Sub-Nav
+  // Sticky sub-nav on scroll
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     if (scrollY > 500) {
@@ -222,7 +243,7 @@ import MegaMenu from './MegaMenu.astro';
     }
   });
 
-  // Mobile menu toggle
+  // Mobile drawer controls
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const closeMobileMenu = document.getElementById('close-mobile-menu');
   const mobileDrawer = document.getElementById('mobile-drawer');
