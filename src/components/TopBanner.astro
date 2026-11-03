@@ -1,0 +1,68 @@
+---
+// Top Promotional Banner matching Tesla's gold banner
+---
+
+<div id="top-announcement-banner" class="w-full bg-[#dfc397] text-[#171a20] py-2 px-4 transition-all duration-300 relative z-50 text-xs sm:text-[13px] font-medium select-none shadow-sm">
+  <div class="max-w-7xl mx-auto flex items-center justify-center gap-3 sm:gap-4 flex-wrap text-center">
+    <!-- Message 1 -->
+    <div id="banner-slide-1" class="banner-slide flex items-center justify-center gap-3 flex-wrap transition-opacity duration-300">
+      <span>Trade In Your Gas Car and Receive 2,000 Free Supercharging Miles</span>
+      <a
+        href="#order"
+        class="inline-flex items-center px-3.5 py-1 rounded-full bg-[#171a20] hover:bg-black text-white text-xs font-semibold tracking-tight transition-all shadow-sm"
+      >
+        Get a Trade-In Estimate
+      </a>
+    </div>
+
+    <!-- Message 2 -->
+    <div id="banner-slide-2" class="banner-slide hidden items-center justify-center gap-3 flex-wrap transition-opacity duration-300">
+      <span>Business Tax Deduction Available Through Section 179</span>
+      <a
+        href="#order"
+        class="inline-flex items-center px-3.5 py-1 rounded-full bg-[#171a20] hover:bg-black text-white text-xs font-semibold tracking-tight transition-all shadow-sm"
+      >
+        Learn More
+      </a>
+    </div>
+  </div>
+
+  <!-- Pagination Dot Indicator on Right -->
+  <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-1.5 cursor-pointer" id="banner-dot-toggle" title="Switch message">
+    <span id="dot-1" class="w-1.5 h-1.5 rounded-full bg-[#171a20] transition-all"></span>
+    <span id="dot-2" class="w-1.5 h-1.5 rounded-full bg-[#171a20]/40 transition-all"></span>
+  </div>
+</div>
+
+<script>
+  const slide1 = document.getElementById('banner-slide-1');
+  const slide2 = document.getElementById('banner-slide-2');
+  const dot1 = document.getElementById('dot-1');
+  const dot2 = document.getElementById('dot-2');
+  const toggleBtn = document.getElementById('banner-dot-toggle');
+
+  let currentSlide = 1;
+
+  function switchSlide() {
+    if (currentSlide === 1) {
+      slide1?.classList.add('hidden');
+      slide2?.classList.remove('hidden');
+      slide2?.classList.add('flex');
+      dot1?.classList.replace('bg-[#171a20]', 'bg-[#171a20]/40');
+      dot2?.classList.replace('bg-[#171a20]/40', 'bg-[#171a20]');
+      currentSlide = 2;
+    } else {
+      slide2?.classList.add('hidden');
+      slide2?.classList.remove('flex');
+      slide1?.classList.remove('hidden');
+      dot2?.classList.replace('bg-[#171a20]', 'bg-[#171a20]/40');
+      dot1?.classList.replace('bg-[#171a20]/40', 'bg-[#171a20]');
+      currentSlide = 1;
+    }
+  }
+
+  toggleBtn?.addEventListener('click', switchSlide);
+
+  // Auto rotate banner every 7 seconds
+  setInterval(switchSlide, 7000);
+</script>

@@ -143,3 +143,4 @@ This repository includes a ready-to-use GitHub Actions workflow (`.github/workfl
 
 ## 📄 License
 This project is created strictly for educational and evaluation purposes as part of a frontend development assignment replicating the Tesla Cybertruck design and interactive UI.
+
