@@ -1,13 +1,45 @@
 ---
-// Redefining the Pickup Truck section with chamfered video player matching Screenshots
-const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.webm`;
+// Redefining the Pickup Truck section with chamfered intro video and 5-slide horizontal carousel matching Tesla reference screenshots
+const introVideoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.webm`;
+
+const carouselSlides = [
+  {
+    id: 'bring',
+    title: 'Bring It All',
+    description: 'Haul everything you need with 2,500 lbs payload and 11,000 lbs towing capacity.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-1-Bring-Desktop-v2.webm`,
+  },
+  {
+    id: 'power',
+    title: 'Power on Tap',
+    description: 'Power your tools or charge any EV with integrated 120V and 240V bed and cabin outlets.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-2-Power-Desktop-v2.webm`,
+  },
+  {
+    id: 'motion',
+    title: 'Full Range of Motion',
+    description: 'Navigate tight turns with standard steer-by-wire and four-wheel steering.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-3-Motion-Desktop-v2.webm`,
+  },
+  {
+    id: 'lock',
+    title: 'Lockable Storage',
+    description: 'Secure cargo in the composite bed with motorized tonneau cover and sub-trunk.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-4-Lock-Desktop.webm`,
+  },
+  {
+    id: 'throw',
+    title: 'Throw Anything at It',
+    description: 'Ultra-hard stainless steel exoskeleton helps reduce dents, damage and long-term corrosion.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-5-Throw-Desktop.webm`,
+  },
+];
 ---
 
-<section id="redefining" class="relative bg-white text-[#171a20] py-16 md:py-24 px-6 md:px-12 select-none overflow-hidden">
-  <div class="max-w-7xl mx-auto">
-    <!-- Chamfered Video Container (Exact Cybertruck angular geometry matching screenshot) -->
+<section id="redefining" class="relative bg-white text-[#171a20] py-16 md:py-24 select-none overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <!-- Chamfered Intro Video Container (Top-right & Bottom-left 45-degree chamfers) -->
     <div class="relative w-full group">
-      <!-- Angled Cut Video Box (Top-right & Bottom-left 45-degree chamfers) -->
       <div
         class="redefining-video-wrapper relative w-full aspect-[16/9] sm:aspect-[21/9] bg-neutral-900 overflow-hidden"
         style="clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 56px 100%, 0 calc(100% - 56px));"
@@ -20,17 +52,17 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
           playsinline
           class="w-full h-full object-cover object-center"
         >
-          <source src={videoSrc} type="video/webm" />
+          <source src={introVideoSrc} type="video/webm" />
         </video>
 
-        <!-- Bottom-Left Play / Pause Button (Exact match to user's screenshot close-up) -->
+        <!-- Bottom-Left Play / Pause Button -->
         <button
           id="redefining-play-pause-btn"
           class="absolute bottom-6 left-8 sm:bottom-7 sm:left-9 z-20 w-11 h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
           aria-label="Pause or play video"
           title="Pause / Play"
         >
-          <!-- Pause Icon (Default - exact proportions from screenshot 52d2121d) -->
+          <!-- Pause Icon (Default) -->
           <svg id="pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
             <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
             <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
@@ -43,7 +75,7 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
       </div>
     </div>
 
-    <!-- Section Copy (Exact match to screenshot 1) -->
+    <!-- Section Copy (Exact match to screenshot) -->
     <div class="mt-10 sm:mt-14 max-w-4xl">
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]">
         Redefining the Pickup Truck
@@ -51,6 +83,106 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
       <p class="text-neutral-600 text-base sm:text-lg md:text-xl font-normal mt-3.5 leading-relaxed">
         Whatever the task, terrain or weather—Cybertruck was designed to do it all.
       </p>
+    </div>
+  </div>
+
+  <!-- Horizontal Video Carousel Section (Matching screenshots 74e9ed6f & 30ad80e6) -->
+  <div class="relative w-full mt-10 sm:mt-14">
+    <!-- Carousel Track Wrapper with Chevrons -->
+    <div class="relative w-full">
+      <!-- Left Chevron '<' -->
+      <button
+        id="carousel-prev-btn"
+        class="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-200/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer opacity-0 pointer-events-none"
+        aria-label="Previous slide"
+        title="Previous"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Right Chevron '>' -->
+      <button
+        id="carousel-next-btn"
+        class="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-200/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+        aria-label="Next slide"
+        title="Next"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Horizontal Scrollable Track -->
+      <div
+        id="carousel-track"
+        class="flex gap-6 sm:gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory px-6 md:px-12 scroll-smooth py-2"
+        style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
+      >
+        {carouselSlides.map((slide, index) => (
+          <div
+            class="carousel-card flex-none w-[88vw] sm:w-[82vw] lg:w-[1040px] max-w-[92vw] snap-center relative group"
+            data-index={index}
+          >
+            <!-- Angular Cut Chamfer Container (Top-right & Bottom-left 45-degree chamfers) -->
+            <div
+              class="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-neutral-900 overflow-hidden"
+              style="clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 56px 100%, 0 calc(100% - 56px));"
+            >
+              <video
+                class="carousel-video w-full h-full object-cover object-center"
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              >
+                <source src={slide.src} type="video/webm" />
+              </video>
+
+              <!-- Bottom-Left Play / Pause Button on each slide (matching screenshot 74e9ed6f) -->
+              <button
+                class="carousel-play-pause-btn absolute bottom-6 left-8 sm:bottom-7 sm:left-9 z-20 w-11 h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+                aria-label={`Toggle play/pause for ${slide.title}`}
+                data-index={index}
+              >
+                <!-- Pause Icon (Default when playing) -->
+                <svg class="pause-icon-el w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+                  <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
+                  <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+                </svg>
+                <!-- Play Icon (Hidden when playing) -->
+                <svg class="play-icon-el w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Active Slide Title, Subtitle, and Progress Indicators -->
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-8 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+      <div>
+        <h3 id="carousel-active-title" class="text-xl sm:text-2xl font-medium tracking-tight text-[#171a20] transition-opacity duration-200">
+          {carouselSlides[0].title}
+        </h3>
+        <p id="carousel-active-desc" class="text-neutral-600 text-sm sm:text-base font-normal mt-1 leading-relaxed transition-opacity duration-200">
+          {carouselSlides[0].description}
+        </p>
+      </div>
+
+      <!-- Navigation Dots / Interactive Pills -->
+      <div class="flex items-center gap-2 shrink-0">
+        {carouselSlides.map((slide, i) => (
+          <button
+            class={`carousel-dot h-1.5 transition-all rounded-full cursor-pointer ${i === 0 ? 'w-8 bg-[#171a20]' : 'w-2 bg-neutral-300 hover:bg-neutral-400'}`}
+            data-slide={i}
+            aria-label={`Jump to ${slide.title}`}
+          />
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -70,25 +202,206 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
 <script>
   import { playCyberClick } from '../utils/cyberSound';
 
-  const video = document.getElementById('redefining-video') as HTMLVideoElement;
-  const btn = document.getElementById('redefining-play-pause-btn');
-  const pauseIcon = document.getElementById('pause-icon');
-  const playIcon = document.getElementById('play-icon');
+  // Intro video play/pause controls
+  const introVideo = document.getElementById('redefining-video') as HTMLVideoElement;
+  const introBtn = document.getElementById('redefining-play-pause-btn');
+  const introPauseIcon = document.getElementById('pause-icon');
+  const introPlayIcon = document.getElementById('play-icon');
 
-  btn?.addEventListener('click', () => {
+  introBtn?.addEventListener('click', () => {
     playCyberClick();
-    if (!video) return;
+    if (!introVideo) return;
 
-    if (video.paused) {
-      video.play();
-      pauseIcon?.classList.remove('hidden');
-      playIcon?.classList.add('hidden');
+    if (introVideo.paused) {
+      introVideo.play();
+      introPauseIcon?.classList.remove('hidden');
+      introPlayIcon?.classList.add('hidden');
     } else {
-      video.pause();
-      pauseIcon?.classList.add('hidden');
-      playIcon?.classList.remove('hidden');
+      introVideo.pause();
+      introPauseIcon?.classList.add('hidden');
+      introPlayIcon?.classList.remove('hidden');
     }
   });
+
+  // Carousel Controller
+  const track = document.getElementById('carousel-track');
+  const prevBtn = document.getElementById('carousel-prev-btn');
+  const nextBtn = document.getElementById('carousel-next-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.carousel-card');
+  const videos = document.querySelectorAll<HTMLVideoElement>('.carousel-video');
+  const playPauseBtns = document.querySelectorAll<HTMLButtonElement>('.carousel-play-pause-btn');
+  const dots = document.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+  const activeTitle = document.getElementById('carousel-active-title');
+  const activeDesc = document.getElementById('carousel-active-desc');
+
+  const slidesData = [
+    {
+      title: 'Bring It All',
+      description: 'Haul everything you need with 2,500 lbs payload and 11,000 lbs towing capacity.',
+    },
+    {
+      title: 'Power on Tap',
+      description: 'Power your tools or charge any EV with integrated 120V and 240V bed and cabin outlets.',
+    },
+    {
+      title: 'Full Range of Motion',
+      description: 'Navigate tight turns with standard steer-by-wire and four-wheel steering.',
+    },
+    {
+      title: 'Lockable Storage',
+      description: 'Secure cargo in the composite bed with motorized tonneau cover and sub-trunk.',
+    },
+    {
+      title: 'Throw Anything at It',
+      description: 'Ultra-hard stainless steel exoskeleton helps reduce dents, damage and long-term corrosion.',
+    },
+  ];
+
+  let currentSlideIndex = 0;
+
+  function scrollToSlide(index: number) {
+    if (!track || !cards[index]) return;
+    const targetCard = cards[index];
+    const trackPaddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    const scrollTarget = targetCard.offsetLeft - trackPaddingLeft;
+    track.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    updateActiveSlideState(index);
+  }
+
+  function updateActiveSlideState(index: number) {
+    currentSlideIndex = Math.max(0, Math.min(index, cards.length - 1));
+
+    // Update Chevrons visibility
+    if (prevBtn) {
+      if (currentSlideIndex === 0) {
+        prevBtn.classList.add('opacity-0', 'pointer-events-none');
+        prevBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+        prevBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    if (nextBtn) {
+      if (currentSlideIndex === cards.length - 1) {
+        nextBtn.classList.add('opacity-0', 'pointer-events-none');
+        nextBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+        nextBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    // Update Dots
+    dots.forEach((dot, i) => {
+      if (i === currentSlideIndex) {
+        dot.classList.add('w-8', 'bg-[#171a20]');
+        dot.classList.remove('w-2', 'bg-neutral-300');
+      } else {
+        dot.classList.remove('w-8', 'bg-[#171a20]');
+        dot.classList.add('w-2', 'bg-neutral-300');
+      }
+    });
+
+    // Update Title and Description
+    if (activeTitle && activeDesc && slidesData[currentSlideIndex]) {
+      activeTitle.textContent = slidesData[currentSlideIndex].title;
+      activeDesc.textContent = slidesData[currentSlideIndex].description;
+    }
+
+    // Autoplay current slide video, pause others
+    videos.forEach((video, i) => {
+      const btn = playPauseBtns[i];
+      const pauseIcon = btn?.querySelector('.pause-icon-el');
+      const playIcon = btn?.querySelector('.play-icon-el');
+
+      if (i === currentSlideIndex) {
+        video.play().catch(() => {});
+        pauseIcon?.classList.remove('hidden');
+        playIcon?.classList.add('hidden');
+      } else {
+        video.pause();
+        pauseIcon?.classList.add('hidden');
+        playIcon?.classList.remove('hidden');
+      }
+    });
+  }
+
+  // Chevron event listeners
+  prevBtn?.addEventListener('click', () => {
+    playCyberClick();
+    scrollToSlide(currentSlideIndex - 1);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    playCyberClick();
+    scrollToSlide(currentSlideIndex + 1);
+  });
+
+  // Dot event listeners
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      playCyberClick();
+      const slideIdx = parseInt(dot.getAttribute('data-slide') || '0', 10);
+      scrollToSlide(slideIdx);
+    });
+  });
+
+  // Slide play/pause buttons
+  playPauseBtns.forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playCyberClick();
+      const video = videos[index];
+      const pauseIcon = btn.querySelector('.pause-icon-el');
+      const playIcon = btn.querySelector('.play-icon-el');
+      if (!video) return;
+
+      if (video.paused) {
+        video.play();
+        pauseIcon?.classList.remove('hidden');
+        playIcon?.classList.add('hidden');
+      } else {
+        video.pause();
+        pauseIcon?.classList.add('hidden');
+        playIcon?.classList.remove('hidden');
+      }
+    });
+  });
+
+  // Track scroll listener to update state when user swipes / scrolls manually
+  let scrollTimeout: number | undefined;
+  track?.addEventListener(
+    'scroll',
+    () => {
+      window.clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        if (!track) return;
+        const scrollLeft = track.scrollLeft;
+        const trackPaddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        cards.forEach((card, i) => {
+          const cardOffset = card.offsetLeft - trackPaddingLeft;
+          const diff = Math.abs(scrollLeft - cardOffset);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = i;
+          }
+        });
+
+        if (closestIndex !== currentSlideIndex) {
+          updateActiveSlideState(closestIndex);
+        }
+      }, 60);
+    },
+    { passive: true }
+  );
+
+  // Initialize carousel on page load
+  updateActiveSlideState(0);
 
   // Floating chat button interaction
   const chatBtn = document.getElementById('floating-chat-btn');
