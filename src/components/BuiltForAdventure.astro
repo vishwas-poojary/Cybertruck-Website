@@ -1,0 +1,197 @@
+---
+// Built For Any Adventure Section with interactive Ride-Height Air Suspension Scrubber
+---
+
+<section id="adventure" class="relative py-28 px-6 md:px-12 bg-black border-t border-white/5 overflow-hidden">
+  <!-- Subtle cyber glow backdrop -->
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-red-600/10 blur-[140px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="max-w-2xl mb-12">
+      <span class="text-xs uppercase font-mono tracking-widest text-red-500 font-semibold mb-2 block">
+        // ADAPTIVE AIR SUSPENSION
+      </span>
+      <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-wide uppercase leading-tight">
+        BUILT FOR ANY ADVENTURE
+      </h2>
+      <p class="text-neutral-400 mt-4 text-base sm:text-lg leading-relaxed">
+        Durable and rugged enough to conquer the harshest terrains on Earth. Tackle anything with electronically adaptive air suspension that offers 12” of travel and up to 17.4” of ground clearance in Extract Mode.
+      </p>
+    </div>
+
+    <!-- Main Visual + Interactive Suspension Controller -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Interactive Ride Height Scrubber Card -->
+      <div class="lg:col-span-8 relative rounded-2xl overflow-hidden bg-neutral-950 border border-white/10 p-6 md:p-8">
+        <!-- Vehicle Visualization with dynamic ride height -->
+        <div class="relative h-64 sm:h-96 w-full flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-b from-neutral-900/60 to-black/80">
+          <!-- Dynamic Vehicle Graphic that shifts vertically based on suspension height -->
+          <div
+            id="suspension-vehicle"
+            class="relative w-full max-w-2xl transition-all duration-700 ease-out flex items-center justify-center"
+            style="transform: translateY(0px);"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1722499204798-8e3d41189542?auto=format&fit=crop&w=1600&q=85"
+              alt="Tesla Cybertruck Air Suspension"
+              class="w-full h-auto max-h-72 object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)]"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Dynamic Height Indicator Overlay -->
+          <div class="absolute bottom-4 left-4 cyber-glass px-4 py-2 rounded-lg font-mono text-xs flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-neutral-400 uppercase">Current Clearance:</span>
+            <span id="clearance-readout" class="text-white font-bold text-sm">16.0 INCHES</span>
+          </div>
+
+          <!-- Terrain Mode Tag -->
+          <div id="terrain-mode-tag" class="absolute top-4 right-4 cyber-glass px-3.5 py-1.5 rounded text-xs font-mono text-neutral-300 uppercase border border-white/10">
+            Mode: Off-Road High
+          </div>
+        </div>
+
+        <!-- Height Control Buttons Bar -->
+        <div class="mt-8 pt-6 border-t border-white/10">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase font-mono tracking-wider text-neutral-400">
+              Interactive Suspension Height
+            </span>
+            <span class="text-xs font-mono text-red-500">
+              12" Active Travel
+            </span>
+          </div>
+
+          <!-- Modes Selector -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            <button
+              class="suspension-btn p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-center transition-all text-neutral-300"
+              data-height="8.0"
+              data-offset="20"
+              data-name="Entry Mode"
+              data-desc="Easy ingress & egress"
+            >
+              <div class="text-xs font-mono text-neutral-400">8.0"</div>
+              <div class="text-sm font-bold text-white mt-0.5">Entry</div>
+            </button>
+
+            <button
+              class="suspension-btn p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-center transition-all text-neutral-300"
+              data-height="10.5"
+              data-offset="10"
+              data-name="Highway Low"
+              data-desc="Optimal aero efficiency"
+            >
+              <div class="text-xs font-mono text-neutral-400">10.5"</div>
+              <div class="text-sm font-bold text-white mt-0.5">Low</div>
+            </button>
+
+            <button
+              class="suspension-btn p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-center transition-all text-neutral-300"
+              data-height="12.0"
+              data-offset="0"
+              data-name="Standard"
+              data-desc="City and road driving"
+            >
+              <div class="text-xs font-mono text-neutral-400">12.0"</div>
+              <div class="text-sm font-bold text-white mt-0.5">Medium</div>
+            </button>
+
+            <button
+              class="suspension-btn active p-3 rounded-lg border border-red-500/60 bg-red-950/30 text-center transition-all text-white shadow-[0_0_15px_rgba(232,33,39,0.2)]"
+              data-height="16.0"
+              data-offset="-16"
+              data-name="Off-Road High"
+              data-desc="Rough terrain clearance"
+            >
+              <div class="text-xs font-mono text-red-400 font-bold">16.0"</div>
+              <div class="text-sm font-bold text-white mt-0.5">High</div>
+            </button>
+
+            <button
+              class="suspension-btn col-span-2 sm:col-span-1 p-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-center transition-all text-neutral-300"
+              data-height="17.4"
+              data-offset="-26"
+              data-name="Extract Mode"
+              data-desc="Maximum rock crawl lift"
+            >
+              <div class="text-xs font-mono text-amber-400">17.4"</div>
+              <div class="text-sm font-bold text-white mt-0.5">Extract</div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Highlights Column -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        <div class="p-6 rounded-2xl bg-neutral-950/80 border border-white/10 hover:border-white/20 transition-all">
+          <div class="text-red-500 font-mono text-xs uppercase mb-2">35" All-Terrain Tires</div>
+          <h3 class="text-xl font-bold text-white mb-2 font-['Chakra_Petch',sans-serif]">Unstoppable Traction</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Standard 35” custom Goodyear tires mounted on rugged aero covers handle mud, snow, boulders, and pavement with balanced tread life.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-neutral-950/80 border border-white/10 hover:border-white/20 transition-all">
+          <div class="text-red-500 font-mono text-xs uppercase mb-2">Electronically Adaptive</div>
+          <h3 class="text-xl font-bold text-white mb-2 font-['Chakra_Petch',sans-serif]">Real-Time Damping</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Continuously adjusts air spring pressure and damping millisecond by millisecond for a plush ride on highways or unyielding articulation off-road.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-neutral-950/80 border border-white/10 hover:border-white/20 transition-all">
+          <div class="text-red-500 font-mono text-xs uppercase mb-2">Wade Mode</div>
+          <h3 class="text-xl font-bold text-white mb-2 font-['Chakra_Petch',sans-serif]">Pressurized Battery Pack</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Pressurizes the structural battery pack using on-board air tanks, allowing you to ford streams and rivers with zero water ingress.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playSuspensionHiss, playCyberClick } from '../utils/cyberSound';
+
+  const suspensionBtns = document.querySelectorAll('.suspension-btn');
+  const suspensionVehicle = document.getElementById('suspension-vehicle');
+  const clearanceReadout = document.getElementById('clearance-readout');
+  const terrainModeTag = document.getElementById('terrain-mode-tag');
+
+  suspensionBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const height = btn.getAttribute('data-height');
+      const offset = btn.getAttribute('data-offset');
+      const name = btn.getAttribute('data-name');
+
+      playCyberClick();
+      playSuspensionHiss();
+
+      // Update button styling
+      suspensionBtns.forEach((b) => {
+        b.classList.remove('active', 'border-red-500/60', 'bg-red-950/30', 'shadow-[0_0_15px_rgba(232,33,39,0.2)]');
+        b.classList.add('border-white/10', 'bg-white/5');
+      });
+
+      btn.classList.add('active', 'border-red-500/60', 'bg-red-950/30', 'shadow-[0_0_15px_rgba(232,33,39,0.2)]');
+      btn.classList.remove('border-white/10', 'bg-white/5');
+
+      // Animate vehicle vertical position
+      if (suspensionVehicle && offset) {
+        suspensionVehicle.style.transform = `translateY(${offset}px)`;
+      }
+
+      // Update text indicators
+      if (clearanceReadout && height) {
+        clearanceReadout.innerText = `${height} INCHES`;
+      }
+      if (terrainModeTag && name) {
+        terrainModeTag.innerText = `Mode: ${name}`;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,135 @@
+---
+// The Vault & Cargo Section with interactive motorized tonneau cover simulation
+---
+
+<section id="vault" class="relative py-28 px-6 md:px-12 bg-[#090a0d] border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 font-semibold mb-2 block">
+          // MAXIMUM UTILITY
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          LOAD IT ALL. LOCK IT SECURE.
+        </h2>
+        <p class="text-neutral-400 mt-4 text-base sm:text-lg leading-relaxed">
+          Haul everything you need with a 6' x 4' composite bed made from ultra-strong sheet-molded composite that requires no spray-in bedliner. With 2,500 lbs payload capacity and 67 cubic feet of lockable vault storage.
+        </p>
+      </div>
+
+      <!-- Quick Stats Pills -->
+      <div class="flex gap-4 shrink-0">
+        <div class="px-5 py-3 rounded-xl bg-neutral-950 border border-white/10 text-center">
+          <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">2,500 <span class="text-xs font-normal text-neutral-400">LBS</span></div>
+          <div class="text-[10px] text-neutral-400 font-mono uppercase mt-0.5">Payload Capacity</div>
+        </div>
+        <div class="px-5 py-3 rounded-xl bg-neutral-950 border border-white/10 text-center">
+          <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">6' x 4'</div>
+          <div class="text-[10px] text-neutral-400 font-mono uppercase mt-0.5">Composite Bed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Visual + Interactive Tonneau Cover -->
+    <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 p-6 md:p-8">
+      <div class="relative h-80 sm:h-[460px] w-full rounded-xl overflow-hidden bg-neutral-900 flex items-center justify-center">
+        <!-- Bed Background Image -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/23/20191121-tesla-cybertruck-cargo-vault-above-open.jpg"
+          alt="Tesla Cybertruck Bed and Cargo Vault"
+          class="w-full h-full object-cover brightness-95"
+          loading="lazy"
+        />
+
+        <!-- Animated Motorized Tonneau Cover Overlay -->
+        <div
+          id="tonneau-cover"
+          class="absolute inset-x-0 top-0 bg-neutral-950/95 border-b-2 border-neutral-700 transition-all duration-1000 ease-in-out flex flex-col justify-end p-6 pointer-events-none"
+          style="height: 0%;"
+        >
+          <!-- Slat texture of the rolling tonneau cover -->
+          <div class="w-full h-full bg-[repeating-linear-gradient(0deg,#1c1e22,#1c1e22_12px,#141518_12px,#141518_14px)] opacity-95"></div>
+        </div>
+
+        <!-- Cover Status Badge -->
+        <div class="absolute top-4 left-4 cyber-glass px-4 py-2 rounded-lg font-mono text-xs flex items-center gap-2.5">
+          <span id="cover-status-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span class="text-neutral-400 uppercase">Vault Status:</span>
+          <span id="cover-status-text" class="text-white font-bold">OPEN / ACCESSIBLE</span>
+        </div>
+
+        <!-- Toggle Button Overlay -->
+        <div class="absolute bottom-6 right-6">
+          <button
+            id="tonneau-toggle-btn"
+            class="px-5 py-2.5 rounded-lg bg-black/80 hover:bg-black border border-white/20 hover:border-white text-white font-mono text-xs font-bold uppercase tracking-wider backdrop-blur-md flex items-center gap-3 transition-all shadow-xl"
+          >
+            <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
+            <span id="btn-label">Close Tonneau Cover</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Feature Grid Under Bed -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <div class="p-5 rounded-xl bg-neutral-900/60 border border-white/5">
+          <div class="text-white font-bold text-base mb-1 font-['Chakra_Petch',sans-serif]">Under-Bed Gear Locker</div>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Hidden lockable compartment beneath the bed floor with dedicated drain plug, perfect for muddy boots, ice, drinks, or recovery gear.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-neutral-900/60 border border-white/5">
+          <div class="text-white font-bold text-base mb-1 font-['Chakra_Petch',sans-serif]">Front Trunk (Frunk)</div>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Motorized power hood opens to reveal full-width front cargo trunk with integrated lighting and grocery bag hooks.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-neutral-900/60 border border-white/5">
+          <div class="text-white font-bold text-base mb-1 font-['Chakra_Petch',sans-serif]">L-Track Tie-Down System</div>
+          <p class="text-xs text-neutral-400 leading-relaxed">
+            Aerodynamic side rails with integrated aircraft-grade L-tracks allow flexible tie-down cleats for motorcycles, bikes, and cargo bins.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick, playSuspensionHiss } from '../utils/cyberSound';
+
+  const tonneauCover = document.getElementById('tonneau-cover');
+  const tonneauToggleBtn = document.getElementById('tonneau-toggle-btn');
+  const coverStatusDot = document.getElementById('cover-status-dot');
+  const coverStatusText = document.getElementById('cover-status-text');
+  const btnLabel = document.getElementById('btn-label');
+
+  let isClosed = false;
+
+  tonneauToggleBtn?.addEventListener('click', () => {
+    isClosed = !isClosed;
+    playCyberClick();
+    playSuspensionHiss();
+
+    if (tonneauCover) {
+      tonneauCover.style.height = isClosed ? '100%' : '0%';
+    }
+
+    if (coverStatusDot && coverStatusText && btnLabel) {
+      if (isClosed) {
+        coverStatusDot.className = 'w-2.5 h-2.5 rounded-full bg-red-500';
+        coverStatusText.innerText = 'LOCKED & WEATHERPROOF';
+        btnLabel.innerText = 'Open Tonneau Cover';
+      } else {
+        coverStatusDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400';
+        coverStatusText.innerText = 'OPEN / ACCESSIBLE';
+        btnLabel.innerText = 'Close Tonneau Cover';
+      }
+    }
+  });
+</script>

@@ -1,0 +1,161 @@
+---
+// Interactive Demo Drive Booking Modal with instant confirmation
+---
+
+<div id="demo-drive-modal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+  <div class="max-w-lg w-full rounded-2xl bg-neutral-950 border border-white/20 p-6 sm:p-8 shadow-2xl relative my-8">
+    <!-- Close button -->
+    <button id="close-demo-modal" class="absolute top-5 right-5 text-neutral-400 hover:text-white p-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <div class="mb-6">
+      <span class="text-xs uppercase font-mono tracking-widest text-red-500 font-semibold mb-1 block">
+        // TEST DRIVE EXPERIENCE
+      </span>
+      <h3 class="font-['Chakra_Petch',sans-serif] font-black text-2xl text-white uppercase">
+        SCHEDULE A CYBERTRUCK DEMO DRIVE
+      </h3>
+      <p class="text-xs text-neutral-400 mt-1">
+        Experience steer-by-wire agility, adaptive air suspension, and instant tri-motor torque firsthand.
+      </p>
+    </div>
+
+    <!-- Booking Form -->
+    <form id="demo-drive-form" class="space-y-4">
+      <div>
+        <label class="block text-xs font-mono uppercase text-neutral-300 mb-1">Full Legal Name</label>
+        <input
+          type="text"
+          required
+          placeholder="e.g. Elon Musk"
+          class="w-full px-4 py-2.5 rounded-lg bg-neutral-900 border border-white/10 text-white text-sm focus:border-white focus:outline-none font-sans"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-mono uppercase text-neutral-300 mb-1">Email Address</label>
+          <input
+            type="email"
+            required
+            placeholder="name@example.com"
+            class="w-full px-4 py-2.5 rounded-lg bg-neutral-900 border border-white/10 text-white text-sm focus:border-white focus:outline-none font-sans"
+          />
+        </div>
+        <div>
+          <label class="block text-xs font-mono uppercase text-neutral-300 mb-1">Phone Number</label>
+          <input
+            type="tel"
+            required
+            placeholder="+1 (555) 000-0000"
+            class="w-full px-4 py-2.5 rounded-lg bg-neutral-900 border border-white/10 text-white text-sm focus:border-white focus:outline-none font-sans"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-mono uppercase text-neutral-300 mb-1">Preferred Location</label>
+          <select class="w-full px-4 py-2.5 rounded-lg bg-neutral-900 border border-white/10 text-white text-sm focus:border-white focus:outline-none font-sans">
+            <option>Tesla Austin - Giga Texas</option>
+            <option>Tesla Fremont Factory</option>
+            <option>Tesla Los Angeles - Century City</option>
+            <option>Tesla New York - Meatpacking</option>
+            <option>Tesla Chicago - Gold Coast</option>
+            <option>Tesla Miami - Design District</option>
+            <option>Mobile At-Home Test Drive</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-mono uppercase text-neutral-300 mb-1">Model Preference</label>
+          <select class="w-full px-4 py-2.5 rounded-lg bg-neutral-900 border border-white/10 text-white text-sm focus:border-white focus:outline-none font-sans">
+            <option>Cyberbeast (Tri-Motor 845 HP)</option>
+            <option>All-Wheel Drive (Dual-Motor 600 HP)</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-mono uppercase text-neutral-300 mb-1">Driver's License Requirement</label>
+        <p class="text-[11px] text-neutral-500 font-mono">
+          Must be at least 21 years of age with a valid government-issued driver's license.
+        </p>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-['Chakra_Petch',sans-serif] font-bold text-sm uppercase tracking-wider transition-all mt-4"
+      >
+        Confirm Test Drive Appointment
+      </button>
+    </form>
+
+    <!-- Confirmation Success State (hidden initially) -->
+    <div id="demo-success-view" class="hidden text-center py-6">
+      <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      <h4 class="font-['Chakra_Petch',sans-serif] font-bold text-xl text-white uppercase">
+        Demo Drive Confirmed!
+      </h4>
+      <p class="text-xs text-neutral-400 mt-2 font-mono">
+        Your Cybertruck test drive has been scheduled. A Tesla Tesla Advisor will contact you with gate clearance instructions.
+      </p>
+      <button id="close-demo-confirmed" class="mt-6 px-6 py-2.5 rounded-lg bg-white text-black font-bold text-xs uppercase tracking-wider">
+        Done
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  const modal = document.getElementById('demo-drive-modal');
+  const closeBtn = document.getElementById('close-demo-modal');
+  const closeConfirmed = document.getElementById('close-demo-confirmed');
+  const form = document.getElementById('demo-drive-form');
+  const successView = document.getElementById('demo-success-view');
+
+  function openModal() {
+    playCyberClick();
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function closeModal() {
+    playCyberClick();
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    // reset form view if needed
+    if (form && successView) {
+      form.classList.remove('hidden');
+      successView.classList.add('hidden');
+    }
+  }
+
+  // Hook all demo drive triggers
+  document.getElementById('open-demo-drive-top')?.addEventListener('click', openModal);
+  document.getElementById('open-demo-drive-sub')?.addEventListener('click', openModal);
+  document.getElementById('open-demo-drive-mobile')?.addEventListener('click', openModal);
+  document.getElementById('hero-demo-drive-btn')?.addEventListener('click', openModal);
+
+  closeBtn?.addEventListener('click', closeModal);
+  closeConfirmed?.addEventListener('click', closeModal);
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    playCyberClick();
+    form.classList.add('hidden');
+    successView?.classList.remove('hidden');
+  });
+</script>

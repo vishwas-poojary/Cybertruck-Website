@@ -1,0 +1,171 @@
+---
+// Cybertruck Official Accessories Grid & Carousel
+const accessories = [
+  {
+    id: "basecamp",
+    title: "Cybertruck Basecamp",
+    price: "$2,975",
+    category: "adventure",
+    image: "https://images.unsplash.com/photo-1785910723932-d8514bf53b61?auto=format&fit=crop&w=800&q=80",
+    desc: "Inflatable geodesic tent with ultra-plush mattress and enhanced star-gazing roof windows. Packs flat beneath the tonneau cover."
+  },
+  {
+    id: "lightbar",
+    title: "Off-Road 51” Light Bar",
+    price: "$2,750",
+    category: "adventure",
+    image: "https://images.unsplash.com/photo-1745966325233-52c7ae2656fa?auto=format&fit=crop&w=800&q=80",
+    desc: "Roof-mounted 4,000-lumen high-intensity LED light bar seamlessly integrated into Cybertruck's distinctive roof peak."
+  },
+  {
+    id: "ramp",
+    title: "Tailgate Loading Ramp",
+    price: "$400",
+    category: "utility",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/23/20191121-tesla-cybertruck-cargo-vault-above-open.jpg",
+    desc: "Heavy-duty aluminum tri-fold ramp designed to hook into the tailgate for effortless loading of motorcycles, ATVs, and heavy cargo."
+  },
+  {
+    id: "crossbars",
+    title: "Aerodynamic Crossbars",
+    price: "$800",
+    category: "utility",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Tesla_Cybertruck.jpg",
+    desc: "Aerodynamic black anodized aluminum crossbars with integrated T-slots for mounting snowboards, kayaks, and rooftop cargo carriers."
+  },
+  {
+    id: "spare",
+    title: "Spare Tire & Tool Kit",
+    price: "$1,250",
+    category: "utility",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Tesla_Cybertruck_Wheel_With_Goodyear_Tire.jpg/800px-Tesla_Cybertruck_Wheel_With_Goodyear_Tire.jpg",
+    desc: "Full-size 35” all-terrain spare tire and cover mounted securely in the truck bed, paired with high-lift hydraulic jack."
+  },
+  {
+    id: "mats",
+    title: "All-Weather Floor Liners",
+    price: "$295",
+    category: "interior",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ee/20191121-tesla-cybertruck-driving-seat-portrait.jpg",
+    desc: "100% recyclable thermoplastic elastomer floor mats with deep channels and raised edges to trap dirt, mud, and snow."
+  }
+];
+---
+
+<section id="accessories" class="relative py-28 px-6 md:px-12 bg-[#090a0d] border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 font-semibold mb-2 block">
+          // FACTORY GEAR
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          CYBERTRUCK ACCESSORIES
+        </h2>
+        <p class="text-neutral-400 mt-4 text-base sm:text-lg leading-relaxed">
+          Engineered exclusively for Cybertruck. Equip your vehicle with rugged overland gear, storage organizers, and utility hardware.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="inline-flex rounded-full bg-neutral-900 p-1 border border-white/10 text-xs font-mono shrink-0">
+        <button class="cat-btn active px-4 py-1.5 rounded-full bg-white/20 text-white font-semibold transition-all" data-category="all">
+          All Gear
+        </button>
+        <button class="cat-btn px-4 py-1.5 rounded-full text-neutral-400 hover:text-white transition-all" data-category="adventure">
+          Adventure
+        </button>
+        <button class="cat-btn px-4 py-1.5 rounded-full text-neutral-400 hover:text-white transition-all" data-category="utility">
+          Utility
+        </button>
+        <button class="cat-btn px-4 py-1.5 rounded-full text-neutral-400 hover:text-white transition-all" data-category="interior">
+          Interior
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {accessories.map((acc) => (
+        <div class="product-card group rounded-2xl bg-neutral-950 border border-white/10 overflow-hidden hover:border-white/20 transition-all flex flex-col justify-between" data-category={acc.category}>
+          <div>
+            <div class="aspect-[16/10] overflow-hidden bg-neutral-900 relative">
+              <img
+                src={acc.image}
+                alt={acc.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                loading="lazy"
+              />
+              <div class="absolute top-3 right-3 cyber-glass px-2.5 py-1 rounded text-xs font-mono font-bold text-white">
+                {acc.price}
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-red-500 mb-1 block">
+                Official Tesla Accessory
+              </span>
+              <h3 class="font-['Chakra_Petch',sans-serif] font-bold text-xl text-white group-hover:text-red-400 transition-colors">
+                {acc.title}
+              </h3>
+              <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+                {acc.desc}
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <button class="add-gear-btn w-full py-2.5 rounded-lg border border-white/20 hover:border-white hover:bg-white hover:text-black text-white text-xs font-mono font-bold uppercase tracking-wider transition-all">
+              Add To Order
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  const catBtns = document.querySelectorAll('.cat-btn');
+  const productCards = document.querySelectorAll('.product-card');
+  const addGearBtns = document.querySelectorAll('.add-gear-btn');
+
+  catBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-category');
+      playCyberClick();
+
+      catBtns.forEach((b) => {
+        b.classList.remove('active', 'bg-white/20', 'text-white', 'font-semibold');
+        b.classList.add('text-neutral-400');
+      });
+      btn.classList.add('active', 'bg-white/20', 'text-white', 'font-semibold');
+      btn.classList.remove('text-neutral-400');
+
+      productCards.forEach((card) => {
+        const itemCat = card.getAttribute('data-category');
+        if (cat === 'all' || itemCat === cat) {
+          (card as HTMLElement).style.display = 'flex';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  addGearBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      playCyberClick();
+      const el = btn as HTMLElement;
+      const original = el.innerText;
+      el.innerText = 'ADDED TO BUILD ✓';
+      el.classList.add('bg-emerald-600', 'border-emerald-500', 'text-white');
+      setTimeout(() => {
+        el.innerText = original;
+        el.classList.remove('bg-emerald-600', 'border-emerald-500');
+      }, 2000);
+    });
+  });
+</script>

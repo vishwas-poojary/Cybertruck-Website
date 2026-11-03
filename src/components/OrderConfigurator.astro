@@ -1,0 +1,360 @@
+---
+// Interactive Cybertruck Order Configurator & Real-Time Price Estimator
+---
+
+<section id="order" class="relative py-28 px-6 md:px-12 bg-black border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Column: Dynamic Vehicle Wrap Visualizer -->
+      <div class="lg:col-span-7 sticky top-28">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 p-6 sm:p-8">
+          <!-- Car Display Canvas -->
+          <div class="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden bg-neutral-900 flex items-center justify-center">
+            <img
+              id="config-car-img"
+              src="https://images.unsplash.com/photo-1785910723932-d8514bf53b61?auto=format&fit=crop&w=1600&q=85"
+              alt="Configured Tesla Cybertruck"
+              class="w-full h-full object-cover transition-all duration-700 brightness-95"
+            />
+
+            <!-- Dynamic Color Tint Filter Overlay -->
+            <div
+              id="wrap-tint-overlay"
+              class="absolute inset-0 pointer-events-none transition-all duration-700 mix-blend-color opacity-0"
+              style="background-color: transparent;"
+            ></div>
+
+            <!-- Active Selected Wrap Label -->
+            <div class="absolute bottom-4 left-4 cyber-glass px-4 py-2 rounded-lg font-mono text-xs flex items-center gap-2">
+              <span class="text-neutral-400 uppercase">Exterior Finish:</span>
+              <span id="active-wrap-label" class="text-white font-bold">Bare Stainless Steel</span>
+            </div>
+          </div>
+
+          <!-- Color Wrap Swatches Bar -->
+          <div class="mt-6 pt-6 border-t border-white/10">
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-xs font-mono uppercase tracking-wider text-neutral-400">Custom Color Wraps</span>
+              <span id="wrap-price-label" class="text-xs font-mono text-neutral-300">Included ($0)</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <!-- Steel -->
+              <button
+                class="wrap-btn active w-10 h-10 rounded-full border-2 border-white bg-gradient-to-tr from-neutral-400 to-neutral-200 transition-all shadow-lg"
+                data-name="Bare Stainless Steel"
+                data-color="transparent"
+                data-price="0"
+                title="Bare Stainless Steel (Included)"
+              ></button>
+
+              <!-- Satin Stealth Black -->
+              <button
+                class="wrap-btn w-10 h-10 rounded-full border-2 border-transparent hover:border-neutral-500 bg-neutral-950 transition-all shadow-lg"
+                data-name="Satin Stealth Black"
+                data-color="#0a0a0b"
+                data-filter="contrast(1.4) brightness(0.7)"
+                data-price="6500"
+                title="Satin Stealth Black (+$6,500)"
+              ></button>
+
+              <!-- Satin Ceramic White -->
+              <button
+                class="wrap-btn w-10 h-10 rounded-full border-2 border-transparent hover:border-neutral-500 bg-neutral-100 transition-all shadow-lg"
+                data-name="Satin Ceramic White"
+                data-color="#ffffff"
+                data-filter="contrast(1.1) brightness(1.3)"
+                data-price="6500"
+                title="Satin Ceramic White (+$6,500)"
+              ></button>
+
+              <!-- Tactical Olive Green -->
+              <button
+                class="wrap-btn w-10 h-10 rounded-full border-2 border-transparent hover:border-neutral-500 bg-[#2d3a29] transition-all shadow-lg"
+                data-name="Tactical Olive Green"
+                data-color="#2d3a29"
+                data-filter="hue-rotate(60deg) saturate(1.2)"
+                data-price="6500"
+                title="Tactical Olive Green (+$6,500)"
+              ></button>
+
+              <!-- Cyber Crimson -->
+              <button
+                class="wrap-btn w-10 h-10 rounded-full border-2 border-transparent hover:border-neutral-500 bg-[#7a1215] transition-all shadow-lg"
+                data-name="Cyber Crimson Metallic"
+                data-color="#7a1215"
+                data-filter="hue-rotate(330deg) saturate(1.5)"
+                data-price="6500"
+                title="Cyber Crimson Metallic (+$6,500)"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Configuration Steps & Financing -->
+      <div class="lg:col-span-5">
+        <div class="rounded-2xl border border-white/10 bg-neutral-950 p-6 sm:p-8">
+          <span class="text-xs uppercase font-mono tracking-widest text-red-500 font-semibold mb-2 block">
+            // DESIGN STUDIO
+          </span>
+          <h2 class="font-['Chakra_Petch',sans-serif] font-black text-2xl sm:text-3xl text-white uppercase">
+            Order Cybertruck
+          </h2>
+          <p class="text-neutral-400 text-xs mt-1">Est. Delivery: 1 - 3 Weeks</p>
+
+          <!-- Step 1: Trim Selection -->
+          <div class="mt-8">
+            <label class="text-xs font-mono uppercase text-neutral-400 block mb-3 font-semibold">
+              1. Select Powertrain:
+            </label>
+
+            <div class="space-y-3">
+              <!-- Cyberbeast -->
+              <label class="trim-card active flex items-center justify-between p-4 rounded-xl border border-red-500/80 bg-red-950/20 cursor-pointer transition-all">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="trim" value="cyberbeast" checked class="w-4 h-4 text-red-600 focus:ring-0 bg-neutral-800 border-neutral-700" />
+                  <div>
+                    <div class="font-['Chakra_Petch',sans-serif] font-bold text-white text-base">CYBERBEAST</div>
+                    <div class="text-[11px] text-neutral-400">Tri-Motor AWD • 0-60 in 2.6s • 320 mi</div>
+                  </div>
+                </div>
+                <div class="font-mono font-bold text-white text-sm">$99,990</div>
+              </label>
+
+              <!-- AWD -->
+              <label class="trim-card flex items-center justify-between p-4 rounded-xl border border-white/10 bg-neutral-900/60 hover:border-white/20 cursor-pointer transition-all">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="trim" value="awd" class="w-4 h-4 text-red-600 focus:ring-0 bg-neutral-800 border-neutral-700" />
+                  <div>
+                    <div class="font-['Chakra_Petch',sans-serif] font-bold text-white text-base">ALL-WHEEL DRIVE</div>
+                    <div class="text-[11px] text-neutral-400">Dual-Motor AWD • 0-60 in 4.1s • 340 mi</div>
+                  </div>
+                </div>
+                <div class="font-mono font-bold text-white text-sm">$79,990</div>
+              </label>
+
+              <!-- RWD -->
+              <label class="trim-card flex items-center justify-between p-4 rounded-xl border border-white/10 bg-neutral-900/60 hover:border-white/20 cursor-pointer transition-all">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="trim" value="rwd" class="w-4 h-4 text-red-600 focus:ring-0 bg-neutral-800 border-neutral-700" />
+                  <div>
+                    <div class="font-['Chakra_Petch',sans-serif] font-bold text-white text-base">REAR-WHEEL DRIVE</div>
+                    <div class="text-[11px] text-neutral-400">Single Motor • 0-60 in 6.5s • 250 mi</div>
+                  </div>
+                </div>
+                <div class="font-mono font-bold text-white text-sm">$60,990</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Full Self-Driving Option -->
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <label class="text-xs font-mono uppercase text-neutral-400 block mb-3 font-semibold">
+              2. Autopilot & Capabilities:
+            </label>
+
+            <label class="flex items-center justify-between p-4 rounded-xl border border-white/10 bg-neutral-900/60 hover:border-white/20 cursor-pointer transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="fsd-check" class="w-4 h-4 text-red-600 focus:ring-0 bg-neutral-800 border-neutral-700" />
+                <div>
+                  <div class="font-bold text-white text-sm">Full Self-Driving (Supervised)</div>
+                  <div class="text-[11px] text-neutral-400">Navigate on Autopilot, Auto Lane Change, Autopark & Summon</div>
+                </div>
+              </div>
+              <div class="text-right font-mono text-xs">
+                <span class="text-white font-bold block">+$8,000</span>
+                <span class="text-neutral-500">or $99/mo</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Price Summary & Checkout Action -->
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <div class="flex justify-between items-baseline mb-2">
+              <span class="text-xs font-mono uppercase text-neutral-400">Total Purchase Price:</span>
+              <span id="total-price-display" class="font-['Chakra_Petch',sans-serif] font-black text-3xl text-white">
+                $99,990
+              </span>
+            </div>
+            <div class="flex justify-between text-xs font-mono text-neutral-400 mb-6">
+              <span>Est. Lease Payment:</span>
+              <span id="lease-price-display" class="text-emerald-400 font-bold">$1,029 / mo</span>
+            </div>
+
+            <!-- Order Button with Confetti Confirmation -->
+            <button
+              id="confirm-order-btn"
+              class="w-full py-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-['Chakra_Petch',sans-serif] font-black text-base uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(255,255,255,0.25)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
+            >
+              Order With $250 Deposit
+            </button>
+            <p class="text-center text-[10px] text-neutral-500 font-mono mt-2.5">
+              Fully refundable $250 deposit. Financing and lease options finalized before delivery.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Order Placed Modal Confirmation -->
+<div id="order-success-modal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 hidden items-center justify-center p-6">
+  <div class="max-w-md w-full rounded-2xl bg-neutral-950 border border-white/20 p-8 text-center shadow-2xl relative">
+    <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-6">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
+
+    <h3 class="font-['Chakra_Petch',sans-serif] font-black text-2xl text-white uppercase">
+      CYBERTRUCK RESERVED
+    </h3>
+    <p class="text-xs text-neutral-400 mt-2 font-mono">
+      Reservation RN119842039 confirmed. Welcome to the future of utility.
+    </p>
+
+    <div class="p-4 rounded-xl bg-neutral-900 border border-white/5 my-6 text-left text-xs font-mono space-y-2">
+      <div class="flex justify-between">
+        <span class="text-neutral-400">Trim:</span>
+        <span id="modal-trim-name" class="text-white font-bold">Cyberbeast Tri-Motor AWD</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-neutral-400">Exterior Wrap:</span>
+        <span id="modal-wrap-name" class="text-white font-bold">Bare Stainless Steel</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-neutral-400">Deposit Paid:</span>
+        <span class="text-emerald-400 font-bold">$250.00 USD</span>
+      </div>
+    </div>
+
+    <button
+      id="close-order-modal-btn"
+      class="w-full py-3 rounded-lg bg-white text-black font-bold uppercase text-xs tracking-wider"
+    >
+      Return to Cybertruck
+    </button>
+  </div>
+</div>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  // Config State
+  let basePrice = 99990;
+  let trimName = 'Cyberbeast Tri-Motor AWD';
+  let wrapPrice = 0;
+  let wrapName = 'Bare Stainless Steel';
+  let fsdPrice = 0;
+
+  const wrapBtns = document.querySelectorAll('.wrap-btn');
+  const activeWrapLabel = document.getElementById('active-wrap-label');
+  const wrapPriceLabel = document.getElementById('wrap-price-label');
+  const wrapTintOverlay = document.getElementById('wrap-tint-overlay');
+  const configCarImg = document.getElementById('config-car-img');
+
+  const trimRadios = document.querySelectorAll('input[name="trim"]');
+  const trimCards = document.querySelectorAll('.trim-card');
+  const fsdCheck = document.getElementById('fsd-check') as HTMLInputElement;
+
+  const totalPriceDisplay = document.getElementById('total-price-display');
+  const leasePriceDisplay = document.getElementById('lease-price-display');
+
+  const confirmOrderBtn = document.getElementById('confirm-order-btn');
+  const orderSuccessModal = document.getElementById('order-success-modal');
+  const closeOrderModalBtn = document.getElementById('close-order-modal-btn');
+  const modalTrimName = document.getElementById('modal-trim-name');
+  const modalWrapName = document.getElementById('modal-wrap-name');
+
+  function updateFinancials() {
+    const total = basePrice + wrapPrice + fsdPrice;
+    if (totalPriceDisplay) {
+      totalPriceDisplay.innerText = `$${total.toLocaleString()}`;
+    }
+    if (leasePriceDisplay) {
+      const lease = Math.round((total * 0.58) / 36);
+      leasePriceDisplay.innerText = `$${lease.toLocaleString()} / mo`;
+    }
+  }
+
+  // Handle Wrap Changes
+  wrapBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      wrapBtns.forEach((b) => b.classList.replace('border-white', 'border-transparent'));
+      btn.classList.replace('border-transparent', 'border-white');
+
+      wrapName = btn.getAttribute('data-name') || 'Bare Stainless Steel';
+      wrapPrice = parseInt(btn.getAttribute('data-price') || '0', 10);
+      const color = btn.getAttribute('data-color') || 'transparent';
+      const filter = btn.getAttribute('data-filter') || 'none';
+
+      playCyberClick();
+
+      if (activeWrapLabel) activeWrapLabel.innerText = wrapName;
+      if (wrapPriceLabel) wrapPriceLabel.innerText = wrapPrice > 0 ? `+$${wrapPrice.toLocaleString()}` : 'Included ($0)';
+      if (configCarImg) configCarImg.style.filter = filter;
+      if (wrapTintOverlay) {
+        wrapTintOverlay.style.backgroundColor = color;
+        wrapTintOverlay.style.opacity = color === 'transparent' ? '0' : '0.25';
+      }
+
+      updateFinancials();
+    });
+  });
+
+  // Handle Trim Changes
+  trimRadios.forEach((radio, index) => {
+    radio.addEventListener('change', () => {
+      trimCards.forEach((c) => {
+        c.classList.remove('active', 'border-red-500/80', 'bg-red-950/20');
+        c.classList.add('border-white/10', 'bg-neutral-900/60');
+      });
+      trimCards[index].classList.add('active', 'border-red-500/80', 'bg-red-950/20');
+      trimCards[index].classList.remove('border-white/10', 'bg-neutral-900/60');
+
+      playCyberClick();
+
+      const val = (radio as HTMLInputElement).value;
+      if (val === 'cyberbeast') {
+        basePrice = 99990;
+        trimName = 'Cyberbeast Tri-Motor AWD';
+      } else if (val === 'awd') {
+        basePrice = 79990;
+        trimName = 'All-Wheel Drive Dual Motor';
+      } else {
+        basePrice = 60990;
+        trimName = 'Rear-Wheel Drive Single Motor';
+      }
+
+      updateFinancials();
+    });
+  });
+
+  // Handle FSD Checkbox
+  fsdCheck?.addEventListener('change', () => {
+    playCyberClick();
+    fsdPrice = fsdCheck.checked ? 8000 : 0;
+    updateFinancials();
+  });
+
+  // Handle Order Placed Action
+  confirmOrderBtn?.addEventListener('click', () => {
+    playCyberClick();
+    if (modalTrimName) modalTrimName.innerText = trimName;
+    if (modalWrapName) modalWrapName.innerText = wrapName;
+    if (orderSuccessModal) {
+      orderSuccessModal.classList.remove('hidden');
+      orderSuccessModal.classList.add('flex');
+    }
+  });
+
+  closeOrderModalBtn?.addEventListener('click', () => {
+    playCyberClick();
+    if (orderSuccessModal) {
+      orderSuccessModal.classList.add('hidden');
+      orderSuccessModal.classList.remove('flex');
+    }
+  });
+</script>

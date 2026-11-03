@@ -1,0 +1,162 @@
+---
+// Armor Glass Section with interactive acoustic and impact demonstration
+---
+
+<section id="armor-glass" class="relative py-28 px-6 md:px-12 bg-black border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Column: Interactive Armor Glass Showcase -->
+      <div class="lg:col-span-7 order-2 lg:order-1">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 p-6 sm:p-8">
+          <!-- Glass simulation window -->
+          <div id="glass-target" class="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden cursor-crosshair border border-cyan-500/20 select-none bg-gradient-to-tr from-neutral-900 to-neutral-800 flex items-center justify-center">
+            <!-- Glass Tint Background -->
+            <img
+              src="https://images.unsplash.com/photo-1745966325233-52c7ae2656fa?auto=format&fit=crop&w=1600&q=85"
+              alt="Tesla Cybertruck Armor Glass"
+              class="w-full h-full object-cover opacity-85 contrast-125"
+              loading="lazy"
+            />
+
+            <!-- Glass Reflection & Grid Lines -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-cyan-400/5 to-transparent pointer-events-none"></div>
+
+            <!-- Click prompt -->
+            <div id="glass-prompt" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none bg-black/40 backdrop-blur-[1px] transition-opacity duration-300">
+              <div class="w-16 h-16 rounded-full border-2 border-cyan-400 flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+                <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <span class="mt-4 font-mono text-xs text-cyan-300 uppercase tracking-widest bg-black/70 px-4 py-1.5 rounded-full border border-cyan-500/30">
+                Click Glass to Launch Impact
+              </span>
+            </div>
+
+            <!-- Dynamic Ripple Container -->
+            <div id="glass-ripple-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+          </div>
+
+          <!-- Glass Testing Controls & Readouts -->
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-neutral-400 uppercase">Projectile:</span>
+              <div class="inline-flex rounded-lg bg-white/5 p-1 border border-white/10 text-xs font-mono">
+                <button class="projectile-btn active px-3 py-1 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 font-semibold" data-type="baseball">
+                  70 MPH Baseball
+                </button>
+                <button class="projectile-btn px-3 py-1 rounded text-neutral-400 hover:text-white" data-type="hail">
+                  Class 4 Hail
+                </button>
+              </div>
+            </div>
+
+            <div class="text-xs font-mono text-cyan-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Acoustic Damping: 100% Intact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Description & Specs -->
+      <div class="lg:col-span-5 order-1 lg:order-2">
+        <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold mb-2 block">
+          // ACOUSTIC ISOLATION
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          SHATTER-RESISTANT ARMOR GLASS
+        </h2>
+        <p class="text-neutral-400 mt-5 text-base sm:text-lg leading-relaxed">
+          Acoustic glass helps make the cabin as quiet as outer space. Can resist the impact of a baseball at 70 mph or Class 4 hail, keeping you and your passengers protected in any extreme condition.
+        </p>
+
+        <!-- Feature Points -->
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">70 MPH</div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Impact Resistance</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">CLASS 4</div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Severe Hail Proof</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">360°</div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Acoustic Shield</div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">UV & IR</div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Thermal Rejection</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberImpact, playCyberClick } from '../utils/cyberSound';
+
+  const glassTarget = document.getElementById('glass-target');
+  const glassPrompt = document.getElementById('glass-prompt');
+  const rippleContainer = document.getElementById('glass-ripple-container');
+  const projectileBtns = document.querySelectorAll('.projectile-btn');
+
+  let currentProjectile = 'baseball';
+
+  projectileBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      projectileBtns.forEach((b) => {
+        b.classList.remove('active', 'bg-cyan-950/60', 'border', 'border-cyan-500/40', 'text-cyan-200', 'font-semibold');
+        b.classList.add('text-neutral-400');
+      });
+      btn.classList.add('active', 'bg-cyan-950/60', 'border', 'border-cyan-500/40', 'text-cyan-200', 'font-semibold');
+      btn.classList.remove('text-neutral-400');
+      currentProjectile = btn.getAttribute('data-type') || 'baseball';
+      playCyberClick();
+    });
+  });
+
+  glassTarget?.addEventListener('click', (e) => {
+    glassPrompt?.classList.add('opacity-0');
+    playCyberImpact();
+
+    const rect = glassTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Create acoustic sonic ripple rings
+    const badge = document.createElement('div');
+    badge.className = 'absolute font-mono text-[10px] font-bold px-2 py-0.5 rounded pointer-events-none uppercase tracking-wider text-cyan-200 bg-cyan-950/90 border border-cyan-400';
+    badge.style.left = `${x - 40}px`;
+    badge.style.top = `${y - 30}px`;
+    badge.innerText = currentProjectile === 'hail' ? 'HAIL DEFLECTED' : '70 MPH ABSORBED';
+    rippleContainer?.appendChild(badge);
+    setTimeout(() => badge.remove(), 1000);
+
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        const ripple = document.createElement('div');
+        ripple.className = 'absolute rounded-full border border-cyan-400 pointer-events-none transition-all duration-700 ease-out';
+        ripple.style.left = `${x - 10}px`;
+        ripple.style.top = `${y - 10}px`;
+        ripple.style.width = '20px';
+        ripple.style.height = '20px';
+        ripple.style.opacity = '0.9';
+
+        rippleContainer?.appendChild(ripple);
+
+        requestAnimationFrame(() => {
+          ripple.style.transform = `scale(${8 + i * 4})`;
+          ripple.style.opacity = '0';
+        });
+
+        setTimeout(() => ripple.remove(), 700);
+      }, i * 120);
+    }
+  });
+</script>

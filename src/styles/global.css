@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #070708;
+    --color-panel: #111215;
+    --color-border: #222429;
+    --color-accent: #f4f4f6;
+    --color-red: #e82127;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090a0d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2d34;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #404550;
+  }
+}
+
+/* Cybertruck Chamfered / Angled Edges */
+.cyber-chamfer {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+}
+
+.cyber-chamfer-reverse {
+  clip-path: polygon(
+    14px 0,
+    100% 0,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    0 100%,
+    0 14px
+  );
+}
+
+.cyber-tag {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Brushed Stainless Steel Effect */
+.bg-brushed-steel {
+  background: linear-gradient(
+    135deg,
+    #1d2024 0%,
+    #2a2e35 25%,
+    #1d2024 50%,
+    #2c3138 75%,
+    #1b1e22 100%
+  );
+  background-size: 200% 200%;
+}
+
+/* Glassmorphism */
+.cyber-glass {
+  background: rgba(18, 19, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cyber-glass-dark {
+  background: rgba(8, 9, 11, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Subtle Grid Background */
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Red LED Cyber Lightbar Glow */
+.cyber-glow-red {
+  box-shadow: 0 0 25px rgba(232, 33, 39, 0.4), 0 0 50px rgba(232, 33, 39, 0.2);
+}
+
+.cyber-glow-white {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35), 0 0 50px rgba(255, 255, 255, 0.15);
+}
+
+/* Hide scrollbar for clean carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

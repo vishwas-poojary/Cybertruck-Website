@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import BuiltForAdventure from '../components/BuiltForAdventure.astro';
+import Exoskeleton from '../components/Exoskeleton.astro';
+import ArmorGlass from '../components/ArmorGlass.astro';
+import VaultCargo from '../components/VaultCargo.astro';
+import PowerShare from '../components/PowerShare.astro';
+import Interior from '../components/Interior.astro';
+import Performance from '../components/Performance.astro';
+import RangeCharging from '../components/RangeCharging.astro';
+import SpecsComparison from '../components/SpecsComparison.astro';
+import Accessories from '../components/Accessories.astro';
+import OrderConfigurator from '../components/OrderConfigurator.astro';
+import Footer from '../components/Footer.astro';
+import DemoDriveModal from '../components/DemoDriveModal.astro';
+---
+
+<Layout
+  title="Cybertruck | Tesla"
+  description="Cybertruck is built for any adventure. With an ultra-hard stainless-steel exoskeleton, shatter-resistant armor glass, all-terrain capability and 11,000 lbs towing capacity."
+>
+  <main class="relative bg-[#08090a]">
+    <Navbar />
+    <Hero />
+    <BuiltForAdventure />
+    <Exoskeleton />
+    <ArmorGlass />
+    <VaultCargo />
+    <PowerShare />
+    <Interior />
+    <Performance />
+    <RangeCharging />
+    <SpecsComparison />
+    <Accessories />
+    <OrderConfigurator />
+    <Footer />
+    <DemoDriveModal />
+  </main>
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Smooth Section Title & Card Reveals
+  const sections = document.querySelectorAll('section');
+  sections.forEach((sec) => {
+    const titles = sec.querySelectorAll('h2, .hero-title, .hero-subtitle');
+    if (titles.length) {
+      gsap.from(titles, {
+        scrollTrigger: {
+          trigger: sec,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+        opacity: 0,
+        y: 35,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: 'power3.out',
+      });
+    }
+  });
+</script>

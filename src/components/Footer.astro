@@ -1,0 +1,45 @@
+---
+// Tesla Official Global Footer
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative bg-black text-neutral-400 text-xs py-14 px-6 border-t border-white/10 select-none">
+  <!-- Glowing Cybertruck LED lightbar divider -->
+  <div class="max-w-4xl mx-auto h-[2px] bg-gradient-to-r from-transparent via-red-600 to-transparent mb-12 opacity-80 shadow-[0_0_15px_rgba(232,33,39,0.5)]"></div>
+
+  <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6">
+    <!-- Brand / Trademark -->
+    <div class="flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase text-neutral-300">
+      <span>Tesla © {currentYear}</span>
+      <span>•</span>
+      <span class="text-neutral-400">Austin, Texas, USA</span>
+    </div>
+
+    <!-- Legal & Navigation Links -->
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-medium text-neutral-400 text-[11px]">
+      <a href="https://www.tesla.com/legal" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        Privacy & Legal
+      </a>
+      <a href="https://www.tesla.com/vin-recall-search" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        Vehicle Recalls
+      </a>
+      <a href="https://www.tesla.com/contact" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        Contact
+      </a>
+      <a href="https://www.tesla.com/blog" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        News
+      </a>
+      <a href="#order" class="hover:text-white transition-colors">
+        Get Updates
+      </a>
+      <a href="https://www.tesla.com/findus" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        Locations
+      </a>
+    </div>
+
+    <!-- Disclaimer Note -->
+    <p class="max-w-3xl text-center text-[10px] text-neutral-400 font-mono leading-relaxed mt-2">
+      Certain high-data usage vehicle features require at least Standard Connectivity, including maps, navigation and voice commands. Features that require Cellular data and third-party licenses are subject to change. Some vehicle options shown may require additional purchase.
+    </p>
+  </div>
+</footer>

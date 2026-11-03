@@ -1,0 +1,177 @@
+---
+// Interior Cyber Cabin Section with interactive hotspot explorer & color theme toggle
+---
+
+<section id="interior" class="relative py-28 px-6 md:px-12 bg-[#090a0d] border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 font-semibold mb-2 block">
+          // CYBER CABIN
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          STEP INSIDE. TOTAL IMMERSION.
+        </h2>
+        <p class="text-neutral-400 mt-4 text-base sm:text-lg leading-relaxed">
+          Surround yourself in a quiet, minimalist sanctuary. Featuring an expansive all-glass roof, a commanding 18.5” infinity touchscreen up front, and a dedicated 9.4” rear touchscreen for backseat climate, gaming, and entertainment.
+        </p>
+      </div>
+
+      <!-- Theme Switcher -->
+      <div class="inline-flex rounded-full bg-neutral-900 p-1 border border-white/10 text-xs font-mono shrink-0">
+        <button id="theme-grey" class="px-4 py-1.5 rounded-full bg-white/20 text-white font-semibold transition-all">
+          Tactical Grey
+        </button>
+        <button id="theme-white" class="px-4 py-1.5 rounded-full text-neutral-400 hover:text-white transition-all">
+          Laser White
+        </button>
+      </div>
+    </div>
+
+    <!-- Interior Hotspot Canvas -->
+    <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 p-4 sm:p-6 mb-10">
+      <div class="relative h-80 sm:h-[500px] w-full rounded-xl overflow-hidden bg-neutral-900 flex items-center justify-center">
+        <!-- Interior Panoramic Image -->
+        <img
+          id="interior-img"
+          src="https://upload.wikimedia.org/wikipedia/commons/e/ee/20191121-tesla-cybertruck-driving-seat-portrait.jpg"
+          alt="Tesla Cybertruck Futuristic Interior"
+          class="w-full h-full object-cover transition-all duration-500 brightness-90"
+          loading="lazy"
+        />
+
+        <!-- Interactive Hotspot 1: Front 18.5" Screen -->
+        <button
+          class="hotspot-btn absolute top-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 group"
+          data-title="18.5” Infinity Touchscreen"
+          data-desc="Command center with real-time 3D vehicle visualizer, customizable widgets, responsive off-road cameras, and theater gaming."
+        >
+          <span class="relative flex h-8 w-8">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-8 w-8 bg-red-600/90 border-2 border-white items-center justify-center text-white text-xs font-bold">1</span>
+          </span>
+        </button>
+
+        <!-- Interactive Hotspot 2: All-Glass Panoramic Roof -->
+        <button
+          class="hotspot-btn absolute top-[18%] left-[45%] -translate-x-1/2 -translate-y-1/2 group"
+          data-title="All-Glass Panoramic Roof"
+          data-desc="Acoustic laminated glass spans overhead with 99% UV and infrared reflection, providing an airy cabin with crystal clarity."
+        >
+          <span class="relative flex h-8 w-8">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-8 w-8 bg-cyan-600/90 border-2 border-white items-center justify-center text-white text-xs font-bold">2</span>
+          </span>
+        </button>
+
+        <!-- Interactive Hotspot 3: 15-Speaker Audio -->
+        <button
+          class="hotspot-btn absolute top-[35%] left-[22%] -translate-x-1/2 -translate-y-1/2 group"
+          data-title="15-Speaker Studio Sound"
+          data-desc="Studio-quality acoustic engineering featuring 15 speakers, 2 dedicated subwoofers, and distributed class-D amplifiers."
+        >
+          <span class="relative flex h-8 w-8">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-8 w-8 bg-amber-600/90 border-2 border-white items-center justify-center text-white text-xs font-bold">3</span>
+          </span>
+        </button>
+
+        <!-- Hotspot Detail Popover Card -->
+        <div id="hotspot-card" class="absolute bottom-6 left-6 right-6 sm:right-auto sm:max-w-md cyber-glass p-5 rounded-xl border border-white/20 transition-all duration-300 pointer-events-auto">
+          <div class="flex items-center justify-between mb-1.5">
+            <span id="hotspot-title" class="font-['Chakra_Petch',sans-serif] font-bold text-white text-base">
+              18.5” Infinity Touchscreen
+            </span>
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-white/10 text-neutral-300">
+              Feature Highlight
+            </span>
+          </div>
+          <p id="hotspot-desc" class="text-xs text-neutral-300 leading-relaxed">
+            Command center with real-time 3D vehicle visualizer, customizable widgets, responsive off-road cameras, and theater gaming.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Key Pillars -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-6 rounded-xl bg-neutral-950 border border-white/10">
+        <div class="text-red-500 font-mono text-xs uppercase mb-2">Display</div>
+        <h4 class="font-bold text-white text-lg font-['Chakra_Petch',sans-serif]">9.4” Rear Display</h4>
+        <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+          Rear passengers can stream Netflix, adjust their dual-zone climate, and connect wireless Bluetooth headphones independently.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-neutral-950 border border-white/10">
+        <div class="text-red-500 font-mono text-xs uppercase mb-2">Health</div>
+        <h4 class="font-bold text-white text-lg font-['Chakra_Petch',sans-serif]">Bioweapon Defense</h4>
+        <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+          Hospital-grade HEPA filter traps 99.97% of airborne particles, smoke, pollen, allergens, bacteria, and microscopic contaminants.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-neutral-950 border border-white/10">
+        <div class="text-red-500 font-mono text-xs uppercase mb-2">Storage</div>
+        <h4 class="font-bold text-white text-lg font-['Chakra_Petch',sans-serif]">Flip-Up 2nd Row</h4>
+        <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+          Both second-row seats fold up smoothly in a 60/40 split to unlock an expansive flat cargo floor for tall cargo, luggage, or tools.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-neutral-950 border border-white/10">
+        <div class="text-red-500 font-mono text-xs uppercase mb-2">Charging</div>
+        <h4 class="font-bold text-white text-lg font-['Chakra_Petch',sans-serif]">65W USB-C & Wireless</h4>
+        <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+          Dual fast wireless charging pads in center console plus dual 65W USB-C outlets capable of fast charging high-end laptops.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  const hotspotBtns = document.querySelectorAll('.hotspot-btn');
+  const hotspotTitle = document.getElementById('hotspot-title');
+  const hotspotDesc = document.getElementById('hotspot-desc');
+
+  hotspotBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const title = btn.getAttribute('data-title');
+      const desc = btn.getAttribute('data-desc');
+
+      playCyberClick();
+
+      if (hotspotTitle && title) hotspotTitle.innerText = title;
+      if (hotspotDesc && desc) hotspotDesc.innerText = desc;
+    });
+  });
+
+  // Interior Theme Toggle
+  const themeGrey = document.getElementById('theme-grey');
+  const themeWhite = document.getElementById('theme-white');
+  const interiorImg = document.getElementById('interior-img');
+
+  themeGrey?.addEventListener('click', () => {
+    playCyberClick();
+    themeGrey.className = 'px-4 py-1.5 rounded-full bg-white/20 text-white font-semibold transition-all';
+    themeWhite?.classList.remove('bg-white/20', 'text-white', 'font-semibold');
+    themeWhite?.classList.add('text-neutral-400');
+    if (interiorImg) {
+      interiorImg.style.filter = 'brightness(0.9) contrast(1.1)';
+    }
+  });
+
+  themeWhite?.addEventListener('click', () => {
+    playCyberClick();
+    themeWhite.className = 'px-4 py-1.5 rounded-full bg-white/20 text-white font-semibold transition-all';
+    themeGrey?.classList.remove('bg-white/20', 'text-white', 'font-semibold');
+    themeGrey?.classList.add('text-neutral-400');
+    if (interiorImg) {
+      interiorImg.style.filter = 'brightness(1.15) contrast(1.05)';
+    }
+  });
+</script>

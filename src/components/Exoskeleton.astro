@@ -1,0 +1,172 @@
+---
+// Exoskeleton section with interactive durability impact tester
+---
+
+<section id="exoskeleton" class="relative py-28 px-6 md:px-12 bg-[#090a0d] border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Column: Copy & Details -->
+      <div class="lg:col-span-5">
+        <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 font-semibold mb-2 block">
+          // STRUCTURAL SKIN
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          NO PAINT, NO CHIPS
+        </h2>
+        <p class="text-neutral-400 mt-5 text-base sm:text-lg leading-relaxed">
+          An ultra-hard stainless-steel exoskeleton helps reduce dents, damage and long-term corrosion. Repairs are simple and quick, eliminating the frustration of paint scratches and door dings forever.
+        </p>
+
+        <!-- Bullet Highlights -->
+        <div class="mt-8 space-y-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center shrink-0 mt-0.5 border border-white/10 text-white">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Ultra-Hard 30X Cold-Rolled Stainless Steel</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">The exact same alloy used in SpaceX Starship outer skin.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5">
+            <div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center shrink-0 mt-0.5 border border-white/10 text-white">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Structural Monocoque Architecture</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">External skin provides primary chassis rigidity, maximizing interior volume.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5">
+            <div class="w-6 h-6 rounded bg-white/10 flex items-center justify-center shrink-0 mt-0.5 border border-white/10 text-white">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">Zero Rust & Corrosion</h4>
+              <p class="text-neutral-400 text-xs mt-0.5">Resists road salt, coastal moisture, and extreme environmental acids.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Durability Impact Simulator -->
+      <div class="lg:col-span-7">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 p-6 sm:p-8">
+          <!-- Impact Canvas Area -->
+          <div id="steel-panel" class="relative h-72 sm:h-96 w-full rounded-xl overflow-hidden cursor-crosshair border border-white/20 select-none bg-neutral-900 flex items-center justify-center">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Tesla_Cybertruck.jpg"
+              alt="Tesla Cybertruck Stainless Steel Panel"
+              class="w-full h-full object-cover brightness-90 contrast-110"
+              loading="lazy"
+            />
+            
+            <!-- Target Reticle / Click Prompt -->
+            <div id="target-reticle" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none bg-black/30 backdrop-blur-[2px] transition-opacity duration-300">
+              <div class="w-16 h-16 rounded-full border-2 border-dashed border-red-500/80 animate-spin flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-red-500"></div>
+              </div>
+              <span class="mt-4 font-mono text-xs text-white uppercase tracking-wider bg-black/60 px-3 py-1 rounded">
+                Click Panel to Test Durability
+              </span>
+            </div>
+
+            <!-- Impact Spark Container (dynamically populated) -->
+            <div id="impact-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+          </div>
+
+          <!-- Impact Controls -->
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono text-neutral-400 uppercase">Weapon:</span>
+              <div class="inline-flex rounded-lg bg-white/5 p-1 border border-white/10 text-xs font-mono">
+                <button class="weapon-btn active px-3 py-1 rounded bg-white/20 text-white font-semibold" data-weapon="hammer">
+                  Sledgehammer
+                </button>
+                <button class="weapon-btn px-3 py-1 rounded text-neutral-400 hover:text-white" data-weapon="ballistic">
+                  9mm Tommy Gun
+                </button>
+                <button class="weapon-btn px-3 py-1 rounded text-neutral-400 hover:text-white" data-weapon="cart">
+                  Shopping Cart
+                </button>
+              </div>
+            </div>
+
+            <!-- Stats Badge -->
+            <div class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              <span>Panel Damage: 0% (Zero Dents)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberImpact, playCyberClick } from '../utils/cyberSound';
+
+  const steelPanel = document.getElementById('steel-panel');
+  const targetReticle = document.getElementById('target-reticle');
+  const impactContainer = document.getElementById('impact-container');
+  const weaponBtns = document.querySelectorAll('.weapon-btn');
+
+  let currentWeapon = 'hammer';
+
+  weaponBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      weaponBtns.forEach((b) => {
+        b.classList.remove('active', 'bg-white/20', 'text-white', 'font-semibold');
+        b.classList.add('text-neutral-400');
+      });
+      btn.classList.add('active', 'bg-white/20', 'text-white', 'font-semibold');
+      btn.classList.remove('text-neutral-400');
+      currentWeapon = btn.getAttribute('data-weapon') || 'hammer';
+      playCyberClick();
+    });
+  });
+
+  steelPanel?.addEventListener('click', (e) => {
+    targetReticle?.classList.add('opacity-0');
+    playCyberImpact();
+
+    const rect = steelPanel.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Create impact flash & spark ring
+    const flash = document.createElement('div');
+    flash.className = 'absolute rounded-full border-2 border-white pointer-events-none animate-ping';
+    flash.style.left = `${x - 25}px`;
+    flash.style.top = `${y - 25}px`;
+    flash.style.width = '50px';
+    flash.style.height = '50px';
+    flash.style.borderColor = currentWeapon === 'ballistic' ? '#fbbf24' : '#e2e8f0';
+
+    const spark = document.createElement('div');
+    spark.className = 'absolute font-mono text-[10px] font-bold px-2 py-0.5 rounded pointer-events-none uppercase tracking-wider text-black';
+    spark.style.left = `${x - 30}px`;
+    spark.style.top = `${y - 35}px`;
+    spark.style.backgroundColor = currentWeapon === 'ballistic' ? '#fbbf24' : '#ffffff';
+    spark.innerText = currentWeapon === 'ballistic' ? 'DEFLECTED' : 'NO DENT';
+
+    impactContainer?.appendChild(flash);
+    impactContainer?.appendChild(spark);
+
+    setTimeout(() => {
+      flash.remove();
+      spark.remove();
+    }, 900);
+  });
+</script>

@@ -1,0 +1,157 @@
+---
+// PowerShare Section with interactive load calculator and bidirectional power simulation
+---
+
+<section id="powershare" class="relative py-28 px-6 md:px-12 bg-black border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Column: Copy & Core Highlights -->
+      <div class="lg:col-span-5">
+        <span class="text-xs uppercase font-mono tracking-widest text-emerald-400 font-semibold mb-2 block">
+          // BIDIRECTIONAL ENERGY
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          POWER ON TAP. 11.5 KW BACKUP.
+        </h2>
+        <p class="text-neutral-400 mt-5 text-base sm:text-lg leading-relaxed">
+          Stay fully powered on the jobsite or far off the grid with integrated 120V and 240V outlets in the bed and cabin. During a grid blackout, Cybertruck can power your entire home for days with seamless bidirectional PowerShare.
+        </p>
+
+        <div class="grid grid-cols-2 gap-4 mt-8">
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-3xl font-black text-white font-['Chakra_Petch',sans-serif]">11.5 <span class="text-xs font-normal text-neutral-400">KW</span></div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Home Backup Power</div>
+          </div>
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-3xl font-black text-white font-['Chakra_Petch',sans-serif]">9.6 <span class="text-xs font-normal text-neutral-400">KW</span></div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Continuous Outlet Output</div>
+          </div>
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-3xl font-black text-white font-['Chakra_Petch',sans-serif]">240V + 120V</div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Bed & Cabin Plugs</div>
+          </div>
+          <div class="p-4 rounded-xl bg-neutral-950 border border-white/10">
+            <div class="text-3xl font-black text-white font-['Chakra_Petch',sans-serif]">3+ <span class="text-xs font-normal text-neutral-400">DAYS</span></div>
+            <div class="text-xs text-neutral-400 mt-1 uppercase font-mono">Typical Home Runtime</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive PowerShare Load Simulator -->
+      <div class="lg:col-span-7">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-neutral-950 p-6 sm:p-8">
+          <!-- Power Gauge Display -->
+          <div class="p-6 rounded-xl bg-neutral-900 border border-white/10 mb-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <div class="text-xs font-mono uppercase text-neutral-400 tracking-wider">Active Power Output</div>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span id="output-kw" class="text-4xl sm:text-5xl font-black text-emerald-400 font-['Chakra_Petch',sans-serif]">7.2</span>
+                <span class="text-sm font-mono text-neutral-400">kW / 11.5 kW Max</span>
+              </div>
+            </div>
+
+            <!-- Est Runtime Pill -->
+            <div class="text-right">
+              <div class="text-xs font-mono uppercase text-neutral-400 tracking-wider">Est. Outage Backup Time</div>
+              <div id="runtime-days" class="text-2xl sm:text-3xl font-bold text-white font-mono mt-1">
+                4.2 Days
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Appliance Selection -->
+          <div class="space-y-3">
+            <div class="text-xs font-mono uppercase text-neutral-400 tracking-wider mb-2">
+              Select Connected Loads:
+            </div>
+
+            <label class="flex items-center justify-between p-3.5 rounded-lg bg-neutral-900/60 border border-white/10 hover:border-white/20 cursor-pointer transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="load-toggle w-4 h-4 rounded text-emerald-500 focus:ring-0 bg-neutral-800 border-neutral-700" data-kw="4.5" checked />
+                <div>
+                  <div class="text-sm font-semibold text-white">Whole Home HVAC & Refrigeration</div>
+                  <div class="text-xs text-neutral-400">Keeps heating, AC, and food cold during extended grid blackout</div>
+                </div>
+              </div>
+              <span class="font-mono text-xs text-neutral-300 font-bold">4.5 kW</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3.5 rounded-lg bg-neutral-900/60 border border-white/10 hover:border-white/20 cursor-pointer transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="load-toggle w-4 h-4 rounded text-emerald-500 focus:ring-0 bg-neutral-800 border-neutral-700" data-kw="2.7" checked />
+                <div>
+                  <div class="text-sm font-semibold text-white">Home Lighting, Router & Appliances</div>
+                  <div class="text-xs text-neutral-400">Wi-Fi, security cameras, laptops, entertainment & lights</div>
+                </div>
+              </div>
+              <span class="font-mono text-xs text-neutral-300 font-bold">2.7 kW</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3.5 rounded-lg bg-neutral-900/60 border border-white/10 hover:border-white/20 cursor-pointer transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="load-toggle w-4 h-4 rounded text-emerald-500 focus:ring-0 bg-neutral-800 border-neutral-700" data-kw="2.2" />
+                <div>
+                  <div class="text-sm font-semibold text-white">Heavy-Duty Bed Power Tools</div>
+                  <div class="text-xs text-neutral-400">Air compressor, welder, table saws running via 240V bed plug</div>
+                </div>
+              </div>
+              <span class="font-mono text-xs text-neutral-300 font-bold">2.2 kW</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3.5 rounded-lg bg-neutral-900/60 border border-white/10 hover:border-white/20 cursor-pointer transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" class="load-toggle w-4 h-4 rounded text-emerald-500 focus:ring-0 bg-neutral-800 border-neutral-700" data-kw="3.0" />
+                <div>
+                  <div class="text-sm font-semibold text-white">Vehicle-to-Vehicle EV Rescue Charging</div>
+                  <div class="text-xs text-neutral-400">Charge another stranded electric vehicle directly from your bed</div>
+                </div>
+              </div>
+              <span class="font-mono text-xs text-neutral-300 font-bold">3.0 kW</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  const loadToggles = document.querySelectorAll('.load-toggle');
+  const outputKw = document.getElementById('output-kw');
+  const runtimeDays = document.getElementById('runtime-days');
+
+  const totalBatteryKwh = 123; // Cybertruck battery pack capacity
+
+  function calculatePower() {
+    let totalKw = 0;
+    loadToggles.forEach((t) => {
+      const checkbox = t as HTMLInputElement;
+      if (checkbox.checked) {
+        totalKw += parseFloat(checkbox.getAttribute('data-kw') || '0');
+      }
+    });
+
+    if (outputKw) {
+      outputKw.innerText = totalKw.toFixed(1);
+    }
+
+    if (runtimeDays) {
+      if (totalKw === 0) {
+        runtimeDays.innerText = 'Standby (Weeks)';
+      } else {
+        const hours = (totalBatteryKwh * 0.9) / totalKw; // assuming 90% usable
+        const days = (hours / 24).toFixed(1);
+        runtimeDays.innerText = `${days} Days (${Math.round(hours)} hrs)`;
+      }
+    }
+  }
+
+  loadToggles.forEach((t) => {
+    t.addEventListener('change', () => {
+      playCyberClick();
+      calculatePower();
+    });
+  });
+</script>

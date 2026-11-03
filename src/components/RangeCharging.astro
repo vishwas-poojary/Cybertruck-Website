@@ -1,0 +1,200 @@
+---
+// Range & Supercharging Section with interactive driving conditions & Range Extender calculator
+---
+
+<section id="range" class="relative py-28 px-6 md:px-12 bg-[#090a0d] border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl">
+        <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 font-semibold mb-2 block">
+          // 800-VOLT ARCHITECTURE
+        </span>
+        <h2 class="font-['Chakra_Petch',sans-serif] font-black text-3xl sm:text-5xl text-white tracking-wide uppercase leading-tight">
+          GO THE DISTANCE. UP TO 470+ MILES.
+        </h2>
+        <p class="text-neutral-400 mt-4 text-base sm:text-lg leading-relaxed">
+          Travel through vast wilderness without compromise. Built on an advanced 800-volt high-voltage architecture for ultra-fast Supercharging: recover up to 136 miles of range in just 15 minutes of charging.
+        </p>
+      </div>
+
+      <!-- Quick Supercharge Stat Pill -->
+      <div class="p-5 rounded-2xl bg-neutral-950 border border-white/10 shrink-0 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-2xl font-black text-white font-['Chakra_Petch',sans-serif]">136 MILES</div>
+          <div class="text-xs text-neutral-400 font-mono">In 15 Min Supercharge</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Range Estimator Card -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Calculator Controls -->
+      <div class="lg:col-span-7 rounded-2xl bg-neutral-950 border border-white/10 p-6 sm:p-8">
+        <h3 class="text-lg font-bold text-white font-['Chakra_Petch',sans-serif] mb-6 flex items-center justify-between">
+          <span>Range & Conditions Simulator</span>
+          <span class="text-xs font-mono text-neutral-400 font-normal">Real-Time EPA Calculation</span>
+        </h3>
+
+        <!-- Battery Configuration Selector -->
+        <div class="mb-6">
+          <label class="text-xs font-mono uppercase text-neutral-400 block mb-2">Battery Pack Configuration:</label>
+          <div class="grid grid-cols-2 gap-3">
+            <button id="pack-standard" class="pack-btn active p-3 rounded-xl border border-white/30 bg-white/10 text-left transition-all">
+              <div class="text-xs font-mono text-neutral-400">Integrated Pack</div>
+              <div class="text-sm font-bold text-white mt-0.5">Standard 123 kWh (340 mi)</div>
+            </button>
+            <button id="pack-extender" class="pack-btn p-3 rounded-xl border border-white/10 bg-neutral-900 text-left transition-all hover:bg-white/5">
+              <div class="text-xs font-mono text-neutral-400">Bed-Mounted Extender</div>
+              <div class="text-sm font-bold text-white mt-0.5">Extended 173 kWh (470+ mi)</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Condition Toggles -->
+        <div class="space-y-4">
+          <!-- Cruising Speed -->
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-1.5">
+              <span class="text-neutral-400 uppercase">Cruising Speed:</span>
+              <span id="speed-label" class="text-white font-bold">65 MPH (Highway)</span>
+            </div>
+            <input type="range" id="speed-slider" min="55" max="85" step="5" value="65" class="w-full accent-red-600 bg-neutral-800 rounded-lg cursor-pointer h-2" />
+          </div>
+
+          <!-- Ambient Temperature -->
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-1.5">
+              <span class="text-neutral-400 uppercase">Ambient Temperature:</span>
+              <span id="temp-label" class="text-white font-bold">70°F (Optimal)</span>
+            </div>
+            <input type="range" id="temp-slider" min="0" max="100" step="10" value="70" class="w-full accent-red-600 bg-neutral-800 rounded-lg cursor-pointer h-2" />
+          </div>
+
+          <!-- Towing Payload -->
+          <div class="pt-2">
+            <label class="flex items-center justify-between p-3.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer hover:border-white/20 transition-all">
+              <div class="flex items-center gap-3">
+                <input type="checkbox" id="towing-check" class="w-4 h-4 rounded text-red-600 focus:ring-0 bg-neutral-800 border-neutral-700" />
+                <div>
+                  <div class="text-sm font-semibold text-white">Towing 8,000 lbs Heavy Trailer</div>
+                  <div class="text-xs text-neutral-400">Includes aerodynamic drag and payload weight calculation</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono text-neutral-400 font-bold">-38% Factor</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Range Output Result Column -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        <div class="p-8 rounded-2xl bg-neutral-950 border border-red-500/30 shadow-[0_0_40px_rgba(232,33,39,0.1)] text-center">
+          <div class="text-xs font-mono uppercase tracking-widest text-neutral-400">Estimated Total Real-World Range</div>
+          <div class="my-4">
+            <span id="calc-range-output" class="text-6xl sm:text-7xl font-black text-white font-['Chakra_Petch',sans-serif]">340</span>
+            <span class="text-xl sm:text-2xl font-mono text-red-500 ml-1">MILES</span>
+          </div>
+          <p class="text-xs text-neutral-400 font-mono">
+            Based on active selected parameters and battery condition
+          </p>
+
+          <div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-around text-xs font-mono">
+            <div>
+              <div class="text-neutral-400 uppercase">Supercharger Time</div>
+              <div class="text-sm font-bold text-white mt-1">15 - 20 Mins</div>
+            </div>
+            <div class="h-8 w-px bg-white/10"></div>
+            <div>
+              <div class="text-neutral-400 uppercase">Global Stalls</div>
+              <div class="text-sm font-bold text-white mt-1">50,000+ Available</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  const packStandard = document.getElementById('pack-standard');
+  const packExtender = document.getElementById('pack-extender');
+  const speedSlider = document.getElementById('speed-slider') as HTMLInputElement;
+  const speedLabel = document.getElementById('speed-label');
+  const tempSlider = document.getElementById('temp-slider') as HTMLInputElement;
+  const tempLabel = document.getElementById('temp-label');
+  const towingCheck = document.getElementById('towing-check') as HTMLInputElement;
+  const calcRangeOutput = document.getElementById('calc-range-output');
+
+  let baseRange = 340;
+
+  function updateRange() {
+    let range = baseRange;
+    const speed = parseInt(speedSlider?.value || '65', 10);
+    const temp = parseInt(tempSlider?.value || '70', 10);
+    const isTowing = towingCheck?.checked || false;
+
+    // Speed impact
+    if (speed > 65) {
+      range *= (1 - (speed - 65) * 0.012);
+    } else if (speed < 65) {
+      range *= (1 + (65 - speed) * 0.008);
+    }
+
+    // Temperature impact
+    if (temp < 60) {
+      range *= (1 - (60 - temp) * 0.0035);
+    } else if (temp > 85) {
+      range *= (1 - (temp - 85) * 0.002);
+    }
+
+    // Towing impact
+    if (isTowing) {
+      range *= 0.62;
+    }
+
+    if (calcRangeOutput) {
+      calcRangeOutput.innerText = Math.round(range).toString();
+    }
+  }
+
+  packStandard?.addEventListener('click', () => {
+    playCyberClick();
+    baseRange = 340;
+    packStandard.className = 'pack-btn active p-3 rounded-xl border border-white/30 bg-white/10 text-left transition-all';
+    packExtender?.classList.remove('border-white/30', 'bg-white/10');
+    packExtender?.classList.add('border-white/10', 'bg-neutral-900');
+    updateRange();
+  });
+
+  packExtender?.addEventListener('click', () => {
+    playCyberClick();
+    baseRange = 470;
+    packExtender.className = 'pack-btn active p-3 rounded-xl border border-white/30 bg-white/10 text-left transition-all';
+    packStandard?.classList.remove('border-white/30', 'bg-white/10');
+    packStandard?.classList.add('border-white/10', 'bg-neutral-900');
+    updateRange();
+  });
+
+  speedSlider?.addEventListener('input', () => {
+    if (speedLabel) speedLabel.innerText = `${speedSlider.value} MPH`;
+    updateRange();
+  });
+
+  tempSlider?.addEventListener('input', () => {
+    if (tempLabel) tempLabel.innerText = `${tempSlider.value}°F`;
+    updateRange();
+  });
+
+  towingCheck?.addEventListener('change', () => {
+    playCyberClick();
+    updateRange();
+  });
+</script>

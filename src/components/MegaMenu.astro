@@ -1,0 +1,105 @@
+---
+// Mega menu navigation overlay
+const vehicles = [
+  {
+    name: "Cybertruck",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Tesla_Cybertruck.jpg",
+    specs: "0-60 in 2.6s | 11,000 lbs towing",
+    active: true,
+    link: "#"
+  },
+  {
+    name: "Model S",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/2018_Tesla_Model_S_75D.jpg/640px-2018_Tesla_Model_S_75D.jpg",
+    specs: "0-60 in 1.99s | 402 mi range",
+    link: "https://www.tesla.com/models"
+  },
+  {
+    name: "Model 3",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2019_Tesla_Model_3_Performance_AWD_Front.jpg/640px-2019_Tesla_Model_3_Performance_AWD_Front.jpg",
+    specs: "0-60 in 2.9s | 363 mi range",
+    link: "https://www.tesla.com/model3"
+  },
+  {
+    name: "Model X",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Tesla_Model_X_front_view_%2816362544778%29.jpg/640px-Tesla_Model_X_front_view_%2816362544778%29.jpg",
+    specs: "0-60 in 2.5s | Falcon Wing Doors",
+    link: "https://www.tesla.com/modelx"
+  },
+  {
+    name: "Model Y",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tesla_Model_Y_AWD_white.jpg/640px-Tesla_Model_Y_AWD_white.jpg",
+    specs: "0-60 in 3.5s | 337 mi range",
+    link: "https://www.tesla.com/modely"
+  }
+];
+
+const energy = [
+  { name: "Solar Panels", desc: "Use clean energy to power your home" },
+  { name: "Solar Roof", desc: "Produce clean energy with your roof" },
+  { name: "Powerwall", desc: "Backup protection & outage security" },
+  { name: "Megapack", desc: "Massive energy storage for utilities" }
+];
+
+const charging = [
+  { name: "Charging", desc: "Charge anywhere across the globe" },
+  { name: "Home Charging", desc: "Overnight charging at home" },
+  { name: "Supercharging", desc: "Fast charging along popular routes" },
+  { name: "Commercial Charging", desc: "Charging for your business" }
+];
+---
+
+<div id="mega-menu" class="hidden absolute top-full left-0 w-full bg-[#0a0b0e]/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-300 z-40 text-white shadow-2xl">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <!-- Vehicles Panel -->
+    <div id="panel-vehicles" class="mega-panel">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+        {vehicles.map((v) => (
+          <div class={`group cursor-pointer rounded-lg p-3 transition-all ${v.active ? 'bg-white/5 border border-white/10' : 'hover:bg-white/5'}`}>
+            <div class="aspect-[16/10] overflow-hidden rounded mb-3 bg-neutral-900/50">
+              <img src={v.img} alt={v.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <h4 class="font-bold text-base text-white tracking-wide">{v.name}</h4>
+            <p class="text-xs text-neutral-400 mt-1">{v.specs}</p>
+            <div class="flex gap-4 mt-3 text-xs underline font-medium text-neutral-300 group-hover:text-white">
+              <span>Order</span>
+              <span>Learn</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Energy Panel -->
+    <div id="panel-energy" class="mega-panel hidden">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {energy.map((e) => (
+          <div class="p-4 rounded-lg hover:bg-white/5 transition-all cursor-pointer border border-white/5">
+            <h4 class="font-bold text-lg text-white mb-1">{e.name}</h4>
+            <p class="text-sm text-neutral-400 mb-4">{e.desc}</p>
+            <div class="flex gap-4 text-xs underline font-medium text-neutral-300">
+              <span>Order</span>
+              <span>Learn</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Charging Panel -->
+    <div id="panel-charging" class="mega-panel hidden">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {charging.map((c) => (
+          <div class="p-4 rounded-lg hover:bg-white/5 transition-all cursor-pointer border border-white/5">
+            <h4 class="font-bold text-lg text-white mb-1">{c.name}</h4>
+            <p class="text-sm text-neutral-400 mb-4">{c.desc}</p>
+            <div class="flex gap-4 text-xs underline font-medium text-neutral-300">
+              <span>Learn</span>
+              <span>Find</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

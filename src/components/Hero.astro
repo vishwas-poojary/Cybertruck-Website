@@ -1,0 +1,187 @@
+---
+// Hero Section with high-def video background & dynamic specs ticker
+---
+
+<section id="hero" class="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-black select-none">
+  <!-- Background Video / Image Layer -->
+  <div class="absolute inset-0 z-0">
+    <video
+      id="hero-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      poster="https://images.unsplash.com/photo-1785910723932-d8514bf53b61?auto=format&fit=crop&w=2400&q=90"
+      class="w-full h-full object-cover object-center brightness-[0.78] contrast-[1.12]"
+    >
+      <source
+        src="https://digitalassets.tesla.com/tesla-contents/video/upload/Cybertruck-Keep-the-Adventure-Going-Desktop.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <!-- Gradient Overlays for Tesla High-End Aesthetic -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/60 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none"></div>
+  </div>
+
+  <!-- Top Hero Title -->
+  <div class="relative z-10 pt-32 md:pt-36 text-center px-4">
+    <h1 class="hero-title font-['Chakra_Petch',sans-serif] font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[0.2em] md:tracking-[0.28em] text-white uppercase drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)]">
+      CYBERTRUCK
+    </h1>
+    <p class="hero-subtitle text-neutral-300 font-mono tracking-widest text-xs sm:text-sm uppercase mt-2 opacity-90">
+      Built For Any Adventure • 30X Cold-Rolled Stainless Steel
+    </p>
+  </div>
+
+  <!-- Bottom Interactive Specs Bar & CTAs -->
+  <div class="relative z-10 pb-10 md:pb-14 px-6 max-w-6xl mx-auto w-full">
+    <!-- Model Variant Tabs -->
+    <div class="flex justify-center mb-6">
+      <div class="inline-flex p-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono">
+        <button
+          class="hero-tab px-4 py-1.5 rounded-full transition-all text-white bg-white/20 font-semibold"
+          data-model="cyberbeast"
+        >
+          Cyberbeast
+        </button>
+        <button
+          class="hero-tab px-4 py-1.5 rounded-full transition-all text-neutral-400 hover:text-white"
+          data-model="awd"
+        >
+          All-Wheel Drive
+        </button>
+        <button
+          class="hero-tab px-4 py-1.5 rounded-full transition-all text-neutral-400 hover:text-white"
+          data-model="rwd"
+        >
+          Rear-Wheel Drive
+        </button>
+      </div>
+    </div>
+
+    <!-- Specs Grid -->
+    <div class="grid grid-cols-3 gap-2 sm:gap-6 text-center mb-8 max-w-3xl mx-auto">
+      <!-- Towing -->
+      <div class="p-2 sm:p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/5 transition-transform hover:-translate-y-1">
+        <div id="stat-towing" class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-['Chakra_Petch',sans-serif]">
+          11,000 <span class="text-xs sm:text-sm font-normal text-neutral-400">LBS</span>
+        </div>
+        <div class="text-[10px] sm:text-xs tracking-wider uppercase text-neutral-400 mt-1">
+          Towing Capacity
+        </div>
+      </div>
+
+      <!-- Range -->
+      <div class="p-2 sm:p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/5 transition-transform hover:-translate-y-1">
+        <div id="stat-range" class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-['Chakra_Petch',sans-serif]">
+          320 <span class="text-xs sm:text-sm font-normal text-neutral-400">MI</span>
+        </div>
+        <div class="text-[10px] sm:text-xs tracking-wider uppercase text-neutral-400 mt-1">
+          Est. Range (440+ Ext.)
+        </div>
+      </div>
+
+      <!-- 0-60 mph -->
+      <div class="p-2 sm:p-4 rounded-xl bg-black/40 backdrop-blur-md border border-white/5 transition-transform hover:-translate-y-1">
+        <div id="stat-accel" class="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-['Chakra_Petch',sans-serif]">
+          2.6 <span class="text-xs sm:text-sm font-normal text-neutral-400">SEC</span>
+        </div>
+        <div class="text-[10px] sm:text-xs tracking-wider uppercase text-neutral-400 mt-1">
+          0-60 MPH (Beast Mode)
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+      <a
+        href="#order"
+        class="w-full sm:w-1/2 py-3.5 px-6 rounded text-center text-black bg-white hover:bg-neutral-200 font-bold text-sm tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(255,255,255,0.25)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+      >
+        Order Now
+      </a>
+      <button
+        id="hero-demo-drive-btn"
+        class="w-full sm:w-1/2 py-3.5 px-6 rounded text-center text-white bg-black/50 hover:bg-white/10 border border-white/30 backdrop-blur-md font-semibold text-sm tracking-wider uppercase transition-all"
+      >
+        Demo Drive
+      </button>
+    </div>
+
+    <!-- Animated Scroll Chevron -->
+    <div class="flex justify-center mt-6">
+      <a href="#adventure" class="text-neutral-400 hover:text-white transition-colors animate-bounce p-2" aria-label="Scroll down to Adventure section">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  // Model Specs Mapping
+  const specsData = {
+    cyberbeast: {
+      towing: '11,000',
+      towingUnit: 'LBS',
+      range: '320',
+      rangeNote: 'Est. Range (440+ Ext.)',
+      accel: '2.6',
+      accelNote: '0-60 MPH (Beast Mode)'
+    },
+    awd: {
+      towing: '11,000',
+      towingUnit: 'LBS',
+      range: '340',
+      rangeNote: 'Est. Range (470+ Ext.)',
+      accel: '4.1',
+      accelNote: '0-60 MPH'
+    },
+    rwd: {
+      towing: '7,500',
+      towingUnit: 'LBS',
+      range: '250',
+      rangeNote: 'Est. Range',
+      accel: '6.5',
+      accelNote: '0-60 MPH'
+    }
+  };
+
+  const tabs = document.querySelectorAll('.hero-tab');
+  const statTowing = document.getElementById('stat-towing');
+  const statRange = document.getElementById('stat-range');
+  const statAccel = document.getElementById('stat-accel');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const model = tab.getAttribute('data-model') as keyof typeof specsData;
+      if (!model || !specsData[model]) return;
+
+      playCyberClick();
+
+      // Update Active Tab Styling
+      tabs.forEach((t) => {
+        t.classList.remove('bg-white/20', 'text-white', 'font-semibold');
+        t.classList.add('text-neutral-400');
+      });
+      tab.classList.add('bg-white/20', 'text-white', 'font-semibold');
+      tab.classList.remove('text-neutral-400');
+
+      // Update Stats
+      const data = specsData[model];
+      if (statTowing) {
+        statTowing.innerHTML = `${data.towing} <span class="text-xs sm:text-sm font-normal text-neutral-400">${data.towingUnit}</span>`;
+      }
+      if (statRange) {
+        statRange.innerHTML = `${data.range} <span class="text-xs sm:text-sm font-normal text-neutral-400">MI</span>`;
+      }
+      if (statAccel) {
+        statAccel.innerHTML = `${data.accel} <span class="text-xs sm:text-sm font-normal text-neutral-400">SEC</span>`;
+      }
+    });
+  });
+</script>
