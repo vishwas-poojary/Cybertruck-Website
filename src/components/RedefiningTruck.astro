@@ -76,7 +76,7 @@ const carouselSlides = [
     </div>
 
     <!-- Section Copy (Exact match to screenshot) -->
-    <div class="mt-10 sm:mt-14 max-w-4xl">
+    <div id="redefining-text-container" class="mt-10 sm:mt-14 max-w-4xl">
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]">
         Redefining the Pickup Truck
       </h2>
@@ -86,13 +86,13 @@ const carouselSlides = [
     </div>
   </div>
 
-  <!-- Full-Bleed Horizontal Video Carousel Section (Bleeds to the right edge of screen, zero white gap on right) -->
-  <div class="relative w-full mt-10 sm:mt-14 overflow-hidden">
+  <!-- Horizontal Video Carousel Section (Bleeds to right screen edge with NO empty white space, starting position untouched) -->
+  <div class="relative w-full mt-10 sm:mt-14">
     <div class="relative w-full">
-      <!-- Left Chevron Previous (Vertically centered on the video box) -->
+      <!-- Left Chevron '<' (Vertically centered on the video box) -->
       <button
         id="carousel-prev-btn"
-        class="absolute left-3 sm:left-6 lg:left-8 top-[34%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-200/50"
+        class="absolute left-4 sm:left-8 top-[35%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-200/50"
         aria-label="Previous slide"
         title="Previous"
       >
@@ -101,10 +101,10 @@ const carouselSlides = [
         </svg>
       </button>
 
-      <!-- Right Chevron Next (Vertically centered on the video box) -->
+      <!-- Right Chevron '>' (Vertically centered on the video box) -->
       <button
         id="carousel-next-btn"
-        class="absolute right-3 sm:right-6 lg:right-8 top-[34%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer border border-neutral-200/50"
+        class="absolute right-4 sm:right-8 lg:right-16 top-[35%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer border border-neutral-200/50"
         aria-label="Next slide"
         title="Next"
       >
@@ -113,18 +113,18 @@ const carouselSlides = [
         </svg>
       </button>
 
-      <!-- Horizontal Scrollable Track (Full-bleed across viewport, dynamic left padding aligned to title) -->
+      <!-- Horizontal Scrollable Track (Full-bleed on right edge, padding-left matched to container margin) -->
       <div
         id="carousel-track"
-        class="flex gap-4 sm:gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full"
+        class="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full pr-8"
         style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
       >
         {carouselSlides.map((slide, index) => (
           <div
-            class="carousel-card flex-none w-[82vw] sm:w-[78vw] max-w-[1080px] snap-start relative group"
+            class="carousel-card flex-none w-[84vw] sm:w-[80vw] lg:w-[800px] xl:w-[840px] snap-start relative group"
             data-index={index}
           >
-            <!-- Angular Cut Chamfer Container (16:9 full cinematic height matching real website aa7e42e8 & 037a2d6a) -->
+            <!-- Angular Cut Chamfer Container (16:9 full cinematic height matching real website aa7e42e8) -->
             <div
               class="relative w-full aspect-[16/9] bg-neutral-900 overflow-hidden shadow-sm"
               style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
@@ -233,24 +233,26 @@ const carouselSlides = [
 
   let currentSlideIndex = 0;
 
-  // Align carousel track's left padding to match the container's left edge exactly
-  function alignCarouselPadding() {
-    if (!track) return;
-    const titleEl = document.querySelector('#redefining h2');
-    if (titleEl) {
-      const leftMargin = Math.max(24, titleEl.getBoundingClientRect().left);
-      track.style.paddingLeft = `${leftMargin}px`;
-      track.style.paddingRight = `${leftMargin}px`;
+  // Synchronize carousel track padding to perfectly match page container left margin (untouched start, full right bleed)
+  function syncCarouselMargin() {
+    const textContainer = document.getElementById('redefining-text-container');
+    const track = document.getElementById('carousel-track');
+    if (!textContainer || !track) return;
+
+    const leftOffset = textContainer.getBoundingClientRect().left;
+    if (leftOffset > 0) {
+      track.style.paddingLeft = `${leftOffset}px`;
     }
   }
 
-  alignCarouselPadding();
-  window.addEventListener('resize', alignCarouselPadding, { passive: true });
+  window.addEventListener('resize', syncCarouselMargin, { passive: true });
+  syncCarouselMargin();
+  window.addEventListener('load', syncCarouselMargin);
 
   function scrollToSlide(index: number) {
     if (!track || !cards[index]) return;
     const targetCard = cards[index];
-    const trackPaddingLeft = parseFloat(track.style.paddingLeft) || 0;
+    const trackPaddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
     const scrollTarget = targetCard.offsetLeft - trackPaddingLeft;
     track.scrollTo({ left: scrollTarget, behavior: 'smooth' });
     updateActiveSlideState(index);
@@ -360,13 +362,13 @@ const carouselSlides = [
       scrollTimeout = window.setTimeout(() => {
         if (!track) return;
         const scrollLeft = track.scrollLeft;
-        const trackPaddingLeft = parseFloat(track.style.paddingLeft) || 0;
         let closestIndex = 0;
         let minDiff = Infinity;
 
+        const trackPaddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
         cards.forEach((card, i) => {
-          const cardOffset = card.offsetLeft - trackPaddingLeft;
-          const diff = Math.abs(scrollLeft - cardOffset);
+          const cardTarget = card.offsetLeft - trackPaddingLeft;
+          const diff = Math.abs(scrollLeft - cardTarget);
           if (diff < minDiff) {
             minDiff = diff;
             closestIndex = i;
