@@ -23,16 +23,31 @@
 
 ## 🚀 Key Features & Interactive Replications
 
-### 1. Global Navigation & Cybertruck Sub-Nav
-- Exact Tesla vector wordmark logo.
-- Hover-activated **Tesla Mega Menu** showcasing Models (Cybertruck, Model S, Model 3, Model X, Model Y), Energy products, and Charging networks.
-- Sticky secondary **Cybertruck Sub-Navigation** that anchors to sections on scroll (Adventure, Exoskeleton, Armor Glass, Vault, PowerShare, Interior, Performance, Specs, Accessories).
-- Fully responsive mobile drawer navigation.
+### 1. Top Promotional Banner & Header Navigation
+- **Gold Trade-In Banner**: Authentic `#dfc397` sand banner highlighting *"Trade In Your Gas Car and Receive 2,000 Free Supercharging Miles"* with *"Get a Trade-In Estimate"* black pill button and pagination toggle.
+- **Tesla Wordmark**: Exact letter-spaced vector logo.
+- **Header Items**: `Vehicles`, `Energy`, `Charging`, `Robotaxi`, `Semi`, `Discover`, `Shop`.
+- **Right Utility Icons**: Help circle `(?)`, Language globe, and Account profile circle.
+- **Pixel-Perfect White Mega Menu**: Opens seamlessly on hover with pure white background, exact product renders from Tesla CDN, and categorized right-hand link columns for:
+  - **Vehicles**: Model 3, Model Y, Cybertruck, Roadster, Full Self-Driving (Supervised), and Inventory + 13 model/service links.
+  - **Energy**: Solar Panels, Powerwall, Megapack + Consultation & utility links.
+  - **Charging**: Mobile Connector, Home Charging, Supercharging, Commercial Superchargers + voting and NACS links.
+  - **Robotaxi**: Autonomous Cybercab showcase + safety & first responder links.
+  - **Semi**: Heavy duty electric hauler specs & fleet inquiries.
 
-### 2. Cinematic Hero Section
-- High-definition video background loop (`https://digitalassets.tesla.com/tesla-contents/video/upload/Cybertruck-Keep-the-Adventure-Going-Desktop.mp4`) with fallbacks.
-- Iconic bold Cybertruck typography.
-- Interactive model switcher: **Cyberbeast** (2.6s 0-60, 320 mi) vs **All-Wheel Drive** (4.1s 0-60, 340 mi) vs **Rear-Wheel Drive** (6.5s 0-60, 250 mi) with dynamic spec updates.
+### 2. Authentic Cybertruck Hero Section
+- **Background**: High-resolution dusk photography of Cybertruck perched on rocky desert terrain (`Cybertruck-Hero-Desktop-v2.jpg`).
+- **Official Cybertruck Graffiti Logo**: Pure vector SVG spray-paint graffiti brandmark with *"Lease From $1,129/mo"* link.
+- **Hero CTA Buttons**:
+  - `Order Now`: Signature Tesla Electric Blue (`#3e6ae1`).
+  - `Compare Models`: Clean solid white with dark typography.
+- **Rock Ledge Specification Badges**:
+  - `5-Star` Safety Rating¹
+  - `325 mi` Range (EPA est.)²
+  - `6'x4'` Bed
+- **Floating Interactive Bar**:
+  - *"Ask a Question: 'Where can I drive the Cybertruck?'"* search pill.
+  - *"Schedule a Drive Today"* pill with steering wheel icon that triggers the test drive modal.
 
 ### 3. Built for Any Adventure (Adaptive Air Suspension)
 - 12" air suspension travel and up to 17.4" ground clearance in Extract Mode.
