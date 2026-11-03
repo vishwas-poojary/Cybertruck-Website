@@ -6,31 +6,31 @@ const carouselSlides = [
   {
     id: 'bring',
     title: 'Bring It All',
-    description: 'Haul everything you need with 2,500 lbs payload and 11,000 lbs towing capacity.',
+    description: 'Weekend road trips, outdoor adventures or a day at the job site—with up to 120 cubic feet of cargo space, you can bring along everything you need. Second-row seat cushions fold up for even more storage.',
     src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-1-Bring-Desktop-v2.webm`,
   },
   {
     id: 'power',
-    title: 'Power on Tap',
-    description: 'Power your tools or charge any EV with integrated 120V and 240V bed and cabin outlets.',
+    title: 'Power On Tap',
+    description: 'Two 120 V outlets in the cabin and two 120 V outlets in the bed (plus one 240 V outlet for heavy-duty power). Together they deliver up to 9.6 kW of continuous power to run power tools, compressors to charge another EV.',
     src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-2-Power-Desktop-v2.webm`,
   },
   {
     id: 'motion',
     title: 'Full Range of Motion',
-    description: 'Navigate tight turns with standard steer-by-wire and four-wheel steering.',
+    description: 'Navigate tight spaces with standard steer-by-wire and four-wheel steering. Experience tight turns with a turning radius smaller than most sedans.',
     src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-3-Motion-Desktop-v2.webm`,
   },
   {
     id: 'lock',
     title: 'Lockable Storage',
-    description: 'Secure cargo in the composite bed with motorized tonneau cover and sub-trunk.',
+    description: 'Secure and conceal your gear in the motorized tonneau cover and hidden bed vault. Protect tools and equipment from weather and theft.',
     src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-4-Lock-Desktop.webm`,
   },
   {
     id: 'throw',
     title: 'Throw Anything at It',
-    description: 'Ultra-hard stainless steel exoskeleton helps reduce dents, damage and long-term corrosion.',
+    description: 'An ultra-hard stainless steel exoskeleton helps reduce dents, damage and long-term corrosion. Built to endure the toughest tasks.',
     src: `${import.meta.env.BASE_URL}Cybertruck-Redefining-Carousel-Slide-5-Throw-Desktop.webm`,
   },
 ];
@@ -38,11 +38,11 @@ const carouselSlides = [
 
 <section id="redefining" class="relative bg-white text-[#171a20] py-16 md:py-24 select-none overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
-    <!-- Chamfered Intro Video Container (Top-right & Bottom-left 45-degree chamfers) -->
+    <!-- Chamfered Intro Video Container (Refined 24px chamfer matching real Tesla website) -->
     <div class="relative w-full group">
       <div
-        class="redefining-video-wrapper relative w-full aspect-[16/9] sm:aspect-[21/9] bg-neutral-900 overflow-hidden"
-        style="clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 56px 100%, 0 calc(100% - 56px));"
+        class="redefining-video-wrapper relative w-full aspect-[16/9] sm:aspect-[2.4/1] bg-neutral-900 overflow-hidden"
+        style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
       >
         <video
           id="redefining-video"
@@ -58,7 +58,7 @@ const carouselSlides = [
         <!-- Bottom-Left Play / Pause Button -->
         <button
           id="redefining-play-pause-btn"
-          class="absolute bottom-6 left-8 sm:bottom-7 sm:left-9 z-20 w-11 h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+          class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
           aria-label="Pause or play video"
           title="Pause / Play"
         >
@@ -86,14 +86,14 @@ const carouselSlides = [
     </div>
   </div>
 
-  <!-- Horizontal Video Carousel Section (Matching screenshots 74e9ed6f & 30ad80e6) -->
+  <!-- Horizontal Video Carousel Section (Exact component structure & sizing matching real website screenshots) -->
   <div class="relative w-full mt-10 sm:mt-14">
     <!-- Carousel Track Wrapper with Chevrons -->
     <div class="relative w-full">
-      <!-- Left Chevron '<' -->
+      <!-- Left Chevron '<' (Vertically centered on the video box) -->
       <button
         id="carousel-prev-btn"
-        class="absolute left-4 sm:left-10 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-200/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer opacity-0 pointer-events-none"
+        class="absolute left-3 sm:left-6 lg:left-8 top-[36%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-200/50"
         aria-label="Previous slide"
         title="Previous"
       >
@@ -102,10 +102,10 @@ const carouselSlides = [
         </svg>
       </button>
 
-      <!-- Right Chevron '>' -->
+      <!-- Right Chevron '>' (Vertically centered on the video box) -->
       <button
         id="carousel-next-btn"
-        class="absolute right-4 sm:right-10 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-200/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+        class="absolute right-3 sm:right-6 lg:right-8 top-[36%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer border border-neutral-200/50"
         aria-label="Next slide"
         title="Next"
       >
@@ -117,18 +117,18 @@ const carouselSlides = [
       <!-- Horizontal Scrollable Track -->
       <div
         id="carousel-track"
-        class="flex gap-6 sm:gap-8 overflow-x-auto scrollbar-none snap-x snap-mandatory px-6 md:px-12 scroll-smooth py-2"
+        class="flex gap-4 sm:gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory px-6 md:px-12 lg:px-20 scroll-smooth py-2"
         style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
       >
         {carouselSlides.map((slide, index) => (
           <div
-            class="carousel-card flex-none w-[88vw] sm:w-[82vw] lg:w-[1040px] max-w-[92vw] snap-center relative group"
+            class="carousel-card flex-none w-[82vw] sm:w-[78vw] max-w-[1080px] snap-start relative group"
             data-index={index}
           >
-            <!-- Angular Cut Chamfer Container (Top-right & Bottom-left 45-degree chamfers) -->
+            <!-- Angular Cut Chamfer Container (Exact 24px chamfers matching real Tesla website) -->
             <div
-              class="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-neutral-900 overflow-hidden"
-              style="clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 56px 100%, 0 calc(100% - 56px));"
+              class="relative w-full aspect-[16/9] sm:aspect-[2.4/1] bg-neutral-900 overflow-hidden shadow-sm"
+              style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
             >
               <video
                 class="carousel-video w-full h-full object-cover object-center"
@@ -140,9 +140,9 @@ const carouselSlides = [
                 <source src={slide.src} type="video/webm" />
               </video>
 
-              <!-- Bottom-Left Play / Pause Button on each slide (matching screenshot 74e9ed6f) -->
+              <!-- Bottom-Left Play / Pause Button on each slide (matching real Tesla website) -->
               <button
-                class="carousel-play-pause-btn absolute bottom-6 left-8 sm:bottom-7 sm:left-9 z-20 w-11 h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+                class="carousel-play-pause-btn absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
                 aria-label={`Toggle play/pause for ${slide.title}`}
                 data-index={index}
               >
@@ -157,24 +157,24 @@ const carouselSlides = [
                 </svg>
               </button>
             </div>
+
+            <!-- Slide Title and Description Directly Underneath Its Video (Exact match to real website screenshot d617ff28) -->
+            <div class="mt-4 sm:mt-5 pr-4">
+              <h3 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#171a20]">
+                {slide.title}
+              </h3>
+              <p class="text-neutral-600 text-sm sm:text-base font-normal mt-2 leading-relaxed max-w-2xl">
+                {slide.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Active Slide Title, Subtitle, and Progress Indicators -->
-    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-8 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
-      <div>
-        <h3 id="carousel-active-title" class="text-xl sm:text-2xl font-medium tracking-tight text-[#171a20] transition-opacity duration-200">
-          {carouselSlides[0].title}
-        </h3>
-        <p id="carousel-active-desc" class="text-neutral-600 text-sm sm:text-base font-normal mt-1 leading-relaxed transition-opacity duration-200">
-          {carouselSlides[0].description}
-        </p>
-      </div>
-
-      <!-- Navigation Dots / Interactive Pills -->
-      <div class="flex items-center gap-2 shrink-0">
+    <!-- Bottom Indicator Pills (Optional indicator bar aligned with page) -->
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-6 flex justify-end">
+      <div class="flex items-center gap-2">
         {carouselSlides.map((slide, i) => (
           <button
             class={`carousel-dot h-1.5 transition-all rounded-full cursor-pointer ${i === 0 ? 'w-8 bg-[#171a20]' : 'w-2 bg-neutral-300 hover:bg-neutral-400'}`}
@@ -231,31 +231,6 @@ const carouselSlides = [
   const videos = document.querySelectorAll<HTMLVideoElement>('.carousel-video');
   const playPauseBtns = document.querySelectorAll<HTMLButtonElement>('.carousel-play-pause-btn');
   const dots = document.querySelectorAll<HTMLButtonElement>('.carousel-dot');
-  const activeTitle = document.getElementById('carousel-active-title');
-  const activeDesc = document.getElementById('carousel-active-desc');
-
-  const slidesData = [
-    {
-      title: 'Bring It All',
-      description: 'Haul everything you need with 2,500 lbs payload and 11,000 lbs towing capacity.',
-    },
-    {
-      title: 'Power on Tap',
-      description: 'Power your tools or charge any EV with integrated 120V and 240V bed and cabin outlets.',
-    },
-    {
-      title: 'Full Range of Motion',
-      description: 'Navigate tight turns with standard steer-by-wire and four-wheel steering.',
-    },
-    {
-      title: 'Lockable Storage',
-      description: 'Secure cargo in the composite bed with motorized tonneau cover and sub-trunk.',
-    },
-    {
-      title: 'Throw Anything at It',
-      description: 'Ultra-hard stainless steel exoskeleton helps reduce dents, damage and long-term corrosion.',
-    },
-  ];
 
   let currentSlideIndex = 0;
 
@@ -302,12 +277,6 @@ const carouselSlides = [
         dot.classList.add('w-2', 'bg-neutral-300');
       }
     });
-
-    // Update Title and Description
-    if (activeTitle && activeDesc && slidesData[currentSlideIndex]) {
-      activeTitle.textContent = slidesData[currentSlideIndex].title;
-      activeDesc.textContent = slidesData[currentSlideIndex].description;
-    }
 
     // Autoplay current slide video, pause others
     videos.forEach((video, i) => {
