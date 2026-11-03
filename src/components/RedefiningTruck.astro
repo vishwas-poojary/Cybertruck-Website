@@ -86,10 +86,16 @@ const carouselSlides = [
     </div>
   </div>
 
-  <!-- Horizontal Video Carousel Section (Exact 11vw starting gap matching screenshot 5b333db3) -->
+  <!-- Horizontal Video Carousel Section (Exact 11vw starting gap matching screenshot 5b333db3 & 9bed690a) -->
   <div class="relative w-full mt-10 sm:mt-14">
     <div class="relative w-full">
-      <!-- Left Chevron '<' (Vertically centered on the video box) -->
+      <!-- Left solid white curtain (preserves the exact 11vw left white space when scrolling, matching real Tesla website) -->
+      <div
+        id="carousel-left-curtain"
+        class="absolute left-0 top-0 bottom-0 w-6 md:w-[11vw] bg-white z-20 pointer-events-none"
+      ></div>
+
+      <!-- Left Chevron '<' (Vertically centered on the video box, z-30 above curtain) -->
       <button
         id="carousel-prev-btn"
         class="absolute left-4 md:left-[9vw] top-[35%] -translate-y-1/2 z-30 w-10 h-10 rounded-[10px] bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-200/50"
@@ -113,10 +119,10 @@ const carouselSlides = [
         </svg>
       </button>
 
-      <!-- Horizontal Scrollable Track (11vw left margin gap matching real Tesla website) -->
+      <!-- Horizontal Scrollable Track (11vw left margin gap and scroll-padding-left matching real Tesla website) -->
       <div
         id="carousel-track"
-        class="flex gap-4 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full pl-6 md:pl-[11vw] pr-6"
+        class="relative flex gap-4 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full pl-6 md:pl-[11vw] scroll-pl-6 md:scroll-pl-[11vw] pr-6"
         style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
       >
         {carouselSlides.map((slide, index) => (
@@ -233,15 +239,20 @@ const carouselSlides = [
 
   let currentSlideIndex = 0;
 
-  // Synchronize carousel track padding to perfectly match page container left margin (untouched start, full right bleed)
+  // Synchronize carousel track padding, scroll snap padding, and left curtain to perfectly match page container left margin
   function syncCarouselMargin() {
     const textContainer = document.getElementById('redefining-text-container');
     const track = document.getElementById('carousel-track');
+    const curtain = document.getElementById('carousel-left-curtain');
     if (!textContainer || !track) return;
 
     const leftOffset = textContainer.getBoundingClientRect().left;
     if (leftOffset > 0) {
       track.style.paddingLeft = `${leftOffset}px`;
+      track.style.scrollPaddingLeft = `${leftOffset}px`;
+      if (curtain) {
+        curtain.style.width = `${leftOffset}px`;
+      }
     }
   }
 
@@ -253,7 +264,8 @@ const carouselSlides = [
     if (!track || !cards[index]) return;
     const targetCard = cards[index];
     const trackPaddingLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
-    const scrollTarget = targetCard.offsetLeft - trackPaddingLeft;
+    // targetCard.offsetLeft measured relative to track (since track has position: relative)
+    const scrollTarget = Math.max(0, targetCard.offsetLeft - trackPaddingLeft);
     track.scrollTo({ left: scrollTarget, behavior: 'smooth' });
     updateActiveSlideState(index);
   }
