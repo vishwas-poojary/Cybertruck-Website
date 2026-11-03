@@ -1,10 +1,13 @@
 ---
 // Hero Section matching Screenshot 1 from tesla.com/cybertruck
 const graffitiLogo = `${import.meta.env.BASE_URL}cybertruck-graffiti.svg`;
-const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
+const heroBg = `${import.meta.env.BASE_URL}car.avif`;
 ---
 
-<section id="hero" class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#090b10] select-none">
+<section
+  id="hero"
+  class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#090b10] select-none"
+>
   <!-- Background Image: Cybertruck parked on rocky desert ledge at dusk (Screenshot 1) -->
   <div class="absolute inset-0 z-0">
     <img
@@ -14,15 +17,25 @@ const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
       loading="eager"
     />
     <!-- Subtle top vignette for nav contrast -->
-    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent pointer-events-none"></div>
+    <div
+      class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent pointer-events-none"
+    >
+    </div>
     <!-- Bottom vignette for stats readability -->
-    <div class="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none"></div>
+    <div
+      class="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none"
+    >
+    </div>
   </div>
 
   <!-- Center Hero Content (Graffiti Logo, Lease, & Dual CTAs) -->
-  <div class="relative z-10 pt-32 sm:pt-36 md:pt-40 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+  <div
+    class="relative z-10 pt-32 sm:pt-36 md:pt-40 text-center px-4 max-w-4xl mx-auto flex flex-col items-center"
+  >
     <!-- Authentic Spray-Paint Graffiti Cybertruck Logo (Screenshot 1) -->
-    <div class="w-full max-w-[340px] sm:max-w-[480px] md:max-w-[540px] drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+    <div
+      class="w-full max-w-[340px] sm:max-w-[480px] md:max-w-[540px] drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]"
+    >
       <img
         src={graffitiLogo}
         alt="CYBERTRUCK"
@@ -39,7 +52,9 @@ const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
     </a>
 
     <!-- Dual Action Buttons (Screenshot 1) -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-7 w-full max-w-sm sm:max-w-md mx-auto">
+    <div
+      class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-7 w-full max-w-sm sm:max-w-md mx-auto"
+    >
       <!-- Order Now (Tesla Electric Blue) -->
       <a
         href="#order"
@@ -59,59 +74,104 @@ const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
   </div>
 
   <!-- Bottom Stats & Floating Bar (Screenshot 1) -->
-  <div class="relative z-10 pb-6 px-6 max-w-6xl mx-auto w-full flex flex-col items-center">
+  <div
+    class="relative z-10 pb-6 px-6 max-w-6xl mx-auto w-full flex flex-col items-center"
+  >
     <!-- Key Specifications on the Rock Ledge -->
-    <div class="flex items-center justify-center gap-8 sm:gap-16 md:gap-24 text-center my-6">
+    <div
+      class="flex items-center justify-center gap-8 sm:gap-16 md:gap-24 text-center my-6"
+    >
       <!-- 5-Star Safety -->
       <div>
-        <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md">
+        <div
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md"
+        >
           5-Star
         </div>
-        <div class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow">
+        <div
+          class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow"
+        >
           Safety Rating¹
         </div>
       </div>
 
       <!-- 325 mi Range -->
       <div>
-        <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md">
+        <div
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md"
+        >
           325 mi
         </div>
-        <div class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow">
+        <div
+          class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow"
+        >
           Range (EPA est.)²
         </div>
       </div>
 
       <!-- 6'x4' Bed -->
       <div>
-        <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md">
+        <div
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md"
+        >
           6'x4'
         </div>
-        <div class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow">
+        <div
+          class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow"
+        >
           Bed
         </div>
       </div>
     </div>
 
     <!-- Fine Print Disclaimer -->
-    <p class="text-[10px] sm:text-[11px] text-neutral-400 font-normal tracking-tight text-center mb-6 opacity-90 drop-shadow">
+    <p
+      class="text-[10px] sm:text-[11px] text-neutral-400 font-normal tracking-tight text-center mb-6 opacity-90 drop-shadow"
+    >
       Images shown depict Cybertruck Premium AWD with optional upgrades.
     </p>
 
     <!-- Floating Interactive Action Bar (Exact from Screenshot 1) -->
-    <div class="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-center gap-3">
+    <div
+      class="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-center gap-3"
+    >
       <!-- Left: Ask a Question Pill -->
-      <div class="w-full sm:w-auto flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl bg-white/95 text-[#171a20] shadow-lg backdrop-blur-md text-xs sm:text-sm font-medium border border-neutral-200 hover:bg-white cursor-pointer transition-all">
+      <div
+        class="w-full sm:w-auto flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl bg-white/95 text-[#171a20] shadow-lg backdrop-blur-md text-xs sm:text-sm font-medium border border-neutral-200 hover:bg-white cursor-pointer transition-all"
+      >
         <div class="flex items-center gap-2 overflow-hidden truncate">
-          <svg class="w-4 h-4 text-neutral-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+          <svg
+            class="w-4 h-4 text-neutral-500 shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+            ></path>
           </svg>
           <span class="text-neutral-500 font-normal">Ask a Question</span>
-          <span class="text-neutral-800 font-semibold truncate">"Where can I drive the Cybertruck?"</span>
+          <span class="text-neutral-800 font-semibold truncate"
+            >"Where can I drive the Cybertruck?"</span
+          >
         </div>
-        <div class="w-6 h-6 rounded-full bg-neutral-200 flex items-center justify-center shrink-0 ml-2">
-          <svg class="w-3.5 h-3.5 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        <div
+          class="w-6 h-6 rounded-full bg-neutral-200 flex items-center justify-center shrink-0 ml-2"
+        >
+          <svg
+            class="w-3.5 h-3.5 text-neutral-700"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
           </svg>
         </div>
       </div>
@@ -121,10 +181,15 @@ const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
         id="hero-schedule-drive-btn"
         class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/95 hover:bg-white text-[#171a20] shadow-lg backdrop-blur-md text-xs sm:text-sm font-semibold border border-neutral-200 transition-all shrink-0 active:scale-95"
       >
-        <svg class="w-4 h-4 text-[#3e6ae1]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" stroke-width="2"/>
-          <circle cx="12" cy="12" r="3" stroke-width="2"/>
-          <path stroke-width="2" d="M12 3v6m0 6v6M3 12h6m6 0h6"/>
+        <svg
+          class="w-4 h-4 text-[#3e6ae1]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="9" stroke-width="2"></circle>
+          <circle cx="12" cy="12" r="3" stroke-width="2"></circle>
+          <path stroke-width="2" d="M12 3v6m0 6v6M3 12h6m6 0h6"></path>
         </svg>
         <span>Schedule a Drive Today</span>
       </button>
@@ -133,17 +198,17 @@ const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
 </section>
 
 <script>
-  import { playCyberClick } from '../utils/cyberSound';
+  import { playCyberClick } from "../utils/cyberSound";
 
   // Hook Schedule Drive action
-  const scheduleDriveBtn = document.getElementById('hero-schedule-drive-btn');
-  const demoDriveModal = document.getElementById('demo-drive-modal');
+  const scheduleDriveBtn = document.getElementById("hero-schedule-drive-btn");
+  const demoDriveModal = document.getElementById("demo-drive-modal");
 
-  scheduleDriveBtn?.addEventListener('click', () => {
+  scheduleDriveBtn?.addEventListener("click", () => {
     playCyberClick();
     if (demoDriveModal) {
-      demoDriveModal.classList.remove('hidden');
-      demoDriveModal.classList.add('flex');
+      demoDriveModal.classList.remove("hidden");
+      demoDriveModal.classList.add("flex");
     }
   });
 </script>
