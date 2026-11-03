@@ -1,0 +1,86 @@
+---
+// Inside/Outside Shatter-Resistant Glass & Cabin View Video Section (Exact match to real Tesla website screenshot c81a1614)
+const videoSrc = "/Cybertruck-InsideOutside-Desktop-v2.webm";
+---
+
+<section id="inside-outside" class="relative bg-white text-[#171a20] pt-6 pb-16 md:pt-8 md:pb-24 select-none overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <!-- Chamfered Video Container (Refined 24px chamfer matching screenshot c81a1614) -->
+    <div class="relative w-full group">
+      <div
+        class="inside-outside-video-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+        style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+      >
+        <video
+          id="inside-outside-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          class="w-full h-full object-cover object-center"
+        >
+          <source src={videoSrc} type="video/webm" />
+        </video>
+
+        <!-- Bottom-Left Play / Pause Button (Exact match to previous video layout) -->
+        <button
+          id="inside-outside-play-pause-btn"
+          class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+          aria-label="Pause or play video"
+          title="Pause / Play"
+        >
+          <!-- Pause Icon (Default) -->
+          <svg id="inside-pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
+            <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+          </svg>
+          <!-- Play Icon (Hidden) -->
+          <svg id="inside-play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  const video = document.getElementById('inside-outside-video') as HTMLVideoElement;
+  const btn = document.getElementById('inside-outside-play-pause-btn');
+  const pauseIcon = document.getElementById('inside-pause-icon');
+  const playIcon = document.getElementById('inside-play-icon');
+
+  btn?.addEventListener('click', () => {
+    playCyberClick();
+    if (!video) return;
+
+    if (video.paused) {
+      video.play().catch(() => {});
+      pauseIcon?.classList.remove('hidden');
+      playIcon?.classList.add('hidden');
+    } else {
+      video.pause();
+      pauseIcon?.classList.add('hidden');
+      playIcon?.classList.remove('hidden');
+    }
+  });
+
+  // Autoplay video when visible in viewport
+  if (video) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+  }
+</script>
