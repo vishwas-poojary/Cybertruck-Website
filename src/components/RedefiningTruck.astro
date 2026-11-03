@@ -5,12 +5,12 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
 
 <section id="redefining" class="relative bg-white text-[#171a20] py-16 md:py-24 px-6 md:px-12 select-none overflow-hidden">
   <div class="max-w-7xl mx-auto">
-    <!-- Chamfered Video Container (Exact Cybertruck angular geometry from screenshots) -->
-    <div class="relative w-full overflow-hidden shadow-2xl group">
+    <!-- Chamfered Video Container (Exact Cybertruck angular geometry matching screenshot) -->
+    <div class="relative w-full group">
       <!-- Angled Cut Video Box (Top-right & Bottom-left 45-degree chamfers) -->
       <div
         class="redefining-video-wrapper relative w-full aspect-[16/9] sm:aspect-[21/9] bg-neutral-900 overflow-hidden"
-        style="clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 36px 100%, 0 calc(100% - 36px));"
+        style="clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 56px 100%, 0 calc(100% - 56px));"
       >
         <video
           id="redefining-video"
@@ -23,20 +23,20 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
           <source src={videoSrc} type="video/webm" />
         </video>
 
-        <!-- Bottom-Left Play / Pause Button (Exact match to screenshot 1) -->
+        <!-- Bottom-Left Play / Pause Button (Exact match to user's screenshot close-up) -->
         <button
           id="redefining-play-pause-btn"
-          class="absolute bottom-6 left-6 z-20 w-11 h-11 rounded-lg bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-lg"
+          class="absolute bottom-6 left-8 sm:bottom-7 sm:left-9 z-20 w-11 h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
           aria-label="Pause or play video"
           title="Pause / Play"
         >
-          <!-- Pause Icon (Default) -->
-          <svg id="pause-icon" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <rect x="6" y="4" width="4" height="16" rx="1"/>
-            <rect x="14" y="4" width="4" height="16" rx="1"/>
+          <!-- Pause Icon (Default - exact proportions from screenshot 52d2121d) -->
+          <svg id="pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
+            <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
           </svg>
           <!-- Play Icon (Hidden) -->
-          <svg id="play-icon" class="w-4 h-4 fill-current hidden ml-0.5" viewBox="0 0 24 24">
+          <svg id="play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z"/>
           </svg>
         </button>
@@ -101,3 +101,4 @@ const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-Redefining-Desktop-v2.we
     }
   });
 </script>
+
