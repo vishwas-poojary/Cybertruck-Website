@@ -1,15 +1,17 @@
 ---
 // Hero Section matching Screenshot 1 from tesla.com/cybertruck
 const graffitiLogo = `${import.meta.env.BASE_URL}cybertruck-graffiti.svg`;
+const heroBg = `${import.meta.env.BASE_URL}hero-cybertruck.jpg`;
 ---
 
 <section id="hero" class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#090b10] select-none">
   <!-- Background Image: Cybertruck parked on rocky desert ledge at dusk (Screenshot 1) -->
   <div class="absolute inset-0 z-0">
     <img
-      src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Cybertruck-Hero-Desktop-v2.jpg"
+      src={heroBg}
       alt="Tesla Cybertruck at dusk"
-      class="w-full h-full object-cover object-center brightness-95 contrast-[1.05]"
+      class="w-full h-full object-cover object-center brightness-100 contrast-[1.02]"
+      loading="eager"
     />
     <!-- Subtle top vignette for nav contrast -->
     <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent pointer-events-none"></div>
