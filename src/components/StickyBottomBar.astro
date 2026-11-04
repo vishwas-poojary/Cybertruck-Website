@@ -7,7 +7,7 @@
   id="sticky-bottom-bar"
   class="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-40 flex items-center justify-center gap-2 pointer-events-auto select-none px-3"
 >
-  <!-- Left: Ask a Question Pill -->
+  <!-- Left: Ask a Question Pill (Exact match to Image 1) -->
   <button
     id="sticky-ask-btn"
     class="flex items-center justify-between h-[38px] px-3.5 rounded-[4px] bg-[#f4f4f4]/95 hover:bg-white text-[#171a20] shadow-[0_2px_8px_rgba(0,0,0,0.1)] backdrop-blur-md text-xs sm:text-[13px] border border-[#d0d1d2] transition-all cursor-pointer gap-2.5 max-w-[340px] sm:max-w-[420px]"
@@ -46,7 +46,7 @@
     </div>
   </button>
 
-  <!-- Right: Schedule a Drive Today Pill (Matching Image 1) -->
+  <!-- Right: Schedule a Drive Today Pill (Exact match to Image 1) -->
   <button
     id="sticky-drive-btn"
     class="open-demo-drive-action flex items-center gap-2 h-[38px] px-3.5 sm:px-4 rounded-[4px] bg-[#f4f4f4]/95 hover:bg-white text-[#171a20] shadow-[0_2px_8px_rgba(0,0,0,0.1)] backdrop-blur-md text-xs sm:text-[13px] font-medium border border-[#d0d1d2] shrink-0 transition-all cursor-pointer active:scale-[0.98]"
@@ -64,6 +64,86 @@
     </svg>
     <span class="text-[#171a20] font-medium whitespace-nowrap">Schedule a Drive Today</span>
   </button>
+</div>
+
+<!-- Tesla Assistant Interactive Drawer/Modal -->
+<div
+  id="tesla-ask-drawer"
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-end sm:items-center justify-center p-0 sm:p-4 transition-opacity duration-300 select-none"
+  aria-hidden="true"
+>
+  <div
+    class="w-full sm:max-w-lg bg-white text-[#171a20] rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[80vh] border border-[#d0d1d2]/40 animate-in fade-in slide-in-from-bottom duration-300"
+  >
+    <!-- Header -->
+    <div class="px-5 py-4 border-b border-[#e2e3e5] flex items-center justify-between bg-[#f9f9f9]">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-[#171a20] text-white flex items-center justify-center">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm text-[#171a20]">Tesla Assistant</h4>
+          <p class="text-[11px] text-[#686a6e]">Cybertruck Product Specialist</p>
+        </div>
+      </div>
+      <button
+        id="close-ask-drawer"
+        class="w-7 h-7 rounded-full hover:bg-[#e4e4e4] flex items-center justify-center text-[#5c5e62] hover:text-[#171a20] transition-colors"
+        aria-label="Close Assistant"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Messages Container -->
+    <div id="ask-chat-history" class="p-5 overflow-y-auto space-y-3.5 flex-1 text-[13px] leading-relaxed">
+      <!-- Welcome message -->
+      <div class="flex items-start gap-2.5">
+        <div class="w-6 h-6 rounded-full bg-[#171a20] text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">
+          T
+        </div>
+        <div class="bg-[#f0f1f2] rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%] text-[#171a20]">
+          Hello! What would you like to know about Cybertruck specs, Wade Mode, Pet Mode, range, or powershare capabilities?
+        </div>
+      </div>
+    </div>
+
+    <!-- Suggested Quick Prompts -->
+    <div class="px-5 py-2.5 border-t border-[#e2e3e5]/60 bg-[#fbfbfb] flex flex-wrap gap-1.5">
+      <button class="quick-prompt-chip text-xs bg-white border border-[#d0d1d2] hover:border-black/40 px-3 py-1 rounded-full text-[#393c41] hover:text-black transition-colors" data-q="What's Pet Mode?">
+        What's Pet Mode?
+      </button>
+      <button class="quick-prompt-chip text-xs bg-white border border-[#d0d1d2] hover:border-black/40 px-3 py-1 rounded-full text-[#393c41] hover:text-black transition-colors" data-q="What is Wade Mode?">
+        What is Wade Mode?
+      </button>
+      <button class="quick-prompt-chip text-xs bg-white border border-[#d0d1d2] hover:border-black/40 px-3 py-1 rounded-full text-[#393c41] hover:text-black transition-colors" data-q="How does Powershare work?">
+        How does Powershare work?
+      </button>
+      <button class="quick-prompt-chip text-xs bg-white border border-[#d0d1d2] hover:border-black/40 px-3 py-1 rounded-full text-[#393c41] hover:text-black transition-colors" data-q="Where can I drive the Cybertruck?">
+        Where can I drive Cybertruck?
+      </button>
+    </div>
+
+    <!-- Question Input Form -->
+    <form id="ask-question-form" class="p-4 border-t border-[#e2e3e5] bg-white flex items-center gap-2">
+      <input
+        type="text"
+        id="ask-input-field"
+        placeholder="Ask a question about Cybertruck..."
+        class="flex-1 px-4 py-2 bg-[#f4f4f4] border border-[#d0d1d2] rounded-lg text-xs sm:text-[13px] text-[#171a20] placeholder-[#8e9297] focus:outline-none focus:border-black/50 focus:bg-white transition-all"
+      />
+      <button
+        type="submit"
+        class="h-9 px-4 rounded-lg bg-[#3e6ae1] hover:bg-[#345abf] text-white text-xs sm:text-[13px] font-medium transition-all shadow-sm active:scale-95 flex items-center justify-center shrink-0"
+      >
+        Send
+      </button>
+    </form>
+  </div>
 </div>
 
 <script>
@@ -91,10 +171,109 @@
     }
   }, 6000);
 
-  // Ask button interaction
+  // Tesla Assistant Drawer Controls
   const askBtn = document.getElementById('sticky-ask-btn');
-  askBtn?.addEventListener('click', () => {
+  const drawer = document.getElementById('tesla-ask-drawer');
+  const closeBtn = document.getElementById('close-ask-drawer');
+  const chatHistory = document.getElementById('ask-chat-history');
+  const askForm = document.getElementById('ask-question-form');
+  const askInput = document.getElementById('ask-input-field') as HTMLInputElement;
+
+  const responses: Record<string, string> = {
+    'pet mode': "Pet Mode keeps the cabin at a comfortable, safe temperature when you leave your pet inside the vehicle, displaying the current cabin temperature clearly on the central 18.5\" touchscreen so passersby know your pet is safe.",
+    'wade mode': "Wade Mode raises the adaptive air suspension to maximum extract height (16\" ground clearance) and pressurizes the battery enclosure to safely ford bodies of water up to 32 inches deep.",
+    'powershare': "Powershare enables vehicle-to-load and vehicle-to-home bidirectional energy output. It can deliver up to 11.5 kW of continuous electrical power—enough to power a home for up to 3 days or run heavy tools via 120V and 240V bed outlets.",
+    'drive': "Cybertruck is fully street-legal and off-road certified across North America. With tri-motor all-wheel drive, dual locking differentials, and 4-wheel steer-by-wire, it excels in rocky terrain, snow, deep mud, and city driving.",
+    'cyberbeast': "Cyberbeast is the flagship tri-motor performance trim delivering 845 horsepower, 0-60 mph in 2.6 seconds (with rollout subtracted), a top speed of 130 mph, and 11,000 lbs towing capacity."
+  };
+
+  function openDrawer(initialQuery?: string) {
     playCyberClick();
-    alert('Tesla Cybertruck Assistant: Ask anything about range, charging, towing or autonomous driving features!');
+    if (drawer) {
+      drawer.classList.remove('hidden');
+      drawer.classList.add('flex');
+    }
+    if (initialQuery) {
+      handleUserQuery(initialQuery);
+    } else {
+      askInput?.focus();
+    }
+  }
+
+  function closeDrawer() {
+    playCyberClick();
+    if (drawer) {
+      drawer.classList.add('hidden');
+      drawer.classList.remove('flex');
+    }
+  }
+
+  function handleUserQuery(query: string) {
+    const trimmed = query.trim();
+    if (!trimmed || !chatHistory) return;
+
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'flex items-start justify-end gap-2.5';
+    userMsg.innerHTML = `
+      <div class="bg-[#3e6ae1] text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[85%]">
+        ${trimmed}
+      </div>
+    `;
+    chatHistory.appendChild(userMsg);
+
+    // Determine answer
+    const lower = trimmed.toLowerCase();
+    let reply = "Cybertruck features an ultra-hard 30X cold-rolled stainless-steel exoskeleton, shatter-resistant armor glass, up to 340 miles of range, and 11,000 lbs towing capacity. Schedule a demo drive to experience it today!";
+    for (const [key, val] of Object.entries(responses)) {
+      if (lower.includes(key)) {
+        reply = val;
+        break;
+      }
+    }
+
+    // Add assistant reply with smooth scroll
+    setTimeout(() => {
+      const assistantMsg = document.createElement('div');
+      assistantMsg.className = 'flex items-start gap-2.5';
+      assistantMsg.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-[#171a20] text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold">
+          T
+        </div>
+        <div class="bg-[#f0f1f2] rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[85%] text-[#171a20]">
+          ${reply}
+        </div>
+      `;
+      chatHistory.appendChild(assistantMsg);
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    }, 300);
+
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+    if (askInput) askInput.value = '';
+  }
+
+  askBtn?.addEventListener('click', () => {
+    const currentQ = questionText?.textContent?.replace(/"/g, '') || "What's Pet Mode?";
+    openDrawer(currentQ);
+  });
+
+  closeBtn?.addEventListener('click', closeDrawer);
+
+  drawer?.addEventListener('click', (e) => {
+    if (e.target === drawer) closeDrawer();
+  });
+
+  askForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (askInput?.value) {
+      handleUserQuery(askInput.value);
+    }
+  });
+
+  document.querySelectorAll('.quick-prompt-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const q = chip.getAttribute('data-q');
+      if (q) handleUserQuery(q);
+    });
   });
 </script>
