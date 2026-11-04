@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   // Configure site and base for local and GitHub Pages deployment
   site: 'https://vishwas-poojary.github.io',
-  base: process.env.BASE_PATH || '/',
+  base: '/Cybertruck-Website',
   integrations: [
     tailwind({
       applyBaseStyles: false,

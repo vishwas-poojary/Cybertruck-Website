@@ -11,7 +11,7 @@
     "lint": "eslint",
     "spellcheck": "cspell \"src/**/*.{js,ts,jsx,tsx,md,astro}\"",
     "bump-version": "npx tsx scripts/bump-version.ts",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
