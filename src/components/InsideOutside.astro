@@ -1,11 +1,101 @@
 ---
-// Inside/Outside Shatter-Resistant Glass & Cabin View Video Section (Exact match to real Tesla website screenshot c81a1614)
-const videoSrc = "/Cybertruck-InsideOutside-Desktop-v2.webm";
+// Inside/Outside Shatter-Resistant Glass & Cabin View Video Section with 3-slide image carousel
+const videoSrc = `${import.meta.env.BASE_URL}Cybertruck-InsideOutside-Desktop-v2.webm`;
+const terrainVideoSrc = `${import.meta.env.BASE_URL}Cybertruck-Terrain-Desktop.webm`;
+const terrainBadgeSrc = `${import.meta.env.BASE_URL}Cybertruck-Terrain-Badge-Desktop-NA-SA-APAC.avif`;
+const autonomousVideoSrc = `${import.meta.env.BASE_URL}Cybertruck-Autonomous-Desktop.webm`;
+const safetyVideoSrc = `${import.meta.env.BASE_URL}Cybertruck-Safety-Desktop-v3.webm`;
+const accessoriesImageSrc = `${import.meta.env.BASE_URL}Cybertruck-Accessories-Desktop.avif`;
+const powershareImageSrc = `${import.meta.env.BASE_URL}Cybertruck-Powershare-Desktop.avif`;
+const graffitiLogo = `${import.meta.env.BASE_URL}cybertruck-graffiti.svg`;
+const specsDimensionsImg = `${import.meta.env.BASE_URL}Cybertruck-Specs-Dimensions.png`;
+
+const insideCarouselSlides = [
+  {
+    id: 'ready',
+    title: 'Ready When You Are',
+    description: 'With driver profiles, your Cybertruck will automatically adjust your seat and wheel position to your preferences. Use the Tesla app before you get in, or the front and rear touchscreens to customize your settings.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-InsideOutside-Carousel-Slide-1-Ready-Desktop-v2.avif`,
+  },
+  {
+    id: 'enter',
+    title: 'Enter Another World',
+    description: 'Adaptive suspension can lower the entry height for easy access when you get in.³ Close the doors and enjoy expansive views of the road while 360-degree acoustic glass keeps the cabin quiet.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-InsideOutside-Carousel-Slide-2-Enter-Desktop.avif`,
+  },
+  {
+    id: 'fun',
+    title: 'Have More Fun',
+    description: 'Front and rear touchscreens keep entertainment within reach.³ Choose custom ambient lighting to match the color of the cabin to your vibe.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-InsideOutside-Carousel-Slide-3-Fun-Desktop.avif`,
+  },
+];
+
+const safetyCarouselSlides = [
+  {
+    id: 'fsd',
+    title: 'Full Self-Driving (Supervised)',
+    description: 'A suite of advanced driver-assistance features designed to provide more active guidance and assisted driving under your active supervision.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Safety-Carousel-Slide-1-FSD-Desktop.avif`,
+  },
+  {
+    id: 'safety',
+    title: 'Engineered for Your Safety',
+    description: 'Active safety features can help reduce impact severity or help prevent accidents altogether. Forward Collision Warning, Active Emergency Braking and Lane Departure Avoidance come standard.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Safety-Carousel-Slide-2-Safety-Desktop.avif`,
+  },
+  {
+    id: 'protect',
+    title: 'Protect Your Truck',
+    description: 'Enable Sentry Mode to monitor your unattended vehicle and automatically activate the alarm, increase the touchscreen brightness and play music at max volume if a threat is detected.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Safety-Carousel-Slide-3-Protect-Desktop.avif`,
+  },
+];
+
+const accessoriesCarouselSlides = [
+  {
+    id: 'crossbars',
+    title: 'Crossbars',
+    description: 'Transport up to 200 pounds of cargo, maximizing your storage space for bikes, gear mounts and more. Quick-release attachments and telescoping crossbars enable easy installation on any mounting points.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Accessories-Carousel-Slide-1-Crossbars-Desktop.avif`,
+  },
+  {
+    id: 'mudflaps',
+    title: 'Mud Flaps',
+    description: 'Designed for durability to protect your Cybertruck from snow, salt, sand and small debris.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Accessories-Carousel-Slide-2-MudFlaps-Desktop.avif`,
+  },
+  {
+    id: 'divider',
+    title: 'Cargo Divider',
+    sup: '3',
+    description: 'Constructed from a lightweight, rigid aluminum and can be installed anywhere along the truck bed’s L-track for added customization, utility and security. Secure loose items and mount accessories to the MOLLE panel.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Accessories-Carousel-Slide-3-Divider-Desktop.avif`,
+  },
+  {
+    id: 'ramp',
+    title: 'Tailgate Ramp',
+    description: 'Make loading and unloading easy. Lightweight and easy to install, this ramp can be used individually to move up to 750 pounds of gear or in pairs to load four-wheel vehicles like Cyberquad (sold separately).',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Accessories-Carousel-Slide-4-Ramp-Desktop.avif`,
+  },
+  {
+    id: 'lightbar',
+    title: 'Off-Road Lightbar',
+    description: 'Off-road after dark. A high-performance light bar that uses LED optical technology to cast a powerful, uniform light beam onto the trail ahead. Control angle, intensity and more through the touchscreen.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Accessories-Carousel-Slide-5-Lightbar-Desktop.avif`,
+  },
+  {
+    id: 'mat',
+    title: 'Truck Bed Textile Mat',
+    description: 'Keep your bed clean and your cargo protected. Constructed from a waterproof textured fabric for extra durability.',
+    src: `${import.meta.env.BASE_URL}Cybertruck-Accessories-Carousel-Slide-6-Mat-Desktop.avif`,
+  },
+];
 ---
 
-<section id="inside-outside" class="relative bg-white text-[#171a20] pt-6 pb-16 md:pt-8 md:pb-24 select-none overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 md:px-8">
-    <!-- Chamfered Video Container (Refined 24px chamfer matching screenshot c81a1614) -->
+<section id="inside-outside" class="relative bg-white text-[#171a20] pt-6 pb-0 select-none overflow-hidden">
+  <!-- Top Chamfered Single Video Layout -->
+  <div class="max-w-10xl mx-auto px-6 md:px-8">
     <div class="relative w-full group">
       <div
         class="inside-outside-video-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
@@ -22,7 +112,7 @@ const videoSrc = "/Cybertruck-InsideOutside-Desktop-v2.webm";
           <source src={videoSrc} type="video/webm" />
         </video>
 
-        <!-- Bottom-Left Play / Pause Button (Exact match to previous video layout) -->
+        <!-- Bottom-Left Play / Pause Button -->
         <button
           id="inside-outside-play-pause-btn"
           class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
@@ -41,12 +131,869 @@ const videoSrc = "/Cybertruck-InsideOutside-Desktop-v2.webm";
         </button>
       </div>
     </div>
+
+    <!-- Section Copy (Matching Tesla screenshot 5b324110) -->
+    <div id="inside-text-container" class="mt-12 sm:mt-16 md:mt-20 max-w-4xl">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]">
+        Tough on the Outside, Comfortable on the Inside
+      </h2>
+      <p class="text-neutral-600 text-base sm:text-lg md:text-xl font-normal mt-3.5 leading-relaxed">
+        Stainless-steel exterior, premium interior.<sup>3</sup>
+      </p>
+    </div>
+  </div>
+
+  <!-- Horizontal Image Carousel Section (Matching Tesla screenshots 246185a8 & 8953d4ac) -->
+  <div class="relative w-full mt-8 sm:mt-12">
+    <div class="relative w-full">
+      <!-- Left Chevron '<' (Vertically centered over image) -->
+      <button
+        id="inside-carousel-prev-btn"
+        class="absolute left-4 md:left-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-300/40"
+        aria-label="Previous slide"
+        title="Previous"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Right Chevron '>' (Vertically centered over image) -->
+      <button
+        id="inside-carousel-next-btn"
+        class="absolute right-4 md:right-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer border border-neutral-300/40"
+        aria-label="Next slide"
+        title="Next"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Horizontal Scrollable Track -->
+      <div
+        id="inside-carousel-track"
+        class="relative flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full pl-6 md:pl-[11vw] scroll-pl-6 md:scroll-pl-[11vw] pr-6 md:pr-[11vw]"
+        style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
+      >
+        {insideCarouselSlides.map((slide, index) => (
+          <div
+            class="inside-carousel-card flex-none w-[82vw] sm:w-[65vw] md:w-[48vw] lg:w-[44vw] max-w-[620px] snap-start relative group cursor-pointer"
+            data-index={index}
+          >
+            <!-- Angular Cut Chamfer Container -->
+            <div
+              class="relative w-full aspect-[16/11] bg-neutral-900 overflow-hidden shadow-sm"
+              style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+            >
+              <img
+                src={slide.src}
+                alt={slide.title}
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Slide Title and Description -->
+            <div class="mt-4 sm:mt-5 pr-4">
+              <h3 class="text-2xl sm:text-3xl font-medium tracking-tight text-[#171a20]">
+                {slide.title}
+              </h3>
+              <p class="text-neutral-600 text-sm sm:text-base font-normal mt-2 leading-relaxed max-w-xl">
+                {slide.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom Indicator Pills -->
+    <div class="w-full max-w-7xl mx-auto px-6 md:px-8 mt-6 flex justify-end">
+      <div class="flex items-center gap-2">
+        {insideCarouselSlides.map((slide, i) => (
+          <button
+            class={`inside-carousel-dot h-1.5 transition-all duration-300 rounded-full cursor-pointer ${i === 0 ? 'w-8 bg-[#171a20]' : 'w-2 bg-neutral-300 hover:bg-neutral-400'}`}
+            data-slide={i}
+            aria-label={`Jump to ${slide.title}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Single Video Layout: Cybertruck Terrain -->
+  <div class="max-w-10xl mx-auto px-6 md:px-8 mt-12 sm:mt-16 md:mt-20">
+    <div class="relative w-full group">
+      <div
+        class="terrain-video-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+        style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+      >
+        <video
+          id="terrain-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          class="w-full h-full object-cover object-center"
+        >
+          <source src={terrainVideoSrc} type="video/webm" />
+        </video>
+
+        <!-- Bottom-Left Play / Pause Button -->
+        <button
+          id="terrain-play-pause-btn"
+          class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+          aria-label="Pause or play terrain video"
+          title="Pause / Play"
+        >
+          <!-- Pause Icon (Default) -->
+          <svg id="terrain-pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
+            <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+          </svg>
+          <!-- Play Icon (Hidden) -->
+          <svg id="terrain-play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Take on Any Terrain Content Section (Matching Tesla screenshot) -->
+    <div class="mt-12 sm:mt-16 md:mt-20">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]">
+        Take on Any Terrain
+      </h2>
+      <p class="text-neutral-600 text-base sm:text-lg md:text-xl font-normal mt-4 leading-relaxed max-w-4xl">
+        For city driving and off-roading, adapt your driving style to match your task or terrain. Drive modes are designed to be versatile and reliable, so you can go anywhere. Use the touchscreen to turn on trailer mode and store your profiles, input your towing load details or select your driving mode to match your terrain. Learn more about off-road controls for <a href="https://digitalassets.tesla.com/tesla-contents/image/upload/Cybertruck_Premium_AWD_and_Cyberbeast_Off-Road_Guide.pdf" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-[#171a20] transition-colors">Premium All-Wheel Drive and Cyberbeast</a>, and <a href="https://digitalassets.tesla.com/tesla-contents/image/upload/Cybertruck_Dual_Motor_AWD_Off-Road_Guide.pdf" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-[#171a20] transition-colors">Dual Motor All-Wheel Drive</a>.
+      </p>
+
+      <!-- 3 Columns for Terrain Modes -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mt-12 sm:mt-16">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-[#171a20]">
+            Slippery Surface
+          </h3>
+          <p class="text-neutral-600 text-sm sm:text-base font-normal mt-2.5 leading-relaxed">
+            Designed for when you lose traction in snowy, rocky or muddy conditions.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-[#171a20]">
+            Overland Mode
+          </h3>
+          <p class="text-neutral-600 text-sm sm:text-base font-normal mt-2.5 leading-relaxed">
+            Designed for precision driving when off-roading on a variety of surfaces, from gravel to deep snow.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-[#171a20]">
+            Wade Mode
+          </h3>
+          <p class="text-neutral-600 text-sm sm:text-base font-normal mt-2.5 leading-relaxed">
+            Designed to help you navigate tire-high waters by raising the ride height and pressurizing the battery pack.<sup>3</sup>
+          </p>
+        </div>
+      </div>
+
+      <!-- Chamfered Terrain Badge Image Layout (Matching Tesla screenshot 971ec1d7) -->
+      <div class="relative w-full group mt-12 sm:mt-16 md:mt-20">
+        <div
+          class="terrain-image-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+          style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+        >
+          <img
+            src={terrainBadgeSrc}
+            alt="Tesla Cybertruck All-Terrain Capability"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- 3-Stat Performance Specs Bar (Matching Tesla website) -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-stretch gap-8 sm:gap-0 mt-12 sm:mt-16 md:mt-20 mb-12 sm:mb-20 font-sans md:pl-[8.5vw]">
+        <!-- Stat 1: 0-60 mph -->
+        <div class="flex flex-col items-start pr-8 sm:pr-12 md:pr-16">
+          <div class="text-[#171a20] tracking-tight flex items-baseline gap-1">
+            <span class="text-4xl sm:text-5xl md:text-[52px] leading-none font-medium tracking-tight">2.6</span>
+            <span class="text-xl sm:text-2xl leading-none font-normal text-[#171a20]">s</span>
+          </div>
+          <div class="text-[#393c41] text-xs sm:text-sm font-normal mt-2.5 tracking-tight">
+            0-60 mph<sup class="text-[10px] ml-0.5">4</sup>
+          </div>
+        </div>
+
+        <!-- Vertical Divider 1 -->
+        <div class="hidden sm:block w-px bg-[#d0d1d2] self-stretch my-1"></div>
+
+        <!-- Stat 2: Towing Capacity -->
+        <div class="flex flex-col items-start px-8 sm:px-12 md:px-16">
+          <div class="text-[#171a20] tracking-tight flex items-baseline gap-1.5">
+            <span class="text-4xl sm:text-5xl md:text-[52px] leading-none font-medium tracking-tight">11,000</span>
+            <span class="text-lg sm:text-xl leading-none font-normal text-[#171a20]">lbs</span>
+          </div>
+          <div class="text-[#393c41] text-xs sm:text-sm font-normal mt-2.5 tracking-tight">
+            Towing Capacity<sup class="text-[10px] ml-0.5">3</sup>
+          </div>
+        </div>
+
+        <!-- Vertical Divider 2 -->
+        <div class="hidden sm:block w-px bg-[#d0d1d2] self-stretch my-1"></div>
+
+        <!-- Stat 3: Raw Power -->
+        <div class="flex flex-col items-start pl-8 sm:pl-12 md:pl-16">
+          <div class="text-[#171a20] tracking-tight flex items-baseline gap-1.5">
+            <span class="text-4xl sm:text-5xl md:text-[52px] leading-none font-medium tracking-tight">845</span>
+            <span class="text-lg sm:text-xl leading-none font-normal text-[#171a20]">hp</span>
+          </div>
+          <div class="text-[#393c41] text-xs sm:text-sm font-normal mt-2.5 tracking-tight">
+            Raw Power<sup class="text-[10px] ml-0.5">1</sup>
+          </div>
+        </div>
+      </div>
+
+      <!-- Autonomous Single Video Layout (Cybertruck Autonomous) -->
+      <div class="relative w-full group mt-12 sm:mt-16 md:mt-20">
+        <div
+          class="autonomous-video-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+          style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+        >
+          <video
+            id="autonomous-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover object-center"
+          >
+            <source src={autonomousVideoSrc} type="video/webm" />
+          </video>
+
+          <!-- Bottom-Left Play / Pause Button -->
+          <button
+            id="autonomous-play-pause-btn"
+            class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+            aria-label="Pause or play autonomous video"
+            title="Pause / Play"
+          >
+            <!-- Pause Icon (Default) -->
+            <svg id="autonomous-pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+              <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
+              <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+            </svg>
+            <!-- Play Icon (Hidden) -->
+            <svg id="autonomous-play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- The Future of Travel Is Autonomous Content Section (Matching Tesla screenshot) -->
+      <div class="mt-12 sm:mt-16 md:mt-20 md:pl-[8.5vw]">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]">
+          The Future of Travel Is Autonomous
+        </h2>
+        <div class="mt-6 sm:mt-8 space-y-6 max-w-5xl text-neutral-600 text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+          <p>
+            Cybertruck is available with Full Self-Driving (Supervised), a suite of advanced driver-assistance features designed to provide more active guidance and assisted driving under your active supervision.
+          </p>
+          <p>
+            Blind Spot Monitoring uses illuminated warning lights and on-screen visualizations to help you safely check your surroundings.
+          </p>
+        </div>
+      </div>
+
+      <!-- Safety Single Video Layout (Cybertruck Safety) -->
+      <div class="relative w-full group mt-16 sm:mt-20 md:mt-24">
+        <div
+          class="safety-video-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+          style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+        >
+          <video
+            id="safety-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover object-center"
+          >
+            <source src={safetyVideoSrc} type="video/webm" />
+          </video>
+
+          <!-- Bottom-Left Play / Pause Button -->
+          <button
+            id="safety-play-pause-btn"
+            class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+            aria-label="Pause or play safety video"
+            title="Pause / Play"
+          >
+            <!-- Pause Icon (Default) -->
+            <svg id="safety-pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+              <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
+              <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+            </svg>
+            <!-- Play Icon (Hidden) -->
+            <svg id="safety-play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Designed to Be the Safest Truck on the Road Content Section (Matching Tesla screenshot e8a8e35f) -->
+      <div class="mt-12 sm:mt-16 md:mt-20 md:pl-[8.5vw]">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]">
+          Designed to Be the Safest Truck on the Road
+        </h2>
+        <p class="mt-4 sm:mt-5 max-w-5xl text-neutral-600 text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+          With a low center of gravity, impact-absorbing castings and the lowest probability of rollover for any truck tested by NHTSA, Cybertruck has earned a five-star overall safety rating.<sup>1</sup> <a href="https://www.nhtsa.gov" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-[#171a20] transition-colors">Learn More</a>
+        </p>
+
+        <!-- 5 Golden Stars & Overall NHTSA Safety Rating -->
+        <div class="mt-8 sm:mt-10">
+          <div class="flex items-center gap-1.5 sm:gap-2 text-[#fbbf24]">
+            <!-- 5 Filled Stars -->
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          </div>
+          <div class="mt-2.5 sm:mt-3 text-base sm:text-lg font-medium text-[#171a20] tracking-tight">
+            Overall NHTSA Safety Rating
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal Safety Image Carousel Section (Matching Tesla screenshots 07dc63b6 & 2de2cb72) -->
+  <div class="relative w-full mt-12 sm:mt-16 md:mt-20">
+    <div class="relative w-full">
+      <!-- Left Chevron '<' (Vertically centered over image) -->
+      <button
+        id="safety-carousel-prev-btn"
+        class="absolute left-4 md:left-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-300/40"
+        aria-label="Previous slide"
+        title="Previous"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Right Chevron '>' (Vertically centered over image) -->
+      <button
+        id="safety-carousel-next-btn"
+        class="absolute right-4 md:right-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer border border-neutral-300/40"
+        aria-label="Next slide"
+        title="Next"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Horizontal Scrollable Track -->
+      <div
+        id="safety-carousel-track"
+        class="relative flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full pl-6 md:pl-[11vw] scroll-pl-6 md:scroll-pl-[11vw] pr-6 md:pr-[11vw]"
+        style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
+      >
+        {safetyCarouselSlides.map((slide, index) => (
+          <div
+            class="safety-carousel-card flex-none w-[82vw] sm:w-[65vw] md:w-[48vw] lg:w-[44vw] max-w-[620px] snap-start relative group cursor-pointer"
+            data-index={index}
+          >
+            <!-- Angular Cut Chamfer Container -->
+            <div
+              class="relative w-full aspect-[16/11] bg-neutral-900 overflow-hidden shadow-sm"
+              style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+            >
+              <img
+                src={slide.src}
+                alt={slide.title}
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Slide Title and Description -->
+            <div class="mt-4 sm:mt-6 pr-4">
+              <h3
+                class="font-['Blender_TSL',-apple-system,Arial,sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[56px] xl:leading-[64px] font-medium tracking-tight text-[#171a20]"
+                style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-weight: 500; color: rgb(23, 26, 32);"
+              >
+                {slide.title}
+              </h3>
+              <p class="text-neutral-600 text-sm sm:text-base font-normal mt-3 leading-relaxed max-w-xl">
+                {slide.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom Indicator Pills -->
+    <div class="w-full max-w-7xl mx-auto px-6 md:px-8 mt-6 flex justify-end">
+      <div class="flex items-center gap-2">
+        {safetyCarouselSlides.map((slide, i) => (
+          <button
+            class={`safety-carousel-dot h-1.5 transition-all duration-300 rounded-full cursor-pointer ${i === 0 ? 'w-8 bg-[#171a20]' : 'w-2 bg-neutral-300 hover:bg-neutral-400'}`}
+            data-slide={i}
+            aria-label={`Jump to ${slide.title}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessories Single Image Layout (Matching Tesla screenshot 2e7cb066) -->
+  <div class="max-w-10xl mx-auto px-6 md:px-8 mt-16 sm:mt-20 md:mt-28">
+    <div class="relative w-full group">
+      <div
+        class="accessories-image-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+        style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+      >
+        <img
+          src={accessoriesImageSrc}
+          alt="Tesla Cybertruck Accessories"
+          class="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Add What You Need Content Section (Matching Tesla screenshot 2e7cb066) -->
+    <div class="mt-12 sm:mt-16 md:mt-20 md:pl-[8.5vw]">
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-[#171a20]"
+        style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-weight: 500; color: rgb(23, 26, 32);"
+      >
+        Add What You Need
+      </h2>
+      <p class="mt-4 sm:mt-5 max-w-5xl text-neutral-600 text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+        Increase your storage capacity—or optimize the storage you already have—with <a href="https://shop.tesla.com/category/vehicle-accessories/cybertruck" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-[#171a20] transition-colors">Tesla Shop accessories</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Horizontal Accessories Image Carousel Section (Matching Tesla screenshots dd4cd290 & 20f355a3) -->
+  <div class="relative w-full mt-10 sm:mt-14 md:mt-16">
+    <div class="relative w-full">
+      <!-- Left Chevron '<' (Vertically centered over image) -->
+      <button
+        id="accessories-carousel-prev-btn"
+        class="absolute left-4 md:left-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-300/40"
+        aria-label="Previous slide"
+        title="Previous"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Right Chevron '>' (Vertically centered over image) -->
+      <button
+        id="accessories-carousel-next-btn"
+        class="absolute right-4 md:right-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer border border-neutral-300/40"
+        aria-label="Next slide"
+        title="Next"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Horizontal Scrollable Track in Single Layout Size -->
+      <div
+        id="accessories-carousel-track"
+        class="relative flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth py-2 w-full pl-6 md:pl-[11vw] scroll-pl-6 md:scroll-pl-[11vw] pr-6 md:pr-[11vw]"
+        style="-webkit-overflow-scrolling: touch; scrollbar-width: none;"
+      >
+        {accessoriesCarouselSlides.map((slide, index) => (
+          <div
+            class="accessories-carousel-card flex-none w-[85vw] sm:w-[82vw] md:w-[78vw] max-w-[1300px] snap-start relative group cursor-pointer"
+            data-index={index}
+          >
+            <!-- Angular Cut Chamfer Container (Single Image Layout Size) -->
+            <div
+              class="relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+              style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+            >
+              <img
+                src={slide.src}
+                alt={slide.title}
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Slide Title and Description -->
+            <div class="mt-5 sm:mt-7 pr-4">
+              <h3
+                class="font-['Blender_TSL',-apple-system,Arial,sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[56px] xl:leading-[64px] font-medium tracking-tight text-[#171a20]"
+                style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-weight: 500; color: rgb(23, 26, 32);"
+              >
+                {slide.title}
+                {slide.sup && <sup class="text-xs sm:text-sm md:text-base font-normal align-super ml-0.5">{slide.sup}</sup>}
+              </h3>
+              <p class="text-neutral-600 text-sm sm:text-base md:text-lg font-normal mt-3 leading-relaxed max-w-3xl">
+                {slide.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom Indicator Pills -->
+    <div class="w-full max-w-7xl mx-auto px-6 md:px-8 mt-6 flex justify-end">
+      <div class="flex items-center gap-2">
+        {accessoriesCarouselSlides.map((slide, i) => (
+          <button
+            class={`accessories-carousel-dot h-1.5 transition-all duration-300 rounded-full cursor-pointer ${i === 0 ? 'w-8 bg-[#171a20]' : 'w-2 bg-neutral-300 hover:bg-neutral-400'}`}
+            data-slide={i}
+            aria-label={`Jump to ${slide.title}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Powershare Section with Black Background & Side Space (Matching Tesla screenshots 0bea6cb5 & 28ed3b88) -->
+  <div class="w-full bg-black text-white mt-16 sm:mt-24 md:mt-32 pt-16 sm:pt-20 md:pt-28 pb-20 sm:pb-28">
+    <div class="max-w-10xl mx-auto px-6 md:px-8">
+      <!-- Single Image Layout: Cybertruck Powershare -->
+      <div class="relative w-full group">
+        <div
+          class="powershare-image-wrapper relative w-full aspect-[16/9] sm:aspect-[2.33/1] bg-neutral-900 overflow-hidden shadow-sm"
+          style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));"
+        >
+          <img
+            src={powershareImageSrc}
+            alt="Tesla Cybertruck Powershare"
+            class="w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Power Anything With Cybertruck Content Section (Matching Tesla screenshot 28ed3b88) -->
+      <div class="mt-12 sm:mt-16 md:mt-20 md:pl-[8.5vw]">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] lg:leading-[64px] font-medium tracking-tight text-white"
+          style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-weight: 500; color: rgb(255, 255, 255);"
+        >
+          Power Anything With Cybertruck
+        </h2>
+        <p class="mt-4 sm:mt-5 max-w-5xl text-[#d0d1d2] text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+          <span class="underline underline-offset-4 decoration-white/60">Powershare</span> allows you to draw up to 11.5 kW of continuous power directly from your truck's 123 kWh battery. Home backup requires Powershare Gateway and Universal Wall Connector or Powerwall with Wall Connector. No additional hardware is needed to use onboard outlets.
+        </p>
+
+        <!-- 3-Column Powershare Stats Bar -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-stretch gap-8 sm:gap-0 mt-12 sm:mt-16 md:mt-20 font-sans">
+          <!-- Stat 1: 3+ Days -->
+          <div class="flex flex-col items-start pr-8 sm:pr-12 md:pr-16">
+            <div class="text-white tracking-tight flex items-baseline gap-1.5">
+              <span class="text-4xl sm:text-5xl md:text-[52px] leading-none font-medium tracking-tight">3</span>
+              <span class="text-2xl sm:text-3xl leading-none font-normal text-white">+</span>
+              <span class="text-xl sm:text-2xl leading-none font-normal text-white ml-0.5">Days</span>
+            </div>
+            <div class="text-[#a2a3a5] text-xs sm:text-sm font-normal mt-2.5 tracking-tight">
+              Power Your Home Through an Outage<sup>4</sup>
+            </div>
+          </div>
+
+          <!-- Vertical Divider 1 -->
+          <div class="hidden sm:block w-px bg-[#393c41] self-stretch my-1"></div>
+
+          <!-- Stat 2: 240v -->
+          <div class="flex flex-col items-start px-8 sm:px-12 md:px-16">
+            <div class="text-white tracking-tight flex items-baseline gap-1">
+              <span class="text-4xl sm:text-5xl md:text-[52px] leading-none font-medium tracking-tight">240</span>
+              <span class="text-lg sm:text-xl leading-none font-normal text-white">v</span>
+            </div>
+            <div class="text-[#a2a3a5] text-xs sm:text-sm font-normal mt-2.5 tracking-tight">
+              Charge Another EV Adding Up to 30 Miles of Range per Hour
+            </div>
+          </div>
+
+          <!-- Vertical Divider 2 -->
+          <div class="hidden sm:block w-px bg-[#393c41] self-stretch my-1"></div>
+
+          <!-- Stat 3: 5 Outlets -->
+          <div class="flex flex-col items-start pl-8 sm:pl-12 md:pl-16">
+            <div class="text-white tracking-tight flex items-baseline gap-1.5">
+              <span class="text-4xl sm:text-5xl md:text-[52px] leading-none font-medium tracking-tight">5</span>
+              <span class="text-lg sm:text-xl leading-none font-normal text-white">Outlets</span>
+            </div>
+            <div class="text-[#a2a3a5] text-xs sm:text-sm font-normal mt-2.5 tracking-tight">
+              Use to Power Tools and Devices<sup>3</sup>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learn More Button -->
+        <div class="mt-8 sm:mt-10">
+          <a
+            href="https://www.tesla.com/powershare"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-10 py-2 sm:py-2.5 rounded-[4px] bg-white text-black font-medium text-sm sm:text-base hover:bg-neutral-200 transition-colors cursor-pointer"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CYBERTRUCK Specs Section (Matching Tesla screenshots da1fa08f, 39dd15fc, fcd54e7c) -->
+  <div id="specs" class="w-full bg-black text-white pt-16 sm:pt-20 md:pt-28 pb-24 sm:pb-36">
+    <div class="max-w-10xl mx-auto px-6 md:px-8">
+      <!-- Specs Header: Cybertruck Graffiti + Specs Title & Model Tabs -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-[#222429]">
+        <div class="flex items-center gap-3.5">
+          <img
+            src={graffitiLogo}
+            alt="CYBERTRUCK"
+            class="h-7 sm:h-9 w-auto filter invert brightness-200"
+          />
+          <span
+            class="text-3xl sm:text-4xl font-medium tracking-tight text-white font-['Blender_TSL',-apple-system,Arial,sans-serif]"
+            style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-weight: 500;"
+          >
+            Specs
+          </span>
+        </div>
+
+        <!-- 3-Model Selector Tabs (Matching Screenshot 1) -->
+        <div class="flex items-center overflow-x-auto scrollbar-none border-t border-[#393c41] w-full lg:w-auto">
+          <button
+            type="button"
+            data-spec-tab="cyberbeast"
+            class="spec-tab-btn flex-1 lg:flex-none px-6 sm:px-8 py-3.5 text-xs sm:text-sm font-medium tracking-tight transition-all cursor-pointer text-white border-t-2 border-white bg-[#181a1f]"
+          >
+            Cyberbeast
+          </button>
+          <button
+            type="button"
+            data-spec-tab="premium"
+            class="spec-tab-btn flex-1 lg:flex-none px-6 sm:px-8 py-3.5 text-xs sm:text-sm font-medium tracking-tight transition-all cursor-pointer text-[#8e9297] border-t border-transparent hover:text-white bg-transparent"
+          >
+            Premium All-Wheel Drive
+          </button>
+          <button
+            type="button"
+            data-spec-tab="dual"
+            class="spec-tab-btn flex-1 lg:flex-none px-6 sm:px-8 py-3.5 text-xs sm:text-sm font-medium tracking-tight transition-all cursor-pointer text-[#8e9297] border-t border-transparent hover:text-white bg-transparent"
+          >
+            Dual Motor All-Wheel Drive
+          </button>
+        </div>
+      </div>
+
+      <!-- Performance Section -->
+      <div class="mt-10 sm:mt-14">
+        <h3 class="text-sm font-normal text-[#8e9297] mb-6">Performance</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
+          <div>
+            <div class="text-xs text-[#8e9297]">Range (est.)</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-perf-range">320 miles</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#8e9297]">Acceleration<sup class="text-[10px]">4</sup></div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-perf-accel">2.6 sec 0-60 mph</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#8e9297]">Drive</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-perf-drive">All-Wheel Drive</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#8e9297]">Top Speed</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-perf-speed">130 mph</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#8e9297]">Towing</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-perf-towing">11,000 lbs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Divider -->
+      <div class="w-full h-px bg-[#222429] my-10 sm:my-14"></div>
+
+      <!-- Dimensions Section with 3D Dimensions Diagram (Matching Screenshots 1 & 2) -->
+      <div>
+        <h3 class="text-sm font-normal text-[#8e9297] mb-6">Dimensions</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Left: Dimensions Specifications Rows (lg:col-span-7) -->
+          <div class="lg:col-span-7 space-y-8">
+            <!-- Row 1: Weight, Cargo, Wheels -->
+            <div class="grid grid-cols-3 gap-4 sm:gap-6">
+              <div>
+                <div class="text-xs text-[#8e9297]">Weight</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-dim-weight">6,863 lbs</div>
+              </div>
+              <div>
+                <div class="text-xs text-[#8e9297]">Cargo</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5">120.7 cu ft</div>
+              </div>
+              <div>
+                <div class="text-xs text-[#8e9297]">Wheels</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5">20"</div>
+              </div>
+            </div>
+
+            <!-- Row 2: Seating, Displays, Ground Clearance -->
+            <div class="grid grid-cols-3 gap-4 sm:gap-6">
+              <div>
+                <div class="text-xs text-[#8e9297]">Seating</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5">5 seats</div>
+              </div>
+              <div>
+                <div class="text-xs text-[#8e9297]">Displays</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5 leading-snug">
+                  18.5" Center Touchscreen<br />
+                  9.4" Rear Touchscreen
+                </div>
+              </div>
+              <div>
+                <div class="text-xs text-[#8e9297]">Ground Clearance</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5">16" in Extract Mode</div>
+              </div>
+            </div>
+
+            <!-- Row 3: Overall Width, Overall Height, Overall Length -->
+            <div class="grid grid-cols-3 gap-4 sm:gap-6">
+              <div>
+                <div class="text-xs text-[#8e9297]">Overall Width</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5 leading-snug">
+                  Folded mirrors: 86.6"<br />
+                  Extended mirrors: 95"
+                </div>
+              </div>
+              <div>
+                <div class="text-xs text-[#8e9297]">Overall Height</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5">70.6"</div>
+              </div>
+              <div>
+                <div class="text-xs text-[#8e9297]">Overall Length</div>
+                <div class="text-sm sm:text-base font-medium text-white mt-1.5">223.7"</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 3D Dimensions Diagram (lg:col-span-5) -->
+          <div class="lg:col-span-5 flex items-center justify-center lg:justify-end">
+            <img
+              src={specsDimensionsImg}
+              alt="Cybertruck Dimensions 95 inch width, 223.7 inch length, 70.6 inch height"
+              class="w-full max-w-[540px] h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Divider -->
+      <div class="w-full h-px bg-[#222429] my-10 sm:my-14"></div>
+
+      <!-- Charging Section -->
+      <div>
+        <h3 class="text-sm font-normal text-[#8e9297] mb-6">Charging</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div>
+            <div class="text-xs text-[#8e9297]">Supercharging Max/Payment Type</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-charge-max">325kW Max; Pay Per Use</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#8e9297]">Charging Speed</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5" id="spec-charge-speed">Up to 135 miles added in 15 minutes</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Divider -->
+      <div class="w-full h-px bg-[#222429] my-10 sm:my-14"></div>
+
+      <!-- Warranty Section -->
+      <div>
+        <h3 class="text-sm font-normal text-[#8e9297] mb-6">Warranty</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div>
+            <div class="text-xs text-[#8e9297]">Basic Vehicle</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5">4 years or 50,000 mi, whichever comes first</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#8e9297]">Battery & Drive Unit</div>
+            <div class="text-sm sm:text-base font-medium text-white mt-1.5">8 years or 150,000 mi, whichever comes first</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Divider -->
+      <div class="w-full h-px bg-[#222429] my-10 sm:my-14"></div>
+
+      <!-- Other Section -->
+      <div>
+        <h3 class="text-sm font-normal text-[#8e9297] mb-6">Other</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div>
+            <a
+              href="https://www.tesla.com/ownersmanual/cybertruck/en_us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm sm:text-base font-medium text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors"
+            >
+              Owner's Manual
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.tesla.com/support/cybertruck-off-road-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm sm:text-base font-medium text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors"
+            >
+              Cybertruck Off-Road Guide
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footnotes (Matching Screenshot 3) -->
+      <div class="mt-16 pt-8 text-xs text-[#8e9297] space-y-2.5 leading-relaxed border-t border-[#222429]/60">
+        <p><sup>1</sup> Government 5-Star Safety Ratings are part of the National Highway Traffic Safety Administration's (NHTSA's) New Car Assessment Program (<a href="https://www.SaferCar.gov" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-white transition-colors">www.SaferCar.gov</a>).</p>
+        <p><sup>2</sup> For Cybertruck Dual Motor All-Wheel Drive and Cybertruck Premium All-Wheel Drive models.</p>
+        <p><sup>3</sup> Only available with Cybertruck Premium All-Wheel Drive and Cybertruck Cyberbeast models.</p>
+        <p><sup>4</sup> Cyberbeast; with rollout subtracted.</p>
+        <p><sup>5</sup> Cyberbeast only.</p>
+        <p><sup>6</sup> Estimate based on an average U.S. home energy usage of 30 kWh per day. Results may vary based on your solar equipment, vehicle model and actual energy usage.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
   import { playCyberClick } from '../utils/cyberSound';
 
+  // Video play/pause controls
   const video = document.getElementById('inside-outside-video') as HTMLVideoElement;
   const btn = document.getElementById('inside-outside-play-pause-btn');
   const pauseIcon = document.getElementById('inside-pause-icon');
@@ -83,4 +1030,568 @@ const videoSrc = "/Cybertruck-InsideOutside-Desktop-v2.webm";
     );
     observer.observe(video);
   }
+
+  // Inside Carousel Controller
+  const insideTrack = document.getElementById('inside-carousel-track');
+  const insidePrevBtn = document.getElementById('inside-carousel-prev-btn');
+  const insideNextBtn = document.getElementById('inside-carousel-next-btn');
+  const insideCards = document.querySelectorAll<HTMLElement>('.inside-carousel-card');
+  const insideDots = document.querySelectorAll<HTMLButtonElement>('.inside-carousel-dot');
+
+  let currentInsideIndex = 0;
+
+  function syncInsideCarouselMargin() {
+    const textContainer = document.getElementById('inside-text-container');
+    const track = document.getElementById('inside-carousel-track');
+    if (!textContainer || !track) return;
+
+    const leftOffset = textContainer.getBoundingClientRect().left;
+    if (leftOffset > 0) {
+      track.style.paddingLeft = `${leftOffset}px`;
+      track.style.scrollPaddingLeft = `${leftOffset}px`;
+    }
+  }
+
+  window.addEventListener('resize', syncInsideCarouselMargin, { passive: true });
+  syncInsideCarouselMargin();
+  window.addEventListener('load', syncInsideCarouselMargin);
+
+  function insideScrollToSlide(index: number) {
+    if (!insideTrack || !insideCards[index]) return;
+    const targetCard = insideCards[index];
+    const trackPaddingLeft = parseFloat(getComputedStyle(insideTrack).paddingLeft) || 0;
+    const scrollTarget = Math.max(0, targetCard.offsetLeft - trackPaddingLeft);
+    insideTrack.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    updateInsideActiveState(index);
+  }
+
+  function updateInsideActiveState(index: number) {
+    currentInsideIndex = Math.max(0, Math.min(index, insideCards.length - 1));
+
+    if (insidePrevBtn) {
+      if (currentInsideIndex === 0) {
+        insidePrevBtn.classList.add('opacity-0', 'pointer-events-none');
+        insidePrevBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        insidePrevBtn.classList.remove('opacity-0', 'pointer-events-none');
+        insidePrevBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    if (insideNextBtn) {
+      if (currentInsideIndex === insideCards.length - 1) {
+        insideNextBtn.classList.add('opacity-0', 'pointer-events-none');
+        insideNextBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        insideNextBtn.classList.remove('opacity-0', 'pointer-events-none');
+        insideNextBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    insideDots.forEach((dot, i) => {
+      if (i === currentInsideIndex) {
+        dot.classList.add('w-8', 'bg-[#171a20]');
+        dot.classList.remove('w-2', 'bg-neutral-300');
+      } else {
+        dot.classList.remove('w-8', 'bg-[#171a20]');
+        dot.classList.add('w-2', 'bg-neutral-300');
+      }
+    });
+  }
+
+  insidePrevBtn?.addEventListener('click', () => {
+    playCyberClick();
+    insideScrollToSlide(currentInsideIndex - 1);
+  });
+
+  insideNextBtn?.addEventListener('click', () => {
+    playCyberClick();
+    insideScrollToSlide(currentInsideIndex + 1);
+  });
+
+  insideCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (index !== currentInsideIndex) {
+        playCyberClick();
+        insideScrollToSlide(index);
+      }
+    });
+  });
+
+  insideDots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      playCyberClick();
+      const slideIdx = parseInt(dot.getAttribute('data-slide') || '0', 10);
+      insideScrollToSlide(slideIdx);
+    });
+  });
+
+  // Track scroll listener to update state when user swipes / scrolls manually
+  let insideScrollTimeout: number | undefined;
+  insideTrack?.addEventListener(
+    'scroll',
+    () => {
+      window.clearTimeout(insideScrollTimeout);
+      insideScrollTimeout = window.setTimeout(() => {
+        if (!insideTrack) return;
+        const scrollLeft = insideTrack.scrollLeft;
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        const trackPaddingLeft = parseFloat(getComputedStyle(insideTrack).paddingLeft) || 0;
+        insideCards.forEach((card, i) => {
+          const cardTarget = card.offsetLeft - trackPaddingLeft;
+          const diff = Math.abs(scrollLeft - cardTarget);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = i;
+          }
+        });
+
+        if (closestIndex !== currentInsideIndex) {
+          updateInsideActiveState(closestIndex);
+        }
+      }, 60);
+    },
+    { passive: true }
+  );
+
+  updateInsideActiveState(0);
+
+  // Terrain Video Play / Pause Controls
+  const terrainVideo = document.getElementById('terrain-video') as HTMLVideoElement;
+  const terrainBtn = document.getElementById('terrain-play-pause-btn');
+  const terrainPauseIcon = document.getElementById('terrain-pause-icon');
+  const terrainPlayIcon = document.getElementById('terrain-play-icon');
+
+  terrainBtn?.addEventListener('click', () => {
+    playCyberClick();
+    if (!terrainVideo) return;
+
+    if (terrainVideo.paused) {
+      terrainVideo.play().catch(() => {});
+      terrainPauseIcon?.classList.remove('hidden');
+      terrainPlayIcon?.classList.add('hidden');
+    } else {
+      terrainVideo.pause();
+      terrainPauseIcon?.classList.add('hidden');
+      terrainPlayIcon?.classList.remove('hidden');
+    }
+  });
+
+  if (terrainVideo) {
+    const terrainObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            terrainVideo.play().catch(() => {});
+          } else {
+            terrainVideo.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    terrainObserver.observe(terrainVideo);
+  }
+
+  // Autonomous Video Play / Pause Controls
+  const autonomousVideo = document.getElementById('autonomous-video') as HTMLVideoElement;
+  const autonomousBtn = document.getElementById('autonomous-play-pause-btn');
+  const autonomousPauseIcon = document.getElementById('autonomous-pause-icon');
+  const autonomousPlayIcon = document.getElementById('autonomous-play-icon');
+
+  autonomousBtn?.addEventListener('click', () => {
+    playCyberClick();
+    if (!autonomousVideo) return;
+
+    if (autonomousVideo.paused) {
+      autonomousVideo.play().catch(() => {});
+      autonomousPauseIcon?.classList.remove('hidden');
+      autonomousPlayIcon?.classList.add('hidden');
+    } else {
+      autonomousVideo.pause();
+      autonomousPauseIcon?.classList.add('hidden');
+      autonomousPlayIcon?.classList.remove('hidden');
+    }
+  });
+
+  if (autonomousVideo) {
+    const autonomousObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            autonomousVideo.play().catch(() => {});
+          } else {
+            autonomousVideo.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    autonomousObserver.observe(autonomousVideo);
+  }
+
+  // Safety Video Play / Pause Controls
+  const safetyVideo = document.getElementById('safety-video') as HTMLVideoElement;
+  const safetyBtn = document.getElementById('safety-play-pause-btn');
+  const safetyPauseIcon = document.getElementById('safety-pause-icon');
+  const safetyPlayIcon = document.getElementById('safety-play-icon');
+
+  safetyBtn?.addEventListener('click', () => {
+    playCyberClick();
+    if (!safetyVideo) return;
+
+    if (safetyVideo.paused) {
+      safetyVideo.play().catch(() => {});
+      safetyPauseIcon?.classList.remove('hidden');
+      safetyPlayIcon?.classList.add('hidden');
+    } else {
+      safetyVideo.pause();
+      safetyPauseIcon?.classList.add('hidden');
+      safetyPlayIcon?.classList.remove('hidden');
+    }
+  });
+
+  if (safetyVideo) {
+    const safetyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            safetyVideo.play().catch(() => {});
+          } else {
+            safetyVideo.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    safetyObserver.observe(safetyVideo);
+  }
+
+  // Safety Carousel Controller
+  const safetyTrack = document.getElementById('safety-carousel-track');
+  const safetyPrevBtn = document.getElementById('safety-carousel-prev-btn');
+  const safetyNextBtn = document.getElementById('safety-carousel-next-btn');
+  const safetyCards = document.querySelectorAll<HTMLElement>('.safety-carousel-card');
+  const safetyDots = document.querySelectorAll<HTMLButtonElement>('.safety-carousel-dot');
+
+  let currentSafetyIndex = 0;
+
+  function syncSafetyCarouselMargin() {
+    const textContainer = document.getElementById('inside-text-container');
+    const track = document.getElementById('safety-carousel-track');
+    if (!textContainer || !track) return;
+
+    const leftOffset = textContainer.getBoundingClientRect().left;
+    if (leftOffset > 0) {
+      track.style.paddingLeft = `${leftOffset}px`;
+      track.style.scrollPaddingLeft = `${leftOffset}px`;
+    }
+  }
+
+  window.addEventListener('resize', syncSafetyCarouselMargin, { passive: true });
+  syncSafetyCarouselMargin();
+  window.addEventListener('load', syncSafetyCarouselMargin);
+
+  function safetyScrollToSlide(index: number) {
+    if (!safetyTrack || !safetyCards[index]) return;
+    const targetCard = safetyCards[index];
+    const trackPaddingLeft = parseFloat(getComputedStyle(safetyTrack).paddingLeft) || 0;
+    const scrollTarget = Math.max(0, targetCard.offsetLeft - trackPaddingLeft);
+    safetyTrack.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    updateSafetyActiveState(index);
+  }
+
+  function updateSafetyActiveState(index: number) {
+    currentSafetyIndex = Math.max(0, Math.min(index, safetyCards.length - 1));
+
+    if (safetyPrevBtn) {
+      if (currentSafetyIndex === 0) {
+        safetyPrevBtn.classList.add('opacity-0', 'pointer-events-none');
+        safetyPrevBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        safetyPrevBtn.classList.remove('opacity-0', 'pointer-events-none');
+        safetyPrevBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    if (safetyNextBtn) {
+      if (currentSafetyIndex === safetyCards.length - 1) {
+        safetyNextBtn.classList.add('opacity-0', 'pointer-events-none');
+        safetyNextBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        safetyNextBtn.classList.remove('opacity-0', 'pointer-events-none');
+        safetyNextBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    safetyDots.forEach((dot, i) => {
+      if (i === currentSafetyIndex) {
+        dot.classList.add('w-8', 'bg-[#171a20]');
+        dot.classList.remove('w-2', 'bg-neutral-300');
+      } else {
+        dot.classList.remove('w-8', 'bg-[#171a20]');
+        dot.classList.add('w-2', 'bg-neutral-300');
+      }
+    });
+  }
+
+  safetyPrevBtn?.addEventListener('click', () => {
+    playCyberClick();
+    safetyScrollToSlide(currentSafetyIndex - 1);
+  });
+
+  safetyNextBtn?.addEventListener('click', () => {
+    playCyberClick();
+    safetyScrollToSlide(currentSafetyIndex + 1);
+  });
+
+  safetyCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (index !== currentSafetyIndex) {
+        playCyberClick();
+        safetyScrollToSlide(index);
+      }
+    });
+  });
+
+  safetyDots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      playCyberClick();
+      const slideIdx = parseInt(dot.getAttribute('data-slide') || '0', 10);
+      safetyScrollToSlide(slideIdx);
+    });
+  });
+
+  let safetyScrollTimeout: number | undefined;
+  safetyTrack?.addEventListener(
+    'scroll',
+    () => {
+      window.clearTimeout(safetyScrollTimeout);
+      safetyScrollTimeout = window.setTimeout(() => {
+        if (!safetyTrack) return;
+        const scrollLeft = safetyTrack.scrollLeft;
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        const trackPaddingLeft = parseFloat(getComputedStyle(safetyTrack).paddingLeft) || 0;
+        safetyCards.forEach((card, i) => {
+          const cardTarget = card.offsetLeft - trackPaddingLeft;
+          const diff = Math.abs(scrollLeft - cardTarget);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = i;
+          }
+        });
+
+        if (closestIndex !== currentSafetyIndex) {
+          updateSafetyActiveState(closestIndex);
+        }
+      }, 60);
+    },
+    { passive: true }
+  );
+
+  updateSafetyActiveState(0);
+
+  // Accessories Carousel Controller
+  const accessoriesTrack = document.getElementById('accessories-carousel-track');
+  const accessoriesPrevBtn = document.getElementById('accessories-carousel-prev-btn');
+  const accessoriesNextBtn = document.getElementById('accessories-carousel-next-btn');
+  const accessoriesCards = document.querySelectorAll<HTMLElement>('.accessories-carousel-card');
+  const accessoriesDots = document.querySelectorAll<HTMLButtonElement>('.accessories-carousel-dot');
+
+  let currentAccessoriesIndex = 0;
+
+  function syncAccessoriesCarouselMargin() {
+    const textContainer = document.getElementById('inside-text-container');
+    const track = document.getElementById('accessories-carousel-track');
+    if (!textContainer || !track) return;
+
+    const leftOffset = textContainer.getBoundingClientRect().left;
+    if (leftOffset > 0) {
+      track.style.paddingLeft = `${leftOffset}px`;
+      track.style.scrollPaddingLeft = `${leftOffset}px`;
+    }
+  }
+
+  window.addEventListener('resize', syncAccessoriesCarouselMargin, { passive: true });
+  syncAccessoriesCarouselMargin();
+  window.addEventListener('load', syncAccessoriesCarouselMargin);
+
+  function accessoriesScrollToSlide(index: number) {
+    if (!accessoriesTrack || !accessoriesCards[index]) return;
+    const targetCard = accessoriesCards[index];
+    const trackPaddingLeft = parseFloat(getComputedStyle(accessoriesTrack).paddingLeft) || 0;
+    const scrollTarget = Math.max(0, targetCard.offsetLeft - trackPaddingLeft);
+    accessoriesTrack.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    updateAccessoriesActiveState(index);
+  }
+
+  function updateAccessoriesActiveState(index: number) {
+    currentAccessoriesIndex = Math.max(0, Math.min(index, accessoriesCards.length - 1));
+
+    if (accessoriesPrevBtn) {
+      if (currentAccessoriesIndex === 0) {
+        accessoriesPrevBtn.classList.add('opacity-0', 'pointer-events-none');
+        accessoriesPrevBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        accessoriesPrevBtn.classList.remove('opacity-0', 'pointer-events-none');
+        accessoriesPrevBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    if (accessoriesNextBtn) {
+      if (currentAccessoriesIndex === accessoriesCards.length - 1) {
+        accessoriesNextBtn.classList.add('opacity-0', 'pointer-events-none');
+        accessoriesNextBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        accessoriesNextBtn.classList.remove('opacity-0', 'pointer-events-none');
+        accessoriesNextBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+
+    accessoriesDots.forEach((dot, i) => {
+      if (i === currentAccessoriesIndex) {
+        dot.classList.add('w-8', 'bg-[#171a20]');
+        dot.classList.remove('w-2', 'bg-neutral-300');
+      } else {
+        dot.classList.remove('w-8', 'bg-[#171a20]');
+        dot.classList.add('w-2', 'bg-neutral-300');
+      }
+    });
+  }
+
+  accessoriesPrevBtn?.addEventListener('click', () => {
+    playCyberClick();
+    accessoriesScrollToSlide(currentAccessoriesIndex - 1);
+  });
+
+  accessoriesNextBtn?.addEventListener('click', () => {
+    playCyberClick();
+    accessoriesScrollToSlide(currentAccessoriesIndex + 1);
+  });
+
+  accessoriesCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (index !== currentAccessoriesIndex) {
+        playCyberClick();
+        accessoriesScrollToSlide(index);
+      }
+    });
+  });
+
+  accessoriesDots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      playCyberClick();
+      const slideIdx = parseInt(dot.getAttribute('data-slide') || '0', 10);
+      accessoriesScrollToSlide(slideIdx);
+    });
+  });
+
+  let accessoriesScrollTimeout: number | undefined;
+  accessoriesTrack?.addEventListener(
+    'scroll',
+    () => {
+      window.clearTimeout(accessoriesScrollTimeout);
+      accessoriesScrollTimeout = window.setTimeout(() => {
+        if (!accessoriesTrack) return;
+        const scrollLeft = accessoriesTrack.scrollLeft;
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        const trackPaddingLeft = parseFloat(getComputedStyle(accessoriesTrack).paddingLeft) || 0;
+        accessoriesCards.forEach((card, i) => {
+          const cardTarget = card.offsetLeft - trackPaddingLeft;
+          const diff = Math.abs(scrollLeft - cardTarget);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = i;
+          }
+        });
+
+        if (closestIndex !== currentAccessoriesIndex) {
+          updateAccessoriesActiveState(closestIndex);
+        }
+      }, 60);
+    },
+    { passive: true }
+  );
+
+  updateAccessoriesActiveState(0);
+
+  // Specs Comparison Tab Switcher
+  const specTabs = document.querySelectorAll<HTMLButtonElement>('[data-spec-tab]');
+  const specPerfRange = document.getElementById('spec-perf-range');
+  const specPerfAccel = document.getElementById('spec-perf-accel');
+  const specPerfSpeed = document.getElementById('spec-perf-speed');
+  const specDimWeight = document.getElementById('spec-dim-weight');
+  const specChargeMax = document.getElementById('spec-charge-max');
+  const specChargeSpeed = document.getElementById('spec-charge-speed');
+
+  const specsMap: Record<
+    string,
+    {
+      range: string;
+      accel: string;
+      speed: string;
+      weight: string;
+      chargeMax: string;
+      chargeSpeed: string;
+    }
+  > = {
+    cyberbeast: {
+      range: '320 miles',
+      accel: '2.6 sec 0-60 mph',
+      speed: '130 mph',
+      weight: '6,863 lbs',
+      chargeMax: '325kW Max; Pay Per Use',
+      chargeSpeed: 'Up to 135 miles added in 15 minutes',
+    },
+    premium: {
+      range: '340 miles',
+      accel: '4.1 sec 0-60 mph',
+      speed: '112 mph',
+      weight: '6,603 lbs',
+      chargeMax: '250kW Max; Pay Per Use',
+      chargeSpeed: 'Up to 136 miles added in 15 minutes',
+    },
+    dual: {
+      range: '340 miles',
+      accel: '4.1 sec 0-60 mph',
+      speed: '112 mph',
+      weight: '6,603 lbs',
+      chargeMax: '250kW Max; Pay Per Use',
+      chargeSpeed: 'Up to 136 miles added in 15 minutes',
+    },
+  };
+
+  specTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      playCyberClick();
+      const tabKey = tab.getAttribute('data-spec-tab') || 'cyberbeast';
+      const data = specsMap[tabKey];
+      if (!data) return;
+
+      // Update active tab style
+      specTabs.forEach((t) => {
+        if (t === tab) {
+          t.classList.add('text-white', 'border-t-2', 'border-white', 'bg-[#181a1f]');
+          t.classList.remove('text-[#8e9297]', 'border-transparent', 'bg-transparent');
+        } else {
+          t.classList.remove('text-white', 'border-t-2', 'border-white', 'bg-[#181a1f]');
+          t.classList.add('text-[#8e9297]', 'border-transparent', 'bg-transparent');
+        }
+      });
+
+      // Update values
+      if (specPerfRange) specPerfRange.textContent = data.range;
+      if (specPerfAccel) specPerfAccel.textContent = data.accel;
+      if (specPerfSpeed) specPerfSpeed.textContent = data.speed;
+      if (specDimWeight) specDimWeight.textContent = data.weight;
+      if (specChargeMax) specChargeMax.textContent = data.chargeMax;
+      if (specChargeSpeed) specChargeSpeed.textContent = data.chargeSpeed;
+    });
+  });
 </script>

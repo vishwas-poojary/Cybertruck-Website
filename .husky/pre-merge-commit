@@ -1,0 +1,4 @@
+echo "🚀 Running version bump script..."
+
+npx tsx scripts/bump-version.ts
+

@@ -4,18 +4,8 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import RedefiningTruck from '../components/RedefiningTruck.astro';
 import InsideOutside from '../components/InsideOutside.astro';
-import BuiltForAdventure from '../components/BuiltForAdventure.astro';
-import Exoskeleton from '../components/Exoskeleton.astro';
-import ArmorGlass from '../components/ArmorGlass.astro';
-import VaultCargo from '../components/VaultCargo.astro';
-import PowerShare from '../components/PowerShare.astro';
-import Interior from '../components/Interior.astro';
-import Performance from '../components/Performance.astro';
-import RangeCharging from '../components/RangeCharging.astro';
-import SpecsComparison from '../components/SpecsComparison.astro';
-import Accessories from '../components/Accessories.astro';
-import OrderConfigurator from '../components/OrderConfigurator.astro';
 import Footer from '../components/Footer.astro';
+import StickyBottomBar from '../components/StickyBottomBar.astro';
 import DemoDriveModal from '../components/DemoDriveModal.astro';
 ---
 
@@ -23,23 +13,13 @@ import DemoDriveModal from '../components/DemoDriveModal.astro';
   title="Cybertruck | Tesla"
   description="Cybertruck is built for any adventure. With an ultra-hard stainless-steel exoskeleton, shatter-resistant armor glass, all-terrain capability and 11,000 lbs towing capacity."
 >
-  <main class="relative bg-[#08090a]">
+  <main class="relative bg-white">
     <Navbar />
     <Hero />
     <RedefiningTruck />
     <InsideOutside />
-    <BuiltForAdventure />
-    <Exoskeleton />
-    <ArmorGlass />
-    <VaultCargo />
-    <PowerShare />
-    <Interior />
-    <Performance />
-    <RangeCharging />
-    <SpecsComparison />
-    <Accessories />
-    <OrderConfigurator />
     <Footer />
+    <StickyBottomBar />
     <DemoDriveModal />
   </main>
 </Layout>
@@ -70,4 +50,3 @@ import DemoDriveModal from '../components/DemoDriveModal.astro';
     }
   });
 </script>
-

@@ -1,0 +1,100 @@
+---
+// Fixed Sticky Bottom Interactive Bar (Present across the entire page matching tesla.com)
+---
+
+<!-- Fixed Center Floating Interactive Action Bar (Matching Image 1 from Tesla) -->
+<div
+  id="sticky-bottom-bar"
+  class="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-40 flex items-center justify-center gap-2 sm:gap-2.5 w-[calc(100%-2rem)] max-w-xl pointer-events-auto select-none"
+>
+  <!-- Left: Ask a Question Pill (Exact match to Image 1) -->
+  <button
+    id="sticky-ask-btn"
+    class="flex-1 flex items-center justify-between h-9 sm:h-10 px-3 sm:px-3.5 rounded-[4px] bg-[#f4f4f4]/90 hover:bg-white text-[#171a20] shadow-[0_2px_10px_rgba(0,0,0,0.12)] backdrop-blur-md text-xs sm:text-[13px] border border-black/10 transition-all cursor-pointer"
+    aria-label="Ask a Question"
+  >
+    <div class="flex items-center gap-2 overflow-hidden truncate">
+      <!-- Speech bubble icon -->
+      <svg
+        class="w-4 h-4 text-[#393c41] shrink-0"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 9H6V9h8v2zm4-4H6V5h12v2z"/>
+      </svg>
+      <span class="text-[#393c41] font-medium shrink-0">Ask a Question</span>
+      <span id="sticky-question-text" class="text-[#686a6e] font-normal truncate ml-0.5"
+        >"Compare Model 3 and Model Y"</span
+      >
+    </div>
+    <div
+      class="w-5 h-5 sm:w-6 sm:h-6 rounded-[4px] bg-[#e4e4e4] hover:bg-[#d8d8d8] flex items-center justify-center shrink-0 ml-2 transition-colors"
+    >
+      <svg
+        class="w-3.5 h-3.5 text-[#5c5e62]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2.5"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </div>
+  </button>
+
+  <!-- Right: Schedule a Drive Today Pill (Exact match to Image 1) -->
+  <button
+    id="sticky-drive-btn"
+    class="open-demo-drive-action h-9 sm:h-10 px-3.5 sm:px-4 rounded-[4px] bg-[#f4f4f4]/90 hover:bg-white text-[#171a20] shadow-[0_2px_10px_rgba(0,0,0,0.12)] backdrop-blur-md text-xs sm:text-[13px] font-medium border border-black/10 flex items-center gap-2 shrink-0 transition-all cursor-pointer active:scale-98"
+  >
+    <!-- Steering wheel icon in Tesla Electric Blue (#3e6ae1) -->
+    <svg
+      class="w-4 h-4 text-[#3e6ae1] shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="12" cy="12" r="9" stroke-width="2"></circle>
+      <circle cx="12" cy="12" r="3" stroke-width="2"></circle>
+      <path stroke-linecap="round" stroke-width="2" d="M12 3v6M12 15v6M3 12h6M15 12h6"></path>
+    </svg>
+    <span class="text-[#171a20] font-medium">Schedule a Drive Today</span>
+  </button>
+</div>
+
+<script>
+  import { playCyberClick } from '../utils/cyberSound';
+
+  // Dynamic question cycling (matching real Tesla experience)
+  const questionText = document.getElementById('sticky-question-text');
+  const questions = [
+    '"Compare Model 3 and Model Y"',
+    '"Where can I drive the Cybertruck?"',
+    '"What is Wade Mode?"',
+    '"What does the Tesla app do?"',
+  ];
+  let qIndex = 0;
+
+  setInterval(() => {
+    qIndex = (qIndex + 1) % questions.length;
+    if (questionText) {
+      questionText.style.opacity = '0';
+      setTimeout(() => {
+        questionText.textContent = questions[qIndex];
+        questionText.style.opacity = '1';
+      }, 200);
+    }
+  }, 6000);
+
+  // Ask button interaction
+  const askBtn = document.getElementById('sticky-ask-btn');
+  askBtn?.addEventListener('click', () => {
+    playCyberClick();
+    alert('Tesla Cybertruck Assistant: Ask anything about range, charging, towing or autonomous driving features!');
+  });
+</script>
+

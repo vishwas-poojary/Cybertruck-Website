@@ -3,6 +3,10 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "eslint.config.mjs"
+  ]
 }
-

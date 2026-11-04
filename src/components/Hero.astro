@@ -16,16 +16,6 @@ const heroBg = `${import.meta.env.BASE_URL}car.avif`;
       class="w-full h-full object-cover object-center brightness-100 contrast-[1.02]"
       loading="eager"
     />
-    <!-- Subtle top vignette for nav contrast -->
-    <div
-      class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent pointer-events-none"
-    >
-    </div>
-    <!-- Bottom vignette for stats readability -->
-    <div
-      class="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none"
-    >
-    </div>
   </div>
 
   <!-- Center Hero Content (Graffiti Logo, Lease, & Dual CTAs) -->
@@ -73,23 +63,24 @@ const heroBg = `${import.meta.env.BASE_URL}car.avif`;
     </div>
   </div>
 
-  <!-- Bottom Stats & Floating Bar (Screenshot 1) -->
+  <!-- Bottom Stats & Disclaimer (Screenshot 1 & Screenshot 3) -->
   <div
-    class="relative z-10 pb-6 px-6 max-w-6xl mx-auto w-full flex flex-col items-center"
+    class="relative z-10 pb-20 sm:pb-24 px-6 max-w-6xl mx-auto w-full flex flex-col items-center"
   >
-    <!-- Key Specifications on the Rock Ledge -->
+    <!-- Key Specifications on the Rock Ledge (Matching Screenshot 3 from DevTools) -->
     <div
       class="flex items-center justify-center gap-8 sm:gap-16 md:gap-24 text-center my-6"
     >
       <!-- 5-Star Safety -->
       <div>
         <div
-          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md"
+          class="font-['Blender_TSL',-apple-system,Arial,sans-serif] text-[28px] leading-[36px] font-medium text-white tracking-tight drop-shadow-md block h-9"
+          style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-size: 28px; font-weight: 500; line-height: 36px; color: rgb(255, 255, 255); box-sizing: border-box;"
         >
           5-Star
         </div>
         <div
-          class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow"
+          class="text-xs text-white font-normal tracking-tight mt-0.5 drop-shadow"
         >
           Safety Rating¹
         </div>
@@ -98,12 +89,13 @@ const heroBg = `${import.meta.env.BASE_URL}car.avif`;
       <!-- 325 mi Range -->
       <div>
         <div
-          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md"
+          class="font-['Blender_TSL',-apple-system,Arial,sans-serif] text-[28px] leading-[36px] font-medium text-white tracking-tight drop-shadow-md block h-9"
+          style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-size: 28px; font-weight: 500; line-height: 36px; color: rgb(255, 255, 255); box-sizing: border-box;"
         >
           325 mi
         </div>
         <div
-          class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow"
+          class="text-xs text-white font-normal tracking-tight mt-0.5 drop-shadow"
         >
           Range (EPA est.)²
         </div>
@@ -112,12 +104,13 @@ const heroBg = `${import.meta.env.BASE_URL}car.avif`;
       <!-- 6'x4' Bed -->
       <div>
         <div
-          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-sans drop-shadow-md"
+          class="font-['Blender_TSL',-apple-system,Arial,sans-serif] text-[28px] leading-[36px] font-medium text-white tracking-tight drop-shadow-md block h-9"
+          style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif; font-size: 28px; font-weight: 500; line-height: 36px; color: rgb(255, 255, 255); box-sizing: border-box;"
         >
           6'x4'
         </div>
         <div
-          class="text-[11px] sm:text-xs text-neutral-300 font-medium tracking-tight mt-0.5 drop-shadow"
+          class="text-xs text-white font-normal tracking-tight mt-0.5 drop-shadow"
         >
           Bed
         </div>
@@ -126,89 +119,9 @@ const heroBg = `${import.meta.env.BASE_URL}car.avif`;
 
     <!-- Fine Print Disclaimer -->
     <p
-      class="text-[10px] sm:text-[11px] text-neutral-400 font-normal tracking-tight text-center mb-6 opacity-90 drop-shadow"
+      class="text-[10px] sm:text-[11px] text-neutral-300 font-normal tracking-tight text-center opacity-90 drop-shadow"
     >
       Images shown depict Cybertruck Premium AWD with optional upgrades.
     </p>
-
-    <!-- Floating Interactive Action Bar (Exact from Screenshot 1) -->
-    <div
-      class="w-full max-w-2xl flex flex-col sm:flex-row items-center justify-center gap-3"
-    >
-      <!-- Left: Ask a Question Pill -->
-      <div
-        class="w-full sm:w-auto flex-1 flex items-center justify-between px-4 py-2.5 rounded-xl bg-white/95 text-[#171a20] shadow-lg backdrop-blur-md text-xs sm:text-sm font-medium border border-neutral-200 hover:bg-white cursor-pointer transition-all"
-      >
-        <div class="flex items-center gap-2 overflow-hidden truncate">
-          <svg
-            class="w-4 h-4 text-neutral-500 shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-            ></path>
-          </svg>
-          <span class="text-neutral-500 font-normal">Ask a Question</span>
-          <span class="text-neutral-800 font-semibold truncate"
-            >"Where can I drive the Cybertruck?"</span
-          >
-        </div>
-        <div
-          class="w-6 h-6 rounded-full bg-neutral-200 flex items-center justify-center shrink-0 ml-2"
-        >
-          <svg
-            class="w-3.5 h-3.5 text-neutral-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2.5"
-              d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Right: Schedule a Drive Today Pill -->
-      <button
-        id="hero-schedule-drive-btn"
-        class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white/95 hover:bg-white text-[#171a20] shadow-lg backdrop-blur-md text-xs sm:text-sm font-semibold border border-neutral-200 transition-all shrink-0 active:scale-95"
-      >
-        <svg
-          class="w-4 h-4 text-[#3e6ae1]"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <circle cx="12" cy="12" r="9" stroke-width="2"></circle>
-          <circle cx="12" cy="12" r="3" stroke-width="2"></circle>
-          <path stroke-width="2" d="M12 3v6m0 6v6M3 12h6m6 0h6"></path>
-        </svg>
-        <span>Schedule a Drive Today</span>
-      </button>
-    </div>
   </div>
 </section>
-
-<script>
-  import { playCyberClick } from "../utils/cyberSound";
-
-  // Hook Schedule Drive action
-  const scheduleDriveBtn = document.getElementById("hero-schedule-drive-btn");
-  const demoDriveModal = document.getElementById("demo-drive-modal");
-
-  scheduleDriveBtn?.addEventListener("click", () => {
-    playCyberClick();
-    if (demoDriveModal) {
-      demoDriveModal.classList.remove("hidden");
-      demoDriveModal.classList.add("flex");
-    }
-  });
-</script>
