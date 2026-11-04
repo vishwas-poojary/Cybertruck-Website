@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   // Configure site and base for local and GitHub Pages deployment
-  site: 'https://GouthamKumar19.github.io',
+  site: 'https://vishwas-poojary.github.io',
   base: process.env.BASE_PATH || '/',
   integrations: [
     tailwind({
