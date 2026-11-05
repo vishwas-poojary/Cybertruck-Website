@@ -10,7 +10,7 @@ import MegaMenu from './MegaMenu.astro';
   <!-- Top Global Tesla Bar (Active at Hero section) -->
   <nav
     id="main-nav"
-    class="w-full px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 flex items-center justify-between text-sm transition-all duration-300 ease-in-out text-white overflow-hidden max-h-16 opacity-100"
+    class="w-full px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 flex items-center justify-between text-sm transition-opacity duration-200 text-white"
   >
     <!-- Tesla Official Wordmark Logo (Matching uploaded logo vector) -->
     <a href={import.meta.env.BASE_URL} class="flex items-center group py-1" aria-label="Tesla Cybertruck Home">
@@ -84,7 +84,7 @@ import MegaMenu from './MegaMenu.astro';
   <!-- Sticky Cybertruck Sub-Navigation Bar (Semi-transparent with backdrop blur to dynamically reflect underlying colors matching real Tesla website) -->
   <div
     id="sub-nav"
-    class="w-full bg-[#181a1f]/35 backdrop-blur-md px-6 md:px-12 flex items-center justify-between text-xs sm:text-[13px] transition-all duration-300 ease-in-out text-white overflow-hidden max-h-0 opacity-0 pointer-events-none -translate-y-2 py-0 border-0 shadow-none"
+    class="w-full bg-[#181a1f]/75 backdrop-blur-md px-6 md:px-12 hidden items-center justify-between text-xs sm:text-[13px] text-white py-2 sm:py-2.5 border-0 shadow-none transition-opacity duration-200"
   >
     <a href="#hero" class="flex items-center gap-2 group py-0.5">
       <span class="font-medium text-sm sm:text-base text-white tracking-tight">
@@ -225,20 +225,20 @@ import MegaMenu from './MegaMenu.astro';
 
     // Transition threshold (scrolling away from the hero)
     if (scrollY > 200) {
-      // Past Hero: Smoothly hide global main-nav and reveal Cybertruck sub-nav
+      // Past Hero: Hide global main-nav completely so Cybertruck sub-nav sits flush against the top ad banner with 0 gap
       hideMegaMenu();
-      mainNav.classList.remove('max-h-16', 'opacity-100', 'py-3');
-      mainNav.classList.add('max-h-0', 'opacity-0', 'pointer-events-none', '-translate-y-2', 'py-0');
+      mainNav.classList.add('hidden');
+      mainNav.classList.remove('flex');
 
-      subNav.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none', '-translate-y-2', 'py-0');
-      subNav.classList.add('max-h-16', 'opacity-100', 'pointer-events-auto', 'translate-y-0', 'py-2.5');
+      subNav.classList.remove('hidden');
+      subNav.classList.add('flex');
     } else {
       // At Hero: Show global main-nav and hide Cybertruck sub-nav
-      mainNav.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none', '-translate-y-2', 'py-0');
-      mainNav.classList.add('max-h-16', 'opacity-100', 'py-3');
+      mainNav.classList.remove('hidden');
+      mainNav.classList.add('flex');
 
-      subNav.classList.remove('max-h-16', 'opacity-100', 'pointer-events-auto', 'translate-y-0', 'py-2.5');
-      subNav.classList.add('max-h-0', 'opacity-0', 'pointer-events-none', '-translate-y-2', 'py-0');
+      subNav.classList.add('hidden');
+      subNav.classList.remove('flex');
     }
   }
 
