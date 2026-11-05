@@ -10,7 +10,7 @@ import MegaMenu from './MegaMenu.astro';
   <!-- Top Global Tesla Bar (Active at Hero section) -->
   <nav
     id="main-nav"
-    class="w-full px-6 md:px-10 py-3 flex items-center justify-between text-sm transition-all duration-300 ease-in-out text-white overflow-hidden max-h-16 opacity-100"
+    class="w-full px-6 md:px-8 lg:px-12 py-2.5 sm:py-3 flex items-center justify-between text-sm transition-all duration-300 ease-in-out text-white overflow-hidden max-h-16 opacity-100"
   >
     <!-- Tesla Official Wordmark Logo (Matching uploaded logo vector) -->
     <a href={import.meta.env.BASE_URL} class="flex items-center group py-1" aria-label="Tesla Cybertruck Home">
@@ -20,55 +20,55 @@ import MegaMenu from './MegaMenu.astro';
     </a>
 
     <!-- Center Navigation Links (Matching Screenshots 1, 2, 3) -->
-    <div class="hidden lg:flex items-center gap-1 font-semibold text-[13.5px] tracking-tight">
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-vehicles">
+    <div class="hidden lg:flex items-center gap-0.5 font-medium text-[13.5px] sm:text-[14px] tracking-normal">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-vehicles">
         Vehicles
       </button>
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-energy">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-energy">
         Energy
       </button>
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-charging">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-charging">
         Charging
       </button>
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-robotaxi">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-robotaxi">
         Robotaxi
       </button>
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-semi">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-semi">
         Semi
       </button>
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-discover">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-discover">
         Discover
       </button>
-      <button class="nav-item px-3.5 py-1.5 rounded transition-all" data-panel="panel-shop">
+      <button class="nav-item px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-[4px] hover:bg-white/10 transition-all cursor-pointer" data-panel="panel-shop">
         Shop
       </button>
     </div>
 
     <!-- Right Controls Icons (Matching Screenshots) -->
-    <div class="flex items-center gap-1 sm:gap-2">
+    <div class="flex items-center gap-0.5 sm:gap-1">
       <!-- Help / Question circle icon (?) -->
-      <a href="#adventure" class="nav-icon p-2 hover:bg-black/10 rounded-full transition-all" title="Help & Support" aria-label="Support">
+      <a href="#adventure" class="nav-icon p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-all" title="Help & Support" aria-label="Support">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" stroke-width="1.8"/>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+          <circle cx="12" cy="12" r="9" stroke-width="1.7"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
           <circle cx="12" cy="17" r="0.8" fill="currentColor"/>
         </svg>
       </a>
 
       <!-- Region / Globe icon -->
-      <button class="nav-icon p-2 hover:bg-black/10 rounded-full transition-all" title="Region & Language" aria-label="Region selector">
+      <button class="nav-icon p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-all cursor-pointer" title="Region & Language" aria-label="Region selector">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" stroke-width="1.8"/>
-          <path stroke-width="1.8" d="M2.5 12h19M12 2.5a15 15 0 0 1 4 9.5 15 15 0 0 1-4 9.5 15 15 0 0 1-4-9.5 15 15 0 0 1 4-9.5z"/>
+          <circle cx="12" cy="12" r="9" stroke-width="1.7"/>
+          <path stroke-width="1.7" d="M2.5 12h19M12 2.5a15 15 0 0 1 4 9.5 15 15 0 0 1-4 9.5 15 15 0 0 1-4-9.5 15 15 0 0 1 4-9.5z"/>
         </svg>
       </button>
 
       <!-- Account circle icon -->
-      <a href="#order" class="nav-icon p-2 hover:bg-black/10 rounded-full transition-all" title="Tesla Account" aria-label="Account">
+      <a href="#order" class="nav-icon p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-all" title="Tesla Account" aria-label="Account">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" stroke-width="1.8"/>
-          <circle cx="12" cy="10" r="3" stroke-width="1.8"/>
-          <path stroke-width="1.8" d="M6.168 18.849A4 4 0 0 1 10 16h4a4 4 0 0 1 3.834 2.855"/>
+          <circle cx="12" cy="12" r="9" stroke-width="1.7"/>
+          <circle cx="12" cy="10" r="3" stroke-width="1.7"/>
+          <path stroke-width="1.7" d="M6.168 18.849A4 4 0 0 1 10 16h4a4 4 0 0 1 3.834 2.855"/>
         </svg>
       </a>
 
