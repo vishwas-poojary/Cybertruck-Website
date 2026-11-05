@@ -17,13 +17,14 @@ export default {
       },
       fontFamily: {
         sans: [
-          'Inter',
-          '"Universal Sans"',
+          '"Blender TSL"',
           '-apple-system',
-          'BlinkMacSystemFont',
-          '"Segoe UI"',
-          'Roboto',
-          'Helvetica',
+          'Arial',
+          'sans-serif'
+        ],
+        blender: [
+          '"Blender TSL"',
+          '-apple-system',
           'Arial',
           'sans-serif'
         ],

@@ -4,8 +4,24 @@
 
 @font-face {
   font-family: 'Blender TSL';
+  src: url('https://digitalassets.tesla.com/nexus-fonts/BlenderTSL-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blender TSL';
   src: url('https://digitalassets.tesla.com/nexus-fonts/BlenderTSL-Medium.woff2') format('woff2');
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Blender TSL';
+  src: url('https://digitalassets.tesla.com/nexus-fonts/BlenderTSL-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -22,9 +38,62 @@
   html {
     scroll-behavior: smooth;
     background-color: var(--color-bg);
-    color: #e2e8f0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: rgb(23, 26, 32);
+    font-family: "Blender TSL", -apple-system, Arial, sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: "Blender TSL", -apple-system, Arial, sans-serif;
+    color: rgb(23, 26, 32);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Main Headings (H1/H2): font-size: 34px to 40px; font-weight: 500; line-height: 40px to 44px; */
+  h1, h2, .tesla-heading-main {
+    font-family: "Blender TSL", -apple-system, Arial, sans-serif;
+    color: rgb(23, 26, 32);
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  @media (min-width: 768px) {
+    h1, h2, .tesla-heading-main {
+      font-size: 40px;
+      line-height: 44px;
+    }
+  }
+
+  /* Subheadings & Feature Titles: font-size: 22px; font-weight: 500; line-height: 30px; */
+  h3, h4, .tesla-subheading {
+    font-family: "Blender TSL", -apple-system, Arial, sans-serif;
+    color: rgb(23, 26, 32);
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Subtitle under Main Headings (matching inspector computed styles): 22px, 500, line-height 30px, color rgb(92, 94, 98) */
+  .tesla-subtitle {
+    font-family: "Blender TSL", -apple-system, Arial, sans-serif;
+    color: rgb(92, 94, 98);
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* Body Text & Descriptions: rgb(92, 94, 98) with proper line-spacing across all sections */
+  p, .tesla-body {
+    font-family: "Blender TSL", -apple-system, Arial, sans-serif;
+    color: rgb(92, 94, 98);
+    line-height: 1.5;
   }
 
   /* Custom sleek and modern scrollbar matching Tesla custom slim scrollbar */
