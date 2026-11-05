@@ -88,30 +88,30 @@ const carouselSlides = [
     </div>
   </div>
 
-  <!-- Horizontal Video Carousel Section (Exact 11vw starting gap matching screenshot 5b333db3 & 9bed690a) -->
-  <div class="relative w-full mt-10 sm:mt-14">
+  <!-- Horizontal Video Carousel Section (Generous top padding block matching Figma and subtle translucent pill arrow controls) -->
+  <div class="relative w-full mt-20 sm:mt-24 md:mt-28">
     <div class="relative w-full">
-      <!-- Left Chevron '<' (Vertically centered on the video box) -->
+      <!-- Left Chevron '<' (Vertically centered within gutter area between cards, compact translucent pill matching Figma) -->
       <button
         id="carousel-prev-btn"
-        class="absolute left-4 md:left-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-neutral-300/40"
+        class="absolute left-3 sm:left-5 md:left-[calc(11vw-16px)] top-[calc(84vw*9/32)] md:top-[calc(min(78vw,1040px)*9/32)] -translate-y-1/2 z-30 w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-white/65 hover:bg-white/85 text-[#171a20] shadow-none backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer opacity-0 pointer-events-none border border-black/5"
         aria-label="Previous slide"
         title="Previous"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#171a20]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
-      <!-- Right Chevron '>' (Vertically centered on the video box) -->
+      <!-- Right Chevron '>' (Vertically centered within gutter area between cards, compact translucent pill matching Figma) -->
       <button
         id="carousel-next-btn"
-        class="absolute right-4 md:right-8 top-[35%] -translate-y-1/2 z-30 w-11 h-11 rounded-lg bg-neutral-100/90 hover:bg-white text-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer border border-neutral-300/40"
+        class="absolute right-3 sm:right-5 md:right-[calc(11vw-16px)] top-[calc(84vw*9/32)] md:top-[calc(min(78vw,1040px)*9/32)] -translate-y-1/2 z-30 w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full bg-white/65 hover:bg-white/85 text-[#171a20] shadow-none backdrop-blur-md flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer border border-black/5"
         aria-label="Next slide"
         title="Next"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#171a20]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
