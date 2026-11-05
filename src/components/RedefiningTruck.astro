@@ -55,20 +55,20 @@ const carouselSlides = [
           <source src={introVideoSrc} type="video/webm" />
         </video>
 
-        <!-- Bottom-Left Play / Pause Button -->
+        <!-- Bottom-Left Play / Pause Button (Tesla minimalist overlay style) -->
         <button
           id="redefining-play-pause-btn"
-          class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-[#5c5c5c]/65 hover:bg-[#5c5c5c]/85 backdrop-blur-sm text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 border-0 shadow-none"
+          class="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 border-0 shadow-none"
           aria-label="Pause or play video"
           title="Pause / Play"
         >
           <!-- Pause Icon (Default) -->
-          <svg id="pause-icon" class="w-4 h-4 fill-white" viewBox="0 0 24 24">
-            <rect x="5.5" y="4" width="4" height="16" rx="1.5"/>
-            <rect x="14.5" y="4" width="4" height="16" rx="1.5"/>
+          <svg id="pause-icon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" viewBox="0 0 24 24">
+            <rect x="6" y="4" width="3.5" height="16" rx="1"/>
+            <rect x="14.5" y="4" width="3.5" height="16" rx="1"/>
           </svg>
           <!-- Play Icon (Hidden) -->
-          <svg id="play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+          <svg id="play-icon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z"/>
           </svg>
         </button>
@@ -141,19 +141,19 @@ const carouselSlides = [
                 <source src={slide.src} type="video/webm" />
               </video>
 
-              <!-- Bottom-Left Play / Pause Button on each slide (matching real Tesla website) -->
+              <!-- Bottom-Left Play / Pause Button on each slide (Tesla minimalist overlay style) -->
               <button
-                class="carousel-play-pause-btn absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-[#5c5c5c]/65 hover:bg-[#5c5c5c]/85 backdrop-blur-sm text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 border-0 shadow-none"
+                class="carousel-play-pause-btn absolute bottom-5 left-5 sm:bottom-6 sm:left-6 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-[6px] bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 border-0 shadow-none"
                 aria-label={`Toggle play/pause for ${slide.title}`}
                 data-index={index}
               >
                 <!-- Pause Icon (Default when playing) -->
-                <svg class="pause-icon-el w-4 h-4 fill-white" viewBox="0 0 24 24">
-                  <rect x="5.5" y="4" width="4" height="16" rx="1.5"/>
-                  <rect x="14.5" y="4" width="4" height="16" rx="1.5"/>
+                <svg class="pause-icon-el w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" viewBox="0 0 24 24">
+                  <rect x="6" y="4" width="3.5" height="16" rx="1"/>
+                  <rect x="14.5" y="4" width="3.5" height="16" rx="1"/>
                 </svg>
                 <!-- Play Icon (Hidden when playing) -->
-                <svg class="play-icon-el w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
+                <svg class="play-icon-el w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </button>
