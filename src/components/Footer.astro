@@ -6,8 +6,8 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="relative w-full bg-black text-white select-none overflow-hidden">
-  <!-- End of Page Visual Hero Layout (Matching Screenshots e122b4a9 & 1ea0d1a1) -->
-  <div class="relative w-full min-h-[75vh] sm:min-h-[85vh] lg:min-h-[92vh] flex flex-col justify-between items-center overflow-hidden">
+  <!-- End of Page Visual Hero Layout (Matching Tesla screenshot bcf2ec57) -->
+  <div class="relative w-full min-h-screen flex flex-col justify-between items-center overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       <img
@@ -16,12 +16,12 @@ const currentYear = new Date().getFullYear();
         class="w-full h-full object-cover object-center"
         loading="lazy"
       />
-      <!-- Subtle top and bottom vignette gradient for text legibility -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/80 pointer-events-none"></div>
+      <!-- Subtle top and bottom vignette gradient for text legibility & solid black footer base -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black pointer-events-none"></div>
     </div>
 
     <!-- Center Content: Graffiti Logo & CTAs -->
-    <div class="relative z-10 pt-24 sm:pt-28 md:pt-36 flex flex-col items-center px-4 w-full max-w-4xl mx-auto text-center">
+    <div class="relative z-10 pt-20 sm:pt-24 md:pt-28 flex flex-col items-center px-4 w-full max-w-4xl mx-auto text-center">
       <!-- Graffiti CYBERTRUCK Logo -->
       <div class="w-full max-w-[320px] sm:max-w-[420px] md:max-w-[480px] drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
         <img
@@ -31,29 +31,29 @@ const currentYear = new Date().getFullYear();
         />
       </div>
 
-      <!-- Action Buttons: Order Now & Compare Models -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-2.5 mt-7 w-full max-w-[340px] sm:max-w-[420px] mx-auto">
-        <!-- Order Now (Tesla Electric Blue) -->
+      <!-- Action Buttons: Order Now & Compare Models (Exact 250px x 50px sharp rectangular styling from screenshot bcf2ec57) -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2.5 mt-7 w-full max-w-[510px] mx-auto">
+        <!-- Order Now (Tesla Electric Blue #3e6ae1, sharp corners, 250x50) -->
         <a
           href="#order"
-          class="w-full sm:flex-1 h-10 inline-flex items-center justify-center px-6 rounded-[4px] bg-[#3e6ae1] hover:bg-[#345abf] text-white font-medium text-sm tracking-tight text-center transition-all shadow-md active:scale-[0.98] box-border border-0"
+          class="w-full sm:w-[250px] h-[50px] rounded-none inline-flex items-center justify-center bg-[#3e6ae1] hover:bg-[#345abf] text-white font-['Blender_TSL',sans-serif] font-medium text-[15px] tracking-wide text-center transition-all active:scale-[0.99] shadow-sm box-border border-0"
         >
           Order Now
         </a>
 
-        <!-- Compare Models (Solid Crisp White) -->
+        <!-- Compare Models (Solid Crisp White #ffffff, sharp corners, 250x50) -->
         <a
           href="#specs"
-          class="w-full sm:flex-1 h-10 inline-flex items-center justify-center px-6 rounded-[4px] bg-white hover:bg-neutral-100 text-[#171a20] font-medium text-sm tracking-tight text-center transition-all shadow-md active:scale-[0.98] box-border border-0"
+          class="w-full sm:w-[250px] h-[50px] rounded-none inline-flex items-center justify-center bg-white hover:bg-neutral-100 text-[#171a20] font-['Blender_TSL',sans-serif] font-medium text-[15px] tracking-wide text-center transition-all active:scale-[0.99] shadow-sm box-border border-0"
         >
           Compare Models
         </a>
       </div>
     </div>
 
-    <!-- Bottom Footer Links Bar (Matching Screenshot 2: 1ea0d1a1) -->
-    <div class="relative z-10 w-full pb-16 sm:pb-20 pt-10 px-4">
-      <div class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-6 gap-y-2 text-xs text-neutral-300 font-normal">
+    <!-- Bottom Footer Links Bar (Sitting gracefully above floating bar matching screenshot bcf2ec57) -->
+    <div class="relative z-10 w-full pb-20 sm:pb-24 pt-8 px-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-6 gap-y-2 text-xs sm:text-[12.5px] text-neutral-300 font-normal">
         <span>Tesla © {currentYear}</span>
         <a href="https://www.tesla.com/legal" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
           Privacy & Legal
