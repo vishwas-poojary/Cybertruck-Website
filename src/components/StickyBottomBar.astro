@@ -2,19 +2,20 @@
 // Fixed Sticky Bottom Interactive Bar (Matching exact Tesla Cybertruck layout from Image 1)
 ---
 
-<!-- Fixed Center Floating Interactive Action Bar -->
+<!-- Fixed Sticky Bottom Interactive Bar (Full-width pinned to absolute bottom of viewport matching screenshot) -->
 <div
   id="sticky-bottom-bar"
-  class="fixed bottom-6 sm:bottom-7 md:bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center justify-center gap-2 pointer-events-auto select-none px-3 transition-all"
+  class="fixed bottom-0 left-0 w-full z-[9999] box-border bg-white border-t border-[#e2e2e2] shadow-[0_-2px_12px_rgba(0,0,0,0.06)] py-2 sm:py-2.5 px-4 flex items-center justify-center gap-2.5 sm:gap-3 pointer-events-auto select-none transition-all"
+  style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 9999; box-sizing: border-box;"
 >
-  <!-- Left: Ask a Question Pill (Exact match to Image 1) -->
+  <!-- Left: Ask a Question Pill / Input Box (Exact match to screenshot 4fcbd812) -->
   <button
     id="sticky-ask-btn"
-    class="flex items-center justify-between h-[38px] px-3.5 rounded-[4px] bg-[#f4f4f4]/95 hover:bg-white text-[#171a20] shadow-[0_2px_8px_rgba(0,0,0,0.1)] backdrop-blur-md text-xs sm:text-[13px] border border-[#d0d1d2] transition-all cursor-pointer gap-2.5 max-w-[340px] sm:max-w-[420px]"
+    class="flex items-center justify-between h-[36px] sm:h-[38px] px-3.5 rounded-[4px] bg-[#f4f4f4] hover:bg-[#ededed] text-[#171a20] text-xs sm:text-[13px] border border-[#d0d1d2] transition-all cursor-pointer gap-2.5 w-full max-w-[340px] sm:max-w-[420px]"
     aria-label="Ask a Question"
   >
     <div class="flex items-center gap-2 overflow-hidden truncate">
-      <!-- Chat bubble icon with three dots (Matching Image 1) -->
+      <!-- Chat bubble icon with three dots (Matching screenshot) -->
       <svg
         class="w-4 h-4 text-[#393c41] shrink-0"
         viewBox="0 0 24 24"
@@ -24,15 +25,15 @@
       </svg>
       <span class="text-[#171a20] font-medium shrink-0">Ask a Question</span>
       <span id="sticky-question-text" class="text-[#5c5e62] font-normal truncate ml-0.5 transition-opacity duration-200"
-        >"What's Pet Mode?"</span
+        >"What does the Tesla app do?"</span
       >
     </div>
-    <!-- High-Contrast Up-Arrow Submit Button (Crisp dark icon stroke matching Figma design) -->
+    <!-- Up-Arrow Submit Button Pill (White icon on light-gray background matching screenshot) -->
     <div
       class="w-[22px] h-[22px] rounded-[3px] bg-[#dedfe1] hover:bg-[#cfd0d3] flex items-center justify-center shrink-0 ml-1 transition-colors"
     >
       <svg
-        class="w-3.5 h-3.5 text-[#171a20]"
+        class="w-3.5 h-3.5 text-white"
         fill="none"
         stroke="currentColor"
         stroke-width="2.5"
@@ -47,14 +48,14 @@
     </div>
   </button>
 
-  <!-- Right: Schedule a Drive Today Pill (Clean neutral dark gray/black icon stroke matching Figma design) -->
+  <!-- Right: Schedule a Drive Today Pill (Electric blue steering wheel icon matching screenshot 4fcbd812) -->
   <button
     id="sticky-drive-btn"
-    class="open-demo-drive-action flex items-center gap-2 h-[38px] px-3.5 sm:px-4 rounded-[4px] bg-[#f4f4f4]/95 hover:bg-white text-[#171a20] shadow-[0_2px_8px_rgba(0,0,0,0.1)] backdrop-blur-md text-xs sm:text-[13px] font-medium border border-[#d0d1d2] shrink-0 transition-all cursor-pointer active:scale-[0.98]"
+    class="open-demo-drive-action flex items-center gap-2 h-[36px] sm:h-[38px] px-3.5 sm:px-4 rounded-[4px] bg-[#f4f4f4] hover:bg-[#ededed] text-[#171a20] text-xs sm:text-[13px] font-medium border border-[#d0d1d2] shrink-0 transition-all cursor-pointer active:scale-[0.98]"
   >
-    <!-- Steering wheel icon with clean neutral dark gray/black stroke -->
+    <!-- Steering wheel icon with electric blue color matching screenshot -->
     <svg
-      class="w-4 h-4 text-[#171a20] shrink-0"
+      class="w-4 h-4 text-[#3e6ae1] shrink-0"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
