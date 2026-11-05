@@ -58,14 +58,14 @@ const carouselSlides = [
         <!-- Bottom-Left Play / Pause Button -->
         <button
           id="redefining-play-pause-btn"
-          class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+          class="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-[#5c5c5c]/65 hover:bg-[#5c5c5c]/85 backdrop-blur-sm text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 border-0 shadow-none"
           aria-label="Pause or play video"
           title="Pause / Play"
         >
           <!-- Pause Icon (Default) -->
-          <svg id="pause-icon" class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
-            <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
-            <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+          <svg id="pause-icon" class="w-4 h-4 fill-white" viewBox="0 0 24 24">
+            <rect x="5.5" y="4" width="4" height="16" rx="1.5"/>
+            <rect x="14.5" y="4" width="4" height="16" rx="1.5"/>
           </svg>
           <!-- Play Icon (Hidden) -->
           <svg id="play-icon" class="w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
@@ -143,14 +143,14 @@ const carouselSlides = [
 
               <!-- Bottom-Left Play / Pause Button on each slide (matching real Tesla website) -->
               <button
-                class="carousel-play-pause-btn absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] bg-[#2b2621]/80 hover:bg-[#2b2621] backdrop-blur-md text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-md border border-white/5"
+                class="carousel-play-pause-btn absolute bottom-4 left-4 sm:bottom-5 sm:left-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-none bg-[#5c5c5c]/65 hover:bg-[#5c5c5c]/85 backdrop-blur-sm text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 border-0 shadow-none"
                 aria-label={`Toggle play/pause for ${slide.title}`}
                 data-index={index}
               >
                 <!-- Pause Icon (Default when playing) -->
-                <svg class="pause-icon-el w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
-                  <rect x="5.5" y="4.5" width="3.5" height="15" rx="1"/>
-                  <rect x="15" y="4.5" width="3.5" height="15" rx="1"/>
+                <svg class="pause-icon-el w-4 h-4 fill-white" viewBox="0 0 24 24">
+                  <rect x="5.5" y="4" width="4" height="16" rx="1.5"/>
+                  <rect x="14.5" y="4" width="4" height="16" rx="1.5"/>
                 </svg>
                 <!-- Play Icon (Hidden when playing) -->
                 <svg class="play-icon-el w-4 h-4 fill-white hidden ml-0.5" viewBox="0 0 24 24">
