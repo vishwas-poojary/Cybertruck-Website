@@ -173,18 +173,7 @@ const carouselSlides = [
       </div>
     </div>
 
-    <!-- Bottom Indicator Pills (Aligned inside container) -->
-    <div class="w-full max-w-[1600px] mx-auto px-6 md:px-[11vw] mt-6 flex justify-end">
-      <div class="flex items-center gap-2">
-        {carouselSlides.map((slide, i) => (
-          <button
-            class={`carousel-dot h-1.5 transition-all rounded-full cursor-pointer ${i === 0 ? 'w-8 bg-[#171a20]' : 'w-2 bg-neutral-300 hover:bg-neutral-400'}`}
-            data-slide={i}
-            aria-label={`Jump to ${slide.title}`}
-          />
-        ))}
-      </div>
-    </div>
+
   </div>
 </section>
 
