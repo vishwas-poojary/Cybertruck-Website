@@ -2,25 +2,25 @@
 // Top Promotional Banner matching Tesla's gold banner
 ---
 
-<div id="top-announcement-banner" class="w-full bg-[#e9d49c] text-[#171a20] h-10 px-4 sm:px-8 transition-all duration-300 relative z-50 text-xs sm:text-[13px] font-medium select-none shadow-sm flex items-center justify-center" style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif;">
-  <div class="w-full flex items-center justify-center gap-3 sm:gap-4 text-center">
+<div id="top-announcement-banner" class="w-full bg-[#e9d49c] text-[#171a20] min-h-[40px] py-1.5 sm:py-0 px-2 sm:px-8 transition-all duration-300 relative z-50 text-xs sm:text-[13px] font-medium select-none shadow-sm flex items-center justify-center" style="font-family: 'Blender TSL', -apple-system, Arial, sans-serif;">
+  <div class="w-full flex items-center justify-center gap-2 sm:gap-4 text-center pl-2 pr-9 sm:px-0">
     <!-- Message 1 (Matching Tesla Screenshot) -->
-    <div id="banner-slide-1" class="banner-slide flex items-center justify-center gap-3.5 transition-opacity duration-300">
-      <span class="text-[#171a20] text-xs sm:text-[13px] font-medium tracking-tight">Business Tax Deduction Available Through Section 179</span>
+    <div id="banner-slide-1" class="banner-slide flex items-center justify-center gap-2 sm:gap-3.5 transition-opacity duration-300">
+      <span class="text-[#171a20] text-[11px] sm:text-[13px] font-medium tracking-tight leading-tight">Business Tax Deduction Available Through Section 179</span>
       <a
         href="#order"
-        class="inline-flex items-center h-6 sm:h-7 px-3 sm:px-3.5 rounded-[4px] bg-[#000000] hover:bg-neutral-800 text-white text-[11px] sm:text-xs font-semibold tracking-tight transition-all shadow-sm"
+        class="whitespace-nowrap shrink-0 inline-flex items-center justify-center h-6 sm:h-7 px-2.5 sm:px-3.5 rounded-[4px] bg-[#000000] hover:bg-neutral-800 text-white text-[11px] sm:text-xs font-semibold tracking-tight transition-all shadow-sm"
       >
         Learn More
       </a>
     </div>
 
     <!-- Message 2 -->
-    <div id="banner-slide-2" class="banner-slide hidden items-center justify-center gap-3.5 transition-opacity duration-300">
-      <span class="text-[#171a20] text-xs sm:text-[13px] font-medium tracking-tight">Trade In Your Gas Car and Receive 2,000 Free Supercharging Miles</span>
+    <div id="banner-slide-2" class="banner-slide hidden items-center justify-center gap-2 sm:gap-3.5 transition-opacity duration-300">
+      <span class="text-[#171a20] text-[11px] sm:text-[13px] font-medium tracking-tight leading-tight">Trade In Your Gas Car and Receive 2,000 Free Supercharging Miles</span>
       <a
         href="#order"
-        class="inline-flex items-center h-6 sm:h-7 px-3 sm:px-3.5 rounded-[4px] bg-[#000000] hover:bg-neutral-800 text-white text-[11px] sm:text-xs font-semibold tracking-tight transition-all shadow-sm"
+        class="whitespace-nowrap shrink-0 inline-flex items-center justify-center h-6 sm:h-7 px-2.5 sm:px-3.5 rounded-[4px] bg-[#000000] hover:bg-neutral-800 text-white text-[11px] sm:text-xs font-semibold tracking-tight transition-all shadow-sm"
       >
         Get a Trade-In Estimate
       </a>
@@ -28,7 +28,7 @@
   </div>
 
   <!-- Pagination Dot Indicator on Right -->
-  <div class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-1.5 cursor-pointer" id="banner-dot-toggle" title="Switch message">
+  <div class="absolute right-2.5 sm:right-8 top-1/2 -translate-y-1/2 flex items-center gap-1.5 cursor-pointer z-10 p-1" id="banner-dot-toggle" title="Switch message">
     <span id="dot-1" class="w-1.5 h-1.5 rounded-full bg-[#171a20] transition-all"></span>
     <span id="dot-2" class="w-1.5 h-1.5 rounded-full bg-[#171a20]/40 transition-all"></span>
   </div>
